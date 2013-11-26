@@ -1,0 +1,4 @@
+# ID|timestamp|name|address|homephone|workphone|cellphone|pager|fax|email1|email2|icq|company|birthday|notes
+1|1123712512|John Dow|21 Main Street Sterling VA 20164|7035554320|70355511111|7035550091|12345|7035559191|john@email.com|john2@email.com|12346567|ACME Inc|Aug 01 1970|My friend
+2|1123712512|al Capone|Chicago|7035554320|70355511111|7035550091|12345|7035559191|alcapone@email.com||12346567|ACME Inc|Jan 17 1899|Al Capone still remains one of the most notable residents of "the Rock."
+

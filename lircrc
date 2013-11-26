@@ -1,0 +1,308 @@
+#
+# lmbox
+#
+
+begin
+    prog = lmbox
+    button = MYTV
+    config = mytv
+end
+
+begin
+    prog = lmbox
+    button = MYVIDEOS
+    config = myvideos
+end
+
+begin
+    prog = lmbox
+    button = MYPICTURES
+    config = mypictures
+end
+
+begin
+    prog = lmbox
+    button = MYMUSIC
+    config = mymusic
+end
+
+begin
+    prog = lmbox
+    button = RECORDEDTV
+    config = recordedtv
+end
+
+begin
+    prog = lmbox
+    button = LIVETV
+    config = livetv
+end
+
+begin
+    prog = lmbox
+    button = TV/VCR
+    config = livetv
+end
+
+begin
+    prog = lmbox
+    button = HOME
+    config = home
+end
+
+begin
+    prog = lmbox
+    button = LAST
+    config = home
+end
+
+begin
+    prog = lmbox
+    button = DISPLAY
+    config = guide
+end
+
+begin
+    prog = lmbox
+    button = GUIDE
+    config = guide
+end
+
+begin
+    prog = lmbox
+    button = SCAN
+    config = clear
+end
+
+#
+# Below are standard buttons for all remotes
+#
+
+begin
+    prog = lmbox
+    button = POWER
+    config = shutdown
+end
+
+begin
+    prog = lmbox
+    button = MUTE
+    config = mute
+end
+
+begin
+    prog = lmbox
+    button = MENU
+    config = menu
+end
+
+begin
+    prog = lmbox
+    button = INFO
+    config = info
+end
+
+begin
+    prog = lmbox
+    button = EXIT
+    config = cancel
+end
+
+begin
+    prog = lmbox
+    button = CLEAR
+    config = clear
+end
+
+begin
+    prog = lmbox
+    button = RED
+    config = red
+end
+
+begin
+    prog = lmbox
+    button = GREEN
+    config = green
+end
+
+begin
+    prog = lmbox
+    button = YELLOW
+    config = yellow
+end
+
+begin
+    prog = lmbox
+    button = BLUE
+    config = blue
+end
+
+begin
+    prog = lmbox
+    button = >>|
+    config = nexttrack
+end
+
+begin
+    prog = lmbox
+    button = |<<
+    config = prevtrack
+end
+
+begin
+    prog = lmbox
+    button = LEFT
+    config = prev
+end
+
+begin
+    prog = lmbox
+    button = RIGHT
+    config = next
+end
+
+begin
+    prog = lmbox
+    button = UP
+    config = up
+end
+
+begin
+    prog = lmbox
+    button = DOWN
+    config = down
+end
+
+begin
+    prog = lmbox
+    button = FF
+    config = nextpage
+end
+
+begin
+    prog = lmbox
+    button = REW
+    config = prevpage
+end
+
+begin
+    prog = lmbox
+    button = ENTER
+    config = enter
+end
+
+begin
+    prog = lmbox
+    button = OK
+    config = accept
+end
+
+begin
+    prog = lmbox
+    button = STOP
+    config = stop
+end
+
+begin
+    prog = lmbox
+    button = PLAY
+    config = play
+end
+
+begin
+    prog = lmbox
+    button = PAUSE
+    config = pause
+end
+
+begin
+    prog = lmbox
+    button = RECORD
+    config = record
+end
+
+begin
+    prog = lmbox
+    button = VOL+
+    config = volumeup
+end
+
+begin
+    prog = lmbox
+    button = VOL-
+    config = volumedown
+end
+
+begin
+    prog = lmbox
+    button = CH+
+    config = channelup
+end
+
+begin
+    prog = lmbox
+    button = CH-
+    config = channeldown
+end
+
+begin
+    prog = lmbox
+    button = 0
+    config = number0
+end
+
+begin
+    prog = lmbox
+    button = 1
+    config = number1
+end
+
+begin
+    prog = lmbox
+    button = 2
+    config = number2
+end
+
+begin
+    prog = lmbox
+    button = 3
+    config = number3
+end
+
+begin
+    prog = lmbox
+    button = 4
+    config = number4
+end
+
+begin
+    prog = lmbox
+    button = 5
+    config = number5
+end
+
+begin
+    prog = lmbox
+    button = 6
+    config = number6
+end
+
+begin
+    prog = lmbox
+    button = 7
+    config = number7
+end
+
+begin
+    prog = lmbox
+    button = 8
+    config = number8
+end
+
+begin
+    prog = lmbox
+    button = 9
+    config = number9
+end
+

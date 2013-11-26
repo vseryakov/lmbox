@@ -1,0 +1,52 @@
+8
+
+dir
+643
+svn://cbi/lmbox/data
+svn://cbi
+
+
+
+2007-04-22T18:18:06.506005Z
+138
+vlad
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a039343a-d428-4015-8587-7628d4a5aa31
+
+Weather
+dir
+
+Music
+dir
+
+Movies
+dir
+
+iTV
+dir
+
+Images
+dir
+
+Videos
+dir
+
+Games
+dir
+
+Contacts
+dir
+

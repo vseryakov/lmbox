@@ -1,0 +1,28 @@
+#
+# /etc/inittab
+#
+
+#  Runlevels:
+#    0    Halt
+#    1(S)	Single-user
+#    2    Not used
+#    3    Multi-user
+#    4    Not used
+#    5    X11
+#    6    Reboot
+
+id:3:initdefault:
+
+rc::sysinit:/etc/rc.sysinit
+rs:S1:wait:/etc/rc.single
+rm:2345:wait:/etc/rc.multi
+rh:06:wait:/etc/rc.shutdown
+su:S:wait:/sbin/sulogin -p
+
+c1:2345:respawn:/sbin/bash
+c2:2345:respawn:/sbin/agetty 38400 tty2 linux
+c3:2345:respawn:/sbin/agetty 38400 tty3 linux
+
+ca::ctrlaltdel:/sbin/shutdown -t3 -r now
+
+x:5:respawn:/usr/X11R6/bin/xdm -nodaemon

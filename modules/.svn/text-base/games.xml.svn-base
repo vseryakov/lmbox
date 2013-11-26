@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="gamespage" background="background.jpg">
+   <event name="OnGotFocus">
+     if { [lmbox get gameslist count] == 0 } { games_setup }
+   </event>
+   <event name="stop"> games_cancel </event>
+   <event name="cancel"> games_cancel </event>
+   <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+   <label x="450" y="10" template="statuslabel">lmBox: Games</label>
+   <label name="gamescount" x="350" y="10" width="200" height="20" template="countlabel"></label>
+   <listbox name="gameslist" x="15" y="40" width="370" height="350" template="t_gameslist" >
+     <event name="OnGotFocus">
+       games_info [lmbox get gameslist selecteddata]
+     </event>
+     <event name="OnChoose">
+       games_play [lmbox get gameslist selecteddata]
+     </event>
+     <event name="OnSelectionChange">
+       games_info [lmbox get gameslist selecteddata]
+     </event>
+   </listbox>
+   <picture name="gamesicon" x="400" y="40" width="180" height="200" image="none.gif" borderstyle="normal" bordercolor="#000000" />
+</page>
+
+</lmbox>

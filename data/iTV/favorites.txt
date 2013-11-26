@@ -1,0 +1,4 @@
+1|timestamp 1140640604 description {Moscow internet radio station} expires 0 icon {} id 1 title {AvtoRadio} type Music class Music url http://62.118.252.135/autoradio
+2|timestamp 1140640604 description {Moscow internet radio station} expires 0 icon {} id 1 title {EuropaPlus} type Music class Music url http://stream.fluendo.com/streams/europa/pl_high.m3u
+3|timestamp 1140640604 description {Moscow internet radio station} expires 0 icon {} id 1 title {RusRadio} type Music class Music url mms://217.16.18.76/32K
+

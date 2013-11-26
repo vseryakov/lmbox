@@ -1,0 +1,288 @@
+2007-10-07  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* fixed startup bug, it laods fast now
+	* updated tvrossiya module
+
+2007-04-01  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* restructures tcl and xml files, all are in modules directory now
+	* made generic mosaic component for movies and favorites
+
+2007-03-26  Vlad Seryakov  <vlad@crystalballinc.com>
+
+        * added tvrossiya plugin
+        * fixed redirection in lmbox_geturl
+        * improved tvguide search
+
+2006-10-08  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* version 0.9.4, a lot of small fixes and improvements
+
+2006-06-18  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* deadlock fixed
+	* itv works again
+
+2006-06-16  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* improved movie continue and sorting
+	* fixed ongotfocus callbacks
+
+2006-06-02  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* automatic icon generation added
+	* movie continue fixed
+
+2006-03-12  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* improved mosiac pages, make overlay visible when leaving
+        video page
+
+2006-02-28  Vlad Seryakov  <vlad@crystalballinc.com>
+
+        * src/widget.cpp:
+        * src.screen.cpp:
+        * src/system.cpp:
+        * src/page.cpp:
+        * src/lmbox.h: Added support for overlay pages, true X11
+        windows that can be put on top of GUI or player window
+
+2006-02-20  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/widget.cpp: Handle double click automatically, new OnInit
+        event, this reference inside event handlers
+        * lmbox.xml:
+        * tcl/menu.tcl: New main menu layout
+
+2006-02-19  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/skinparser.cpp: Templates now can contain events and
+        actionhandlers
+	* xml/movie.xml: Additional mouse support
+	* src/widget.cpp:
+        * src/scrollbar.cpp: Mouse support, new scaled background style
+
+2006-02-15  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* tcl/movie.tcl:
+        * tcl/player.tcl: Added support for urls with embedded postion and
+        title in form url#pos:NNN#title:NAME
+
+2006-02-12  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/xmlparser.cpp: added new xml parser from xine-lib project
+	libxml is not used anymore, changed to support CDATA and SAX-like
+	interface
+	* src/surface.cpp: incorporated image loading, no SDL_image
+	dependancy anymore
+	* src/font.cpp: incorporated ttf fonts, no SDL_ttf dependancy
+	anymore
+
+2006-02-03  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/screen.cpp: Flip method for fst screen refreshes
+	* src/picture.cpp: Added FadeImage method for fade effects
+	* src/player.cpp: Added ability to call ongotfocus/onlostfocus
+        callbacks
+        * tcl/im.tcl: Added ability to retrieve info from the server
+        * tcl/movie.tcl:
+        * xml/movie.xml: Added mosaic page
+
+2006-01-31  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* xml/im.xml:
+	* tcl/icqlib.tcl:
+	* tcl/im.xml: Added ICQ support
+
+	* src/object.cpp: Added messages support and
+	ReadMessage/SendMessage methods for objects
+
+2006-01-26  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/tcl.cpp: Fixed huge memory leak with pthreads
+
+2006-01-21  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/system.cpp: Fixed memory leak bug again
+
+2006-01-17  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* tcl/movie.xml: Fixed search
+
+2006-01-09  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/system.cpp:
+        * src/object.cpp:
+        * src/skinparser.cpp: fixed a lot of memory leaks
+        * src/tcl.cpp: added threadcount and threadlist command
+
+2006-01-07  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/container.cpp: fixed bug with Got/Lost focus handlers
+	* xml/player.xml: fixed indefinite loop on videopage
+
+2006-01-02  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/sock.cpp: fixed bug with host/url parsing
+        * src/tcl.cpp: fixed geturl memory leak
+
+2005-12-29  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/sock.cpp: fixed segv
+	* tcl/itv.tcl:
+	* xml/itv.xml: Added details page for adding/modifying
+	channels and/or links, added ability to submit links for
+	download to watch them later locally
+
+2005-12-27  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* Makefile: changed
+	* src/gfx.cpp: fixed border style none
+        * src/button.cpp: fixed bug no updating label colors
+        * xml/itv.tcl:
+        * tcl/itv.tcl: changed layout
+        * src/tcl.cpp:
+        * src/system.cpp: added cdrom eject/status/close
+        support, changed default database and config
+	directory to ~/.lmbox
+
+2005-12-25  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* tcl/dvdrip.tcl:
+        * xml/dvdrip.xml: added support for ripping DVds
+        * src/player.cpp: can specify video/audio drivers for player
+
+2005-12-23  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* changed build system to automake/configure
+	* xml/movie.xml: fixed bug when info page looped to itself
+
+2005-12-19  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/skinparser.cpp: updated so all
+	events/actionhandlers support multiple names
+	* src/button.cpp: fixed multiple action names bug in
+	action field
+	* src/listbox.cpp: added selfontcolorfocus item that
+	is the color of selected item when listbox is focused
+
+2005-12-18  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* xml/movie.xml:
+        * tcl/movie.tcl: redesign movies pages
+
+2005-12-14  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* tcl/favorites.tcl:
+	* xml/favorites.xml: added support for favorites links
+
+2005-12-12  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/player.cpp: fixed visualization filters
+	* src/util.cpp: fixed regexp parsing bug
+	* tcl/camera.tcl: fixed camera settings save bug
+
+2005-12-10  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/widget.cpp: widget scaling works again
+        * src/player.cpp: fixed deadlock bug
+	* src/object.cpp: fixed settimer method
+        * src/skinparser.cpp: automatically load all xml files
+	* src/listbox.cpp: fixed selected item offsets
+	* src/tv.cpp: fixed device open, when tner info is not
+        available
+	* tcl/live365.tcl: added support for live365.com
+        * tcl/itv.tcl: added Internet live TV playback from wwitv.com
+
+2005-11-22  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* xml/contact.xml: dynamic filters
+	* tcl/player.tcl: added support for pvr recording
+	* src/player.cpp: improved info methods
+	* src/gfx.cpp: added rounded borders and
+	line, point and polygon methods
+
+2005-11-20  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/container.cpp: fixed bug in focus widget
+        * xml/stock.xml:
+        * tcl/stock.tcl: added stock quotes pqge
+
+2005-11-19  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/system/cpp:
+        * src/tcl.cpp: Added support to dbeval for descending order
+	* src/webbrowser.cpp: improved mozilla intergation via
+        new event method
+        * src/skinparser.cpp: Page may include other pages
+        * src/label.cpp: fixed auto-adjustment of the text
+
+2005-11-17  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/webbrowser.cpp: Added support for external events
+	from lmbox
+	* tcl/games.tcl: fixed lmboxweb flash bug
+	* tcl/shoutcast.tcl: sorting fixed
+
+2005-11-15  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/player.c: Renamed video player and merged
+	with music player
+	* src/webbrowser.c: added event handler to post key events
+
+2005-11-13  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/main.cpp: lmboxweb now works
+	* src/webbrowser.cpp: small bug fixes
+	* tcl/games.tcl: properly check for new games
+
+2005-11-12  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* xml/tv.xml:
+	* tcl/tvguide.tcl: Updated page layout
+	* tcl/init.tcl: Added log viewer menu item
+	* src/label.cpp: Added LineCount property
+
+2005-11-02  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* tcl/movies.tcl: check for empty id fixed
+	* src/main.cpp: fixed compilation without mozilla
+	* src/tv.cpp: fixed crash when ALSA mixer is not available
+	* src/page.cpp: fixed StartObjects bug
+	* src/picture.cpp: fixed memory leak
+
+2005-10-26  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* tcl/weather.tcl:
+        * xml/weather.xml:
+        * xml/config.xml: Added weather radar page
+
+2005-09-29  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/lmbox.h:
+	* src/widget.cpp:
+	* src/container.cpp:
+	* src/listbox.cpp:
+	* src/button.cpp: changed background/border handling, now
+	it is similar for all widgets
+
+2005-09-28  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* lmbox.dtd:
+	* src/Makefile:
+	* src/skinparser.cpp:
+	* src/webbrowser.cpp:
+	* xml/web.xml: added embedded Mozilla widget and
+	webbrowser widget. It always takes full page but
+	can response on lmbox events.
+
+2005-09-22  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* src/video.cpp:
+	* xml/video.xml: Added support for snapshot
+	of current video playback
+
+2005-09-22  Vlad Seryakov  <vlad@crystalballinc.com>
+
+	* 0.8.0 release
+	Still a lot of things to do and test

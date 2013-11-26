@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<system>
+  <event name="mypictures">
+    lmbox setpage photopage
+  </event>
+</system>
+   
+<page name="photopage" background="background.jpg">
+   <help>
+   To autoplay the whole directory select it and press Play.
+   To rotate the image, use volume up/down buttons.
+   </help>
+   <event name="volumeup">
+     lmbox call photoimage rotateimage -90
+   </event>
+   <event name="volumedown">
+     lmbox call photoimage rotateimage 90
+   </event>
+   <event name="play">
+     lmbox set phototimer enabled 1
+     photo_play [lmbox get photofilelist filename]
+   </event>
+   <event name="stop">
+     lmbox set phototimer enabled 0
+     photo_stop
+   </event>
+   <timer name="phototimer" interval="5000" enabled="false">
+     photo_play
+   </timer>
+   <event name="OnGotFocus">
+     lmbox set photofilelist rootpath [photo_setup]
+   </event>
+   <label name="photostatus" x="20" y="10" width="300" height="20" template="yellowlabel"></label>
+   <label name="photocount" x="400" y="10" width="150" height="20" template="countlabel"></label>
+   <label name="phototitle" x="500" y="10" template="titlelabel">lmBox: Photos</label>
+   <filebrowser name="photofilelist" x="10" y="40" width="130" height="370" template="t_photolist">
+     <event name="OnSelectionChange">
+       photo_show [lmbox get photofilelist filename]
+     </event>
+     <event name="OnChoose">
+       photo_stop
+       photo_show [lmbox get photofilelist filename]
+     </event>
+     <event name="OnPathChange">
+       photo_show [lmbox get photofilelist filename]
+     </event>
+   </filebrowser>
+   <picture name="photoimage" x="145" y="40" width="475" height="405" image="none.gif" borderstyle="normal" bordercolor="#FFFFFF" />
+   <button x="20" y="415" caption="Back" template="t_button2" action="cancel">
+      photo_exit
+   </button>
+</page>
+
+</lmbox>
+

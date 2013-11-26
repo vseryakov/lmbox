@@ -1,0 +1,22 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>        <dir>         <type>    <options>          <dump> <pass>
+none                   /dev/pts      devpts    defaults            0      0
+none                   /dev/shm      tmpfs     defaults            0      0
+usbfs                  /proc/bus/usb usbfs  defaults            0      0
+
+/dev/cdrom /mnt/cdrom iso9660 ro,user,noauto,unhide 0 0
+/dev/dvd /mnt/dvd iso9660 ro,user,noauto,unhide 0 0
+
+/dev/hda1 / ext3 defaults 0 1
+/dev/hda2 swap swap defaults 0 0
+
+192.168.0.10:/disk0     /disk0  nfs     soft,intr,noatime,rw,rsize=8192,timeo=5 0 0
+192.168.0.10:/disk1     /disk1  nfs     soft,intr,noatime,rw,rsize=8192,timeo=5 0 0
+192.168.0.10:/disk2     /disk2  nfs     soft,intr,noatime,rw,rsize=8192,timeo=5 0 0
+192.168.0.10:/disk3     /disk3  nfs     soft,intr,noatime,rw,rsize=8192,timeo=5 0 0
+192.168.0.10:/disk4     /disk4  nfs     soft,intr,noatime,rw,rsize=8192,timeo=5 0 0
+192.168.0.10:/disk5     /disk5  nfs     soft,intr,noatime,rw,rsize=8192,timeo=5 0 0
+192.168.0.10:/disk6     /disk6  nfs     soft,intr,noatime,rw,rsize=8192,timeo=5 0 0
+

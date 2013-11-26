@@ -1,0 +1,11 @@
+# /etc/exports
+#
+
+/diskb          *(rw,insecure,all_squash,no_root_squash,async,anonuid=0)
+/disk0          *(rw,insecure,all_squash,no_root_squash,async,anonuid=0)
+/disk1		*(rw,insecure,all_squash,no_root_squash,async,anonuid=0)
+/disk2		*(rw,insecure,all_squash,no_root_squash,async,anonuid=0)
+/disk3		*(rw,insecure,all_squash,no_root_squash,async,anonuid=0)
+/disk4		*(rw,insecure,all_squash,no_root_squash,async,anonuid=0)
+/disk5		*(rw,insecure,all_squash,no_root_squash,async,anonuid=0)
+

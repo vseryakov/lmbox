@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="stockpage" background="background.jpg" >
+  <event name="OnGotFocus">
+    stock_setup
+    lmbox call stocklist setfocus
+    lmbox set stocksymbol text Symbol
+  </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel" />
+  <label x="450" y="10" template="titlelabel">lmBox: Stocks</label>
+  <listbox name="stocklist" x="15" y="40" width="300" height="295" template="t_stocklist" >
+    <event name="OnGotFocus">
+      stock_info [lmbox get stocklist selecteddata]
+    </event>
+    <event name="OnSelectionChange">
+      stock_info [lmbox get stocklist selecteddata]
+    </event>
+  </listbox>
+  <label name="stockinfo" x="340" y="40" width="270" height="180" borderstyle="round" contentx="5" contenty="5" wordwrap="true" fontcolor="#000000" font="vera.ttf" fontsize="13" />
+  <rectangle name="stockchart" x="340" y="222" width="270" height="100" borderstyle="round" color="#0000FF" />
+  <button x="20" y="340" caption="Refresh" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Refresh quotes"
+    </event>
+    <event name="OnClick">
+      stock_schedule
+      stock_setup
+      stock_info [lmbox get stocklist selecteddata]
+    </event>
+  </button>
+  <button x="80" y="340" caption="Scale+" template="t_greenbutton" action="green">
+    <event name="OnGotFocus">
+      lmbox set status caption "See symbol details"
+    </event>
+    <event name="OnClick">
+      stock_info [lmbox get stocklist selecteddata] 1
+    </event>
+  </button>
+  <button x="140" y="340" caption="Scale-" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "See symbol details"
+    </event>
+    <event name="OnClick">
+      stock_info [lmbox get stocklist selecteddata] -1
+    </event>
+  </button>
+  <button x="200" y="340" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <button x="260" y="340" caption="Delete" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Delete quote from the list"
+    </event>
+    <event name="OnClick">
+      stock_delete [lmbox get stocklist selecteddata]
+    </event>
+  </button>
+  <textfield name="stocksymbol" x="320" y="340" template="t_yellowbutton" fontcolor="#e0e2e5" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Enter symbol"
+      if { [lmbox get stocksymbol text] == "Symbol" } {
+        lmbox set stocksymbol text ""
+      }
+    </event>
+    <event name="OnLostFocus">
+      if { [set text [lmbox get stocksymbol text]] != "" } {
+        stock_add $text
+      }
+      lmbox set stocksymbol text Symbol
+    </event>
+  </textfield>
+  <label name="status" x="15" y="400" width="600" height="40" template="statuslabel" />
+</page>
+
+</lmbox>

@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<include file="templates.xml" />
+
+<system>
+  <event name="OnLoad">
+    lmbox_onstart
+  </event>
+  <event name="OnUnload">
+    lmbox_onstop
+  </event>
+  <event name="OnSwitchPage">
+    player_minimize init
+  </event>
+  <event name="quit">
+    lmbox_quit
+  </event>
+  <event name="home">
+    lmbox setpage mainpage
+  </event>
+  <event name="help">
+    lmbox_alarm "" [lmbox get [lmbox getpage] help]
+  </event>
+  <event name="config">
+    config_setup
+  </event>
+  <event name="idle">
+    idle_setup
+  </event>
+  <event name="play">
+    lmbox_play
+  </event>
+  <event name="stop">
+    lmbox_stop
+    lmbox_keys
+  </event>
+  <event name="mute">
+    lmbox_mute
+  </event>
+  <event name="nextpage,nexttrack">
+    lmbox_next
+  </event>
+  <event name="pause">
+    lmbox_pause
+  </event>
+  <event name="eject">
+    lmbox_eject
+  </event>
+  <event name="number*,key*">
+    lmbox_keys [lmbox getevent]
+  </event>
+  <event name="volumeup">
+    music_volume 5
+  </event>
+  <event name="volumedown">
+    music_volume -5
+  </event>
+  <event name="shutdown">
+    lmbox setpage shutdownpage
+  </event>
+  <event name="button2">
+    lmbox postevent accept
+  </event>
+  <event name="menu,button3">
+    lmbox showoverlay overlay
+  </event>
+  <event name="button4">
+    lmbox postevent up
+  </event>
+  <event name="button5">
+    lmbox postevent down
+  </event>
+  <event name="progress">
+    lmbox set status caption [lmbox geteventdata 1]
+  </event>
+</system>
+
+<page name="mainpage" background="background.jpg">
+  <help>
+  To get to Settings page, enter administrative password
+  on the main page which is set by admin_password config
+  parameter. If not set, Settings page is available to
+  everyone.
+
+  To see movies in the Adult or non-Children genres, admin
+  password needs to be entered as well.
+
+  Pressing Play button when Music is selected will result in
+  playing all music files in random order.
+  Pressing Play button when Movies is selected will continue
+  previously watched movie or play random movie.
+  Pressing Play when Photos is selected will perform slideshow
+  of all pictures in random order.
+  </help>
+  <event name="OnGotFocus">
+    menu_setup
+    disk_umount
+  </event>
+  <clocklabel x="20" y="10"  width="300" template="clocklabel"></clocklabel>
+  <label x="520" y="10" template="titlelabel">lmBox</label>
+  <listbox name="menulist" x="30" y="50" width="120" height="230" template="t_menulist">
+    <event name="OnSelectionChange,OnGotFocus">
+      sound_click
+      menu_mosaic refresh [lmbox get this selectedtext]
+      lmbox_keys
+    </event>
+  </listbox>
+
+  <label name="label00" x="170" y="42" template="t_menulabel" />
+  <label name="label01" x="270" y="42" template="t_menulabel" />
+  <label name="label02" x="370" y="42" template="t_menulabel" />
+  <label name="label03" x="470" y="42" template="t_menulabel" />
+  <picture name="menu00" x="170" y="60" template="t_menuicon" />
+  <picture name="menu01" x="270" y="60" template="t_menuicon" />
+  <picture name="menu02" x="370" y="60" template="t_menuicon" />
+  <picture name="menu03" x="470" y="60" template="t_menuicon" />
+
+  <label name="label10" x="170" y="162" template="t_menulabel" />
+  <label name="label11" x="270" y="162" template="t_menulabel" />
+  <label name="label12" x="370" y="162" template="t_menulabel" />
+  <label name="label13" x="470" y="162" template="t_menulabel" />
+  <picture name="menu10" x="170" y="180" template="t_menuicon" />
+  <picture name="menu11" x="270" y="180" template="t_menuicon" />
+  <picture name="menu12" x="370" y="180" template="t_menuicon" />
+  <picture name="menu13" x="470" y="180" template="t_menuicon" />
+
+  <label name="label20" x="170" y="282" template="t_menulabel" />
+  <label name="label21" x="270" y="282" template="t_menulabel" />
+  <label name="label22" x="370" y="282" template="t_menulabel" />
+  <label name="label23" x="470" y="282" template="t_menulabel" />
+  <picture name="menu20" x="170" y="300" template="t_menuicon" />
+  <picture name="menu21" x="270" y="300" template="t_menuicon" />
+  <picture name="menu22" x="370" y="300" template="t_menuicon" />
+  <picture name="menu23" x="470" y="300" template="t_menuicon" />
+
+  <scrollbar name="menuscroll" x="570" y="50" width="15" height="320" contenty="23"
+             background="scrollbarvv.png"
+             knob="knobv.png"
+             knbofocus="knobv.png"
+             backgroundstyle="scaled">
+    <event name="OnChange">
+      menu_mosaic update [lmbox get menuscroll value]
+    </event>
+    <event name="OnGotFocus">
+      return lmbox_ignore
+    </event>
+  </scrollbar>
+  <label name="status" x="170" y="395" width="420" height="80" template="yellowlabel"/>
+</page>
+
+<page name="shutdownpage" background="background.jpg">
+  <clocklabel x="20" y="15"  width="200" height="20" template="clocklabel" />
+  <label x="400" y="10" template="titlelabel">lmBox: Shutdown</label>
+  <label name="status" x="10" y="165" width="530" height="50" font="verabd.ttf" fontsize="20" fontcolor="#FFFFFF" textalign="center"></label>
+  <button x="75" y="350" caption="Back" template="t_bluebutton" action="cancel,blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <button name="shutdown" x="175" y="350" caption="Shutdown" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Shutdown lmbox, power off"
+    </event>
+    <event name="OnClick">
+      lmbox_puts "Shutdowing lmbox ..."
+      lmbox_shutdown
+    </event>
+  </button>
+  <button x="275" y="350" caption="Restart" template="t_greenbutton" action="green">
+    <event name="OnGotFocus">
+      lmbox set status caption "Restart lmbox, refresh screen"
+    </event>
+    <event name="OnClick">
+      lmbox_puts "Restarting lmbox ..."
+      lmbox_putfile /etc/rc.layout Layout1
+      lmbox_sync
+      lmbox_quit
+    </event>
+  </button>
+  <button x="375" y="350" caption="Reboot" template="t_yellowbutton" action="yellow">
+    <event name="OnGotFocus">
+      lmbox set status caption "Reboot lmbox computer"
+    </event>
+    <event name="OnClick">
+      lmbox_puts "Rebooting lmbox ..."
+      lmbox_shutdown reboot
+    </event>
+  </button>
+  <button x="475" y="350" caption="Firefox" template="t_yellowbutton" action="yellow">
+    <event name="OnGotFocus">
+      lmbox set status caption "Reboot to Web browser"
+    </event>
+    <event name="OnClick">
+      lmbox_puts "Rebooting into Webbrowser mode ..."
+      lmbox_putfile /etc/rc.layout Layout2
+      lmbox_sync
+      lmbox_quit
+    </event>
+  </button>
+
+</page>
+
+<page name="idlepage" background="background.jpg">
+  <event name="OnGotFocus">
+    lmbox set idletimer enabled 1
+  </event>
+  <event name="OnLostFocus">
+    idle_stop
+  </event>
+  <event name="shutdown,menu,stop,cancel">
+    idle_exit
+  </event>
+  <event name="play">
+    lmbox set idletimer enabled 1
+  </event>
+  <event name="pause">
+    lmbox set idletimer enabled 0
+  </event>
+  <event name="next,prev">
+    idle_play
+  </event>
+  <event name="nexttrack">
+    music_next
+  </event>
+  <event name="prevtrack">
+    music_prev
+  </event>
+  <timer name="idletimer" interval="5000" enabled="true">
+    idle_play
+  </timer>
+  <picture name="idleimage" x="0" y="0" image="none.gif" />
+</page>
+
+<page name="infopage" background="background.jpg">
+  <event name="help">
+    lmbox setpage mainpage
+  </event>
+  <event name="nextpage">
+    lmbox set infotext lineoffset [expr [lmbox get infotext lineoffset]+3]
+  </event>
+  <event name="prevpage">
+    lmbox set infotext lineoffset [expr [lmbox get infotext lineoffset]-3]
+  </event>
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label name="infotop" x="400" y="10" template="titlelabel">lmBox: Info</label>
+  <label name="infotitle" x="50" y="70" width="300" height="30" template="yellowlabel" fontsize="16"/>
+  <label name="infotext" x="50" y="120" width="350" height="230" template="scrolllabel" fontcolor="#FFFFFF"/>
+  <picture name="infoicon" x="410" y="100" width="130" height="190" image="none.gif" />
+  <button x="230" y="395" caption="Back" template="t_button2" action="cancel">
+    lmbox_cancel
+  </button>
+  <button x="330" y="395" caption="Menu" template="t_button2" action="menu">
+    lmbox setpage mainpage
+  </button>
+</page>
+
+<page name="logpage" background="background.jpg">
+  <event name="OnGotFocus">
+    lmbox_logsetup
+  </event>
+  <event name="nextpage">
+    lmbox set logtext lineoffset [expr [lmbox get logtext lineoffset]+3]
+  </event>
+  <event name="prevpage">
+    lmbox set logtext lineoffset [expr [lmbox get logtext lineoffset]-3]
+  </event>
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label x="400" y="10" template="clocklabel">lmBox: Msg Log</label>
+  <label name="logtext" x="50" y="50" width="550" height="350" template="scrolllabel" fontcolor="#FFFFFF"/>
+  <button x="230" y="410" caption="Back" template="t_button2" action="cancel">
+    lmbox_cancel
+  </button>
+  <button x="330" y="410" caption="Menu" template="t_button2" action="menu">
+    lmbox setpage mainpage
+  </button>
+</page>
+
+<page name="overlay" x="220" y="80" width="200" height="200" background="overlay.jpg" backgroundstyle="scaled">
+  <event name="OnGotFocus">
+  </event>
+  <clocklabel x="10" y="5" width="100" height="12" template="textlabel" fontsize="10" />
+  <button x="10" y="30" caption=">" template="t_smallbutton" action="play">
+    player_play
+  </button>
+  <button x="40" y="30" caption="X" template="t_smallbutton" action="stop">
+    player_stop
+  </button>
+  <button x="70" y="30" caption="||" template="t_smallbutton" action="pause">
+    player_pause
+  </button>
+  <button x="100" y="30" caption="<<" template="t_smallbutton" action="prevpage">
+    player_seek -30
+  </button>
+  <button x="130" y="30" caption=">>" template="t_smallbutton" action="nextpage">
+    player_seek 30
+  </button>
+  <button x="160" y="30" caption="M" template="t_smallbutton" action="mute">
+    player_mute
+  </button>
+
+  <button x="10" y="60" caption="|<<" template="t_smallbutton" action="prevtrack">
+    player_prev
+  </button>
+  <button x="40" y="60" caption=">>|" template="t_smallbutton" action="nexttrack">
+    player_next
+  </button>
+  <button x="70" y="60" caption="V-" template="t_smallbutton" action="volumedown">
+    player_volume -5
+  </button>
+  <button x="100" y="60" caption="V+" template="t_smallbutton" action="volumeup">
+    player_volume 5
+  </button>
+  <button x="130" y="60" caption="I" template="t_smallbutton" action="info">
+    player_info
+  </button>
+  <button x="160" y="60" caption="FS" template="t_smallbutton">
+    lmbox showoverlay
+    player_minimize full
+  </button>
+
+  <button x="10" y="90" caption="TL" template="t_smallbutton">
+    player_minimize topleft
+  </button>
+  <button x="40" y="90" caption="TR" template="t_smallbutton">
+    player_minimize topright
+  </button>
+  <button x="70" y="90" caption="BL" template="t_smallbutton">
+    player_minimize bottomleft
+  </button>
+  <button x="100" y="90" caption="BR" template="t_smallbutton">
+    player_minimize bottomright
+  </button>
+
+  <button x="10" y="170" caption="Exit" template="t_redbutton" action="red" width="40" height="16">
+    lmbox showoverlay
+    lmbox postevent cancel
+  </button>
+  <button x="75" y="170" caption="Menu" template="t_bluebutton" action="menu,blue" width="40" height="16">
+    lmbox showoverlay
+    lmbox setpage mainpage
+  </button>
+  <button x="140" y="170" caption="Close" template="t_graybutton" action="cancel,button3" width="40" height="16">
+    lmbox showoverlay
+  </button>
+</page>
+
+</lmbox>
+

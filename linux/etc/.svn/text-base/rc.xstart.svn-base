@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export HOME=/root
+exec /usr/bin/xinit /etc/rc.xinit -- -quiet -dpms -deferglyphs 16 >> /var/log/messages 2>&1
+
+

@@ -1,0 +1,14 @@
+pkgname=ssh
+pkgver=3.2.9.1
+pkgrel=1
+pkgdesc="SSH2 server and client."
+url="http://www.ssh.fi"
+source=(ftp://ftp.ssh.fi/pub/ssh/$pkgname-$pkgver.tar.gz)
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure || return 1
+  /usr/bin/make || return 1
+  /usr/bin/make DESTDIR=$startdir/pkg install
+}
+

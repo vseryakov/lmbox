@@ -1,0 +1,25 @@
+# $Id: PKGBUILD,v 1.22 2006/02/20 23:32:13 dorphell Exp $
+# Maintainer: dorphell <dorphell@archlinux.org>
+# Committer: Judd Vinet <jvinet@zeroflux.org>
+pkgname=tcl
+pkgver=8.4.12
+pkgrel=1
+pkgdesc="The Tcl scripting language"
+depends=('glibc')
+source=(http://dl.sourceforge.net/sourceforge/tcl/tcl${pkgver}-src.tar.gz)
+url="http://tcl.sourceforge.net/"
+NOSTRIP=1
+
+build() {
+  cd $startdir/src/tcl$pkgver/unix
+  sed -i.bak "s/relid'/relid/" configure
+  CFLAGS="-g" && ./configure --prefix=/usr --enable-threads --disable-64bit
+  make || return 1
+  make INSTALL_ROOT=$startdir/pkg install
+  mv $startdir/pkg/usr/bin/tclsh8.4 $startdir/pkg/usr/bin/tclsh
+
+  # copy the TCL private headers in for packages like expect
+  mkdir -p $startdir/pkg/usr/include/tcl
+  cd $startdir/src/tcl$pkgver/generic
+  cp -v *.h $startdir/pkg/usr/include/tcl
+}

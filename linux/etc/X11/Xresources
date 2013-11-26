@@ -1,0 +1,12 @@
+!
+XTerm*toolBar:			false
+XTerm*saveLines:		1000
+XTerm*scrollbar:        	true
+XTerm*geometry:         	50x25+20+20
+XTerm*background:       	#011c05
+XTerm*foreground:       	white
+XTerm*font:             	10x20
+XTerm*loginShell:       	true
+XTerm*termName:			xterm
+XTerm*vt100.allowSendEvents: 	true
+!

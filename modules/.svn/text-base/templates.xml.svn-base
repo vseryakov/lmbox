@@ -1,0 +1,948 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<template name="clocklabel"
+          font="veramobd.ttf"
+          fontsize="13"
+          fontcolor="#a8ebf7"
+          autosize="true" />
+
+<template name="countlabel"
+          font="efrom.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          autosize="true" />
+
+<template name="yellowlabel"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#c5cd4a"
+          autosize="true"
+          wordwrap="true" />
+
+<template name="whitelabel"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          wordwrap="true" />
+
+<template name="greenlabel"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#61BF5F"
+          wordwrap="true" />
+
+<template name="titlelabel"
+          font="efrom.ttf"
+          fontsize="13"
+          fontcolor="#546fac"
+          color="#546fac"
+          autosize="true" />
+
+<template name="textlabel"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#000000"
+          autosize="true" />
+
+<template name="statuslabel"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#c5cd4a"
+          wordwrap="true"
+          textalign="center" />
+
+<template name="infolabel"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#EEEEEE"
+          wordwrap="true" />
+
+<template name="scrolllabel"
+          font="verasebd.ttf"
+          fontsize="13"
+          fontcolor="#c5cd4a"
+          wordwrap="true" />
+
+<template name="t_label"
+          font="verabd.ttf"
+          fontsize="13"
+          width="150"
+          height="20"
+          fontcolor="#000000"
+          textalign="center" />
+
+<template name="t_musicinfo"
+          font="verabd.ttf"
+          fontsize="12"
+          fontcolor="#0f1e3f"
+          borderstyle="round"
+          bordercolor="#e0e2e5"
+          contentx="5"
+          contenty="5"
+          wordwrap="true" />
+
+<template name="t_button"
+          font="veramobd.ttf"
+          fontsize="13"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          abordercolor="#c5cd4a"
+          width="79"
+          height="33"
+          color="#DDDDDD"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#e0e2e5"
+          disabledcolor="#AAAAAA"
+          fontcolor="#000000"
+          fontfocusedcolor="#1a2d5b"/>
+
+<template name="t_button2"
+          font="verabd.ttf"
+          fontsize="13"
+          captionx="0"
+          captiony="0"
+          background="button_u.png"
+          pressedbackground="button_fp.png"
+          focusedbackground="button_f.png"
+          disabledbackground="button_d.png"
+          fontdisabledcolor="#C0C0C0" />
+
+<template name="t_menulist"
+          font="verabd.ttf"
+          fontsize="14"
+          fontcolor="#AAAAAA"
+          selitembackgroundcolor="#0C2E50"
+          selitembackgroundstyle="tiled"
+          selitemfontcolor="#CCCCCC"
+          selitembordery="0"
+          selitemborderx="0"
+          scrollbarwidth="0"
+          borderstyle="round_double"
+          bordercolor="#0C2E50"
+          obordercolor="#546fac"
+          abordercolor="#546fac"
+          width="100"
+          height="100"
+          itemborderx="20"
+          itemheight="30"
+          contentx="1"
+          contenty="10"
+          wrap="true"/>
+
+<template name="t_menulabel"
+          font="verabd.ttf"
+          fontsize="12"
+          fontcolor="#a6d1d9"
+          width="80"
+          height="13"
+          textalign="center"
+          autosize="false"
+          wordwrap="false" />
+
+<template name="t_menuicon"
+          width="80"
+          height="80"
+          image="none.gif"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a">
+          <event name="*">
+            menu_mosaic action
+          </event>
+          <event name="OnInit">
+            lmbox create this origarea
+            lmbox set this origarea [lmbox get this areaorig]
+          </event>
+          <event name="OnDoubleClick">
+            menu_mosaic accept
+          </event>
+          <event name="OnMouseOver">
+            menu_mosaic mouseover
+          </event>
+          <event name="OnMouseOut">
+            menu_mosaic mouseout
+          </event>
+          <event name="OnGotFocus">
+            menu_mosaic info [lmbox get this data]
+          </event>
+          <event name="OnLostFocus">
+            menu_mosaic exit [lmbox get this data]
+          </event>
+</template>
+
+<template name="t_favoriteslist"
+          font="veramobd.ttf"
+          fontsize="14"
+          selitembackgroundstyle="normal"
+          selitembackground="itemgreen400x32.png"
+          selitemfontcolor="#e0e2e5"
+          scrollbarwidth="0"
+          width="100"
+          height="100"
+          itemborderx="10"
+          itemheight="32"
+          wrap="true" />
+
+<template name="t_listbox2"
+          font="veramobd.ttf"
+          fontsize="13"
+          background="listboxback.png"
+          selitembackground="itemblue.png"
+          selitembackgroundstyle="tiled"
+          selitemfontcolor="#030303"
+          scrollbarwidth="1"
+          borderx="10"
+          bordery="20"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_listbox3"
+          font="verabd.ttf"
+          fontsize="13"
+          selitembackground="itemblue.png"
+          selitembackgroundstyle="tiled"
+          selitemfontcolor="#FEEEEE"
+          scrollbarwidth="0"
+          borderx="5"
+          bordery="5"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_listbox5"
+          font="veramobd.ttf"
+          fontsize="15"
+          background="none.gif"
+          backgroundstyle="tiled"
+          focusedbackground="listboxback2.png"
+          selitembackground="none.gif"
+          selitemfontcolor="#030303"
+          selitembackgroundstyle="tiled"
+          scrollbarwidth="0"
+          borderx="0"
+          bordery="0"
+          wrap="true"/>
+
+<template name="t_textfield"
+          font="vera.ttf"
+          fontsize="13"
+          fontcolor="#000000"
+          borderstyle="normal"
+          borderx="5"
+          bordery="5"
+          bordercolor="#000000"
+          abordercolor="#e0e2e5"
+          color="#0000FF"
+          disabledcolor="#C0C0C0"
+          width="200"
+          height="22" />
+
+<template name="t_calendar"
+          font="vera.ttf"
+          fontsize="13"
+          captionx="3"
+          captiony="3"
+          background="calendar.png"
+          pressedbackground="calendar.png"
+          focusedbackground="calendar_f.png"
+          disabledbackground="calendar_d.png"
+          fontdisabledcolor="#C0C0C0"
+          fontcolor="#000000"
+          fontfocusedcolor="#1a2d5b"
+          wordwrap="true"
+          textalign="left" />
+
+<template name="t_configlist"
+          font="veramobd.ttf"
+          fontsize="18"
+          selitembackgroundstyle="normal"
+          selitembackground="itemgreen400x32.png"
+          selitemfontcolor="#e0e2e5"
+          scrollbarwidth="1"
+          itemheight="32"
+          itemborderx="10"
+          borderx="10"
+          bordery="10"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_alarmlist"
+          font="vera.ttf"
+          fontsize="13"
+          backgroundstyle="tiled"
+          focusedbackground="listboxback2.png"
+          selitembackground="itemblue.png"
+          selitembackgroundstyle="tiled"
+          selitemfontcolor="#030303"
+          scrollbarwidth="0"
+          borderstyle="normal"
+          borderx="5"
+          bordery="5"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_tvchannel"
+          enabled="false"
+          font="verabd.ttf"
+          fontsize="10"
+          captionx="2"
+          captiony="2"
+          backgroundstyle="gradient"
+          borderstyle="round"
+          bordercolor="#000000"
+          abordercolor="#c5cd4a"
+          color="#0000FF"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#e0e2e5"
+          disabledcolor="#C0C0C0"
+          fontdisabledcolor="#0000FF"
+          fontcolor="#000000"
+          fontfocusedcolor="#000000"
+          wordwrap="true"
+          textalign="center" />
+
+<template name="t_tvstatus"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#c5cd4a"
+          wordwrap="true"
+          textalign="center" />
+
+<template name="t_tvlist"
+          font="veramobd.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          selitembackground="itemblue.png"
+          selitembackgroundstyle="tiled"
+          selitemfontcolor="#030303"
+          scrollbarwidth="1"
+          borderx="0"
+          bordery="0"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_tvguide"
+          font="verabd.ttf"
+          fontsize="10"
+          captionx="4"
+          captiony="4"
+          borderx="0"
+          bordery="0"
+          backgroundstyle="fill"
+          borderstyle="normal"
+          bordercolor="#004080"
+          abordercolor="#0000FF"
+          color="#4985f3"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#e0e2e5"
+          disabledcolor="#3569a9"
+          fontcolor="#1a2d5b"
+          fontfocusedcolor="#1a2d5b"
+          wordwrap="true"
+          textalign="topleft">
+          <event name="*">
+            tvguide_move
+          </event>
+          <event name="OnMouseOver">
+            tvguide_status [lmbox get this data]
+          </event>
+          <event name="OnMouseOut">
+            tvguide_status [lmbox var tvguide_id]
+          </event>
+          <event name="OnGotFocus">
+            lmbox varset tvguide_id [lmbox get this data]
+            tvguide_status [lmbox get this data]
+          </event>
+</template>
+
+<template name="t_tvbutton"
+          font="verabd.ttf"
+          fontsize="10"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="fill"
+          borderstyle="round"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a"
+          autosize="true"
+          width="40"
+          height="18"
+          color="#5983e1"
+          focusedcolor="#5983e1"
+          pressedcolor="#5983e1"
+          disabledcolor="#277ccc"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center" />
+
+<template name="t_weather"
+          width="75"
+          height="75"
+          borderstyle="normal"
+          bordercolor="#000000"
+          abordercolor="#c5cd4a"
+          background="none.gif"
+          pressedbackground="none.gif"
+          focusedbackground="none.gif" />
+
+<template name="t_togglebutton"
+          normalimage="checkbox_un.png"
+          normalfocusimage="checkbox_fn.png"
+          checkedimage="checkbox_uc.png"
+          checkedfocusimage="checkbox_fc.png" />
+
+<template name="t_movielabel"
+          font="verabd.ttf"
+          fontsize="12"
+          fontcolor="#a6d1d9"
+          width="120"
+          height="13"
+          textalign="center"
+          wordwrap="false" />
+
+<template name="t_movieicon"
+          width="140"
+          height="160"
+          image="none.gif"
+          borderstyle="normal"
+          bordercolor="#cccccc"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a">
+
+          <event name="OnInit">
+            lmbox create this origarea
+            lmbox set this origarea [lmbox get this areaorig]
+          </event>
+
+          <event name="OnAdd">
+            lmbox create this mosaic_prefix
+            lmbox set this mosaic_prefix [lindex [split [lmbox get this parentname] _] 0]
+          </event>
+
+          <event name="*">
+            lmbox_mosaic [lmbox get this mosaic_prefix] action
+          </event>
+
+          <event name="OnDoubleClick">
+            lmbox_mosaic [lmbox get this mosaic_prefix] accept
+          </event>
+
+          <event name="OnMouseOver">
+            lmbox_mosaic [lmbox get this mosaic_prefix] onmouseover
+          </event>
+
+          <event name="OnMouseOut">
+            lmbox_mosaic [lmbox get this mosaic_prefix] onmouseout
+          </event>
+
+          <event name="OnGotFocus">
+            lmbox_mosaic [lmbox get this mosaic_prefix] ongotfocus
+          </event>
+
+          <event name="OnLostFocus">
+            lmbox_mosaic [lmbox get this mosaic_prefix] onlostfocus
+          </event>
+</template>
+
+<template name="t_moviefilter"
+          font="verabd.ttf"
+          fontsize="13"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a"
+          autosize="true"
+          width="50"
+          height="22"
+          color="#c5cd4a"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#a9ab78"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center">
+
+          <event name="yellow">
+            lmbox call this setfocus
+          </event>
+
+          <event name="OnInit">
+            lmbox set this text Filter
+          </event>
+
+          <event name="OnAdd">
+            lmbox create this mosaic_prefix
+            lmbox set this mosaic_prefix [lindex [split [lmbox get this parentname] _] 0]
+          </event>
+
+          <event name="OnGotFocus">
+            lmbox set status caption "Enter search filter"
+            if { [lmbox get this text] == "Filter" } {
+              lmbox set this text ""
+            }
+          </event>
+
+          <event name="OnLostFocus">
+            if { [lmbox get this text] == "" } {
+              lmbox set this text Filter
+            }
+          </event>
+
+          <event name="OnChange">
+            lmbox_mosaic [lmbox get this mosaic_prefix] init [lmbox get this name]
+          </event>
+</template>
+
+<template name="t_movieimage"
+          width="150"
+          height="210"
+          image="none.gif"
+          borderstyle="normal"
+          bordercolor="#e0e2e5" />
+
+<template name="t_movielist"
+          font="veramobd.ttf"
+          fontsize="16"
+          fontcolor="#e0e2e5"
+          backgroundstyle="none"
+          borderstyle="none"
+          selitembackground="itemgreen370x20.png"
+          selitembackgroundstyle="normal"
+          selitemfontcolor="#e0e2e5"
+          selitemfontcolorfocus="#c5cd4a"
+          scrollbarwidth="0"
+          itemborderx="5"
+          itemheight="22"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_genrelist"
+          font="verabd.ttf"
+          fontsize="13"
+          fontcolor="#2f3341"
+          itemheight="18"
+          itemborderx="5"
+          itembordery="5"
+          selitemfontcolor="#2f3341"
+          selitemfontcolorfocus="#0000FF"
+          selitembackgroundcolor="#e0e2e5"
+          selitembackgroundstyle="tiled"
+          backgroundstyle="fill"
+          color="#7690e7"
+          focusedcolor="#7690e7"
+          pressedcolor="#7690e7"
+          disabledcolor="#74b0e3"
+          borderstyle="round"
+          bordercolor="#7690e7"
+          abordercolor="#c5cd4a"
+          scrollbarwidth="0"
+          borderx="0"
+          bordery="0"
+          contentx="2"
+          contenty="2"
+          width="100"
+          height="100"
+          wrap="true" />
+
+<template name="t_live365info"
+          font="freesans.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          wordwrap="true"
+          borderstyle="round"
+          bordercolor="#0000FF"
+          backgroundstyle="gradient"
+          color="#0000FF"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#277ccc"
+          contentx="5"
+          contenty="5" />
+
+<template name="t_live365list"
+          font="veramobd.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          backgroundstyle="none"
+          color="#3286f8"
+          focusedcolor="#3286f8"
+          disabledcolor="#74b0e3"
+          borderstyle="round"
+          bordercolor="#000000"
+          abordercolor="#e0e2e5"
+          selitembackground="itemblue.png"
+          selitembackgroundstyle="tiled"
+          selitemfontcolor="#c5cd4a"
+          selitemfontcolorfocus="#e0e2e5"
+          scrollbarwidth="1"
+          itemborderx="5"
+          itembordery="5"
+          itemheight="20"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_itvinfo"
+          font="freesans.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          wordwrap="true"
+          borderstyle="round"
+          bordercolor="#0000FF"
+          backgroundstyle="gradient"
+          color="#0000FF"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#277ccc"
+          contentx="5"
+          contenty="5" />
+
+<template name="t_photolist"
+          font="veramobd.ttf"
+          fontsize="14"
+          fontcolor="#c5cd4a"
+          itemheight="20"
+          itemborderx="5"
+          itembordery="5"
+          selitemborderx="5"
+          selitemfontcolor="#000000"
+          selitembackgroundcolor="#e0e2e5"
+          selitembackgroundstyle="tiled"
+          backgroundstyle="none"
+          color="#7690e7"
+          focusedcolor="#7690e7"
+          disabledcolor="#74b0e3"
+          borderstyle="round"
+          abordercolor="#c5cd4a"
+          bordercolor="#7690e7"
+          scrollbarwidth="0"
+          borderx="0"
+          bordery="0"
+          width="100"
+          height="100"
+          wrap="true" />
+
+<template name="t_smallbutton"
+          font="verabd.ttf"
+          fontsize="12"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#d9eae0"
+          abordercolor="#d9eae0"
+          autosize="true"
+          width="20"
+          height="13"
+          color="#a5afbc"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#445c72"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center" />
+
+<template name="t_bluebutton"
+          font="verabd.ttf"
+          fontsize="14"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a"
+          autosize="true"
+          width="50"
+          height="22"
+          color="#0000FF"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#277ccc"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center" />
+
+<template name="t_graybutton"
+          font="verabd.ttf"
+          fontsize="14"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a"
+          autosize="true"
+          width="50"
+          height="22"
+          color="#CCCCCC"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#277ccc"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center" />
+
+<template name="t_redbutton"
+          font="verabd.ttf"
+          fontsize="14"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a"
+          autosize="true"
+          width="50"
+          height="22"
+          color="#f4093a"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#f696ab"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center" />
+
+<template name="t_greenbutton"
+          font="verabd.ttf"
+          fontsize="14"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a"
+          autosize="true"
+          width="50"
+          height="22"
+          color="#1d7b3c"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#a6edbe"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center" />
+
+<template name="t_yellowbutton"
+          font="verabd.ttf"
+          fontsize="14"
+          borderx="0"
+          bordery="0"
+          captionx="0"
+          captiony="0"
+          backgroundstyle="gradient"
+          borderstyle="normal"
+          bordercolor="#000000"
+          obordercolor="#c5cd4a"
+          abordercolor="#c5cd4a"
+          autosize="true"
+          width="50"
+          height="22"
+          color="#c5cd4a"
+          focusedcolor="#e0e2e5"
+          pressedcolor="#5983e1"
+          disabledcolor="#a9ab78"
+          fontcolor="#e0e2e5"
+          fontfocusedcolor="#1a2d5b"
+          textalign="center" />
+
+<template name="t_gameslist"
+          font="veramobd.ttf"
+          fontsize="14"
+          fontcolor="#e0e2e5"
+          selitemfontcolor="#e0e2e5"
+          selitembackground="itemgreen370x20.png"
+          selitembackgroundstyle="normal"
+          scrollbarwidth="0"
+          backgroundstyle="none"
+          borderstyle="round"
+          color="#7690e7"
+          focusedcolor="#7690e7"
+          disabledcolor="#74b0e3"
+          bordercolor="#7690e7"
+          abordercolor="#7690e7"
+          borderx="0"
+          bordery="0"
+          itemheight="20"
+          itemborderx="5"
+          itembordery="5"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_newsinfo"
+          borderstyle="round"
+          contentx="5"
+          contenty="5"
+          wordwrap="true"
+          fontcolor="#c5cd4a"
+          font="vera.ttf"
+          fontsize="13" />
+
+<template name="t_newslist"
+          font="veramobd.ttf"
+          fontsize="13"
+          fontcolor="#2f3341"
+          itemheight="20"
+          itemborderx="5"
+          itembordery="5"
+          selitemfontcolor="#000000"
+          selitembackgroundcolor="#e0e2e5"
+          selitembackgroundstyle="tiled"
+          backgroundstyle="fill"
+          color="#7690e7"
+          focusedcolor="#7690e7"
+          pressedcolor="#7690e7"
+          disabledcolor="#74b0e3"
+          borderstyle="round"
+          bordercolor="#7690e7"
+          abordercolor="#7690e7"
+          scrollbarwidth="5"
+          borderx="0"
+          bordery="0"
+          contentx="2"
+          contenty="2"
+          width="100"
+          height="100"
+          wrap="true" />
+
+<template name="t_stocklist"
+          font="veramobd.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          itemheight="20"
+          itemborderx="5"
+          itembordery="5"
+          selitemfontcolor="#000000"
+          selitembackgroundcolor="#e0e2e5"
+          selitembackgroundstyle="tiled"
+          backgroundstyle="none"
+          borderstyle="none"
+          scrollbarwidth="0"
+          borderx="0"
+          bordery="0"
+          width="100"
+          height="100"
+          wrap="true" />
+
+<template name="t_musiclist"
+          font="veramobd.ttf"
+          fontsize="14"
+          fontcolor="#e0e2e5"
+          itemheight="20"
+          itemborderx="5"
+          itembordery="5"
+          selitemborderx="5"
+          selitemfontcolor="#000000"
+          selitembackgroundcolor="#e0e2e5"
+          selitembackgroundstyle="tiled"
+          backgroundstyle="none"
+          color="#7690e7"
+          focusedcolor="#7690e7"
+          disabledcolor="#74b0e3"
+          borderstyle="round"
+          abordercolor="#c5cd4a"
+          bordercolor="#7690e7"
+          scrollbarwidth="0"
+          borderx="0"
+          bordery="0"
+          width="100"
+          height="100"
+          wrap="true" />
+
+<template name="t_contactlist"
+          font="veramobd.ttf"
+          fontsize="13"
+          fontcolor="#e0e2e5"
+          backgroundstyle="none"
+          borderstyle="none"
+          selitembackground="itemgreen370x20.png"
+          selitembackgroundstyle="normal"
+          selitemfontcolor="#e0e2e5"
+          selitemfontcolorfocus="#c5cd4a"
+          scrollbarwidth="0"
+          itemborderx="5"
+          itemheight="22"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+<template name="t_webbutton"
+          width="60"
+          height="15"
+          borderstyle="round"
+          fontcolor="#000000"
+          fontpressedcolor="#e0e2e5"
+          fontfocusedcolor="#000000"
+          bordercolor="#000000"
+          abordercolor="#000000"
+          font="verabd.ttf"
+          fontsize="9" />
+
+<template name="t_videobutton"
+          width="30"
+          height="20"
+          borderstyle="round"
+          fontcolor="#000000"
+          fontfocusedcolor="#e0e2e5"
+          font="verabd.ttf"
+          fontsize="12" />
+
+<template name="t_videolabel"
+          font="vera.ttf"
+          fontsize="12"
+          fontcolor="#c5cd4a"
+          wordwrap="true"
+          textalign="center" />
+
+<template name="t_shoutcastlist"
+          font="veramobd.ttf"
+          fontsize="13"
+          borderstyle="round"
+          selitembackground="itemgreen570x24.png"
+          selitembackgroundstyle="normal"
+          selitemfontcolor="#e0e2e5"
+          scrollbarwidth="2"
+          itemborderx="10"
+          itemheight="24"
+          scrollbarwidth="3"
+          contentx="1"
+          width="100"
+          height="100"
+          wrap="true"/>
+
+</lmbox>
+

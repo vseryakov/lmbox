@@ -1,0 +1,20 @@
+authoritative;
+default-lease-time 600;
+max-lease-time 7200;
+ddns-update-style ad-hoc;
+log-facility local7;
+option routers 192.168.1.254;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.100 192.168.1.250;
+}
+
+group {
+  filename "pxelinux.0";
+  next-server 192.168.1.10;
+  
+  host casey {
+    hardware ethernet 00:04:75:7c:6b:09;
+    fixed-address 192.168.1.6;
+  }
+}

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+. /etc/profile
+
+ulimit -c unlimited
+cd /root/lmbox
+
+LAYOUT=`cat /etc/rc.layout`
+
+/usr/bin/xsetroot -solid "#004875" -cursor_name left_ptr
+/usr/bin/xmodmap /etc/X11/Xmodmap
+/usr/bin/xrdb -merge /etc/X11/Xresources
+/usr/bin/xset s off m 4
+
+
+if [ "$LAYOUT" = "Layout2" ]; then
+  rm -rf /etc/rc.layout
+  exec /usr/bin/icewm
+fi
+
+/usr/bin/evilwm -bw 1&
+exec /usr/local/bin/lmbox

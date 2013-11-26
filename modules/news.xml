@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="newspage" background="background.jpg">
+   <event name="OnGotFocus">
+     news_setup
+     lmbox call newslist setfocus
+   </event>
+   <event name="cancel">
+     lmbox setpage mainpage
+   </event>
+   <event name="red,record">
+     news_schedule
+     news_setup
+   </event>
+   <event name="nexttrack">
+     lmbox set newsdescr lineoffset [expr [lmbox get newsdescr lineoffset]+3]
+   </event>
+   <event name="prevtrack">
+     lmbox set newsdescr lineoffset [expr [lmbox get newsdescr lineoffset]-3]
+   </event>
+   <clocklabel x="20" y="10" width="300" height="20" template="clocklabel" />
+   <label x="450" y="10" template="titlelabel">lmBox: News</label>
+   <label name="newscategory" x="350" y="10" width="200" height="20" template="titlelabel" />
+   <listbox name="newslist" x="15" y="40" width="370" height="230" template="t_newslist" >
+     <event name="OnGotFocus">
+       news_info [lmbox get newslist selecteddata]
+     </event>
+     <event name="OnSelectionChange">
+       news_info [lmbox get newslist selecteddata]
+     </event>
+     <event name="OnChoose">
+       news_link [lmbox get newslist selecteddata]
+     </event>
+   </listbox>
+   <picture name="newsicon" x="410" y="40" width="170" height="120" image="none.gif" />
+   <label name="newstitle" x="15" y="280" width="600" height="30" template="titlelabel" fontsize="12" />
+   <label name="newsdescr" x="15" y="310" width="600" height="130" template="t_newsinfo"/>
+</page>
+
+</lmbox>

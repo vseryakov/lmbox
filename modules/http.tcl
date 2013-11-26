@@ -1,0 +1,128 @@
+# lmbox Tcl core
+#
+#  The contents of this file are subject to the Mozilla Public License
+#  Version 1.1 (the "License"); you may not use this file except in
+#  compliance with the License. You may obtain a copy of the License at
+#  http://mozilla.org/.
+#
+#  Software distributed under the License is distributed on an "AS IS"
+#  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See
+#  the License for the specific language governing rights and limitations
+#  under the License.
+#
+#  Author Vlad Seryakov vlad@crystalballinc.com
+
+proc http_exec { cmd { query "" } } {
+
+    set data ""
+    set cmd [string trim $cmd "/ "]
+    switch -glob -- $cmd {
+     "callerid:*" {
+        set cmd [split $cmd :]
+        set phone [lindex $cmd 1]
+        set name [lindex $cmd 2]
+        # Look address book: id name addr bod notes
+        foreach rec [contact_search phone $phone] {
+          array set person $rec
+        }
+        set icon ""
+        set data ""
+        if { [array size person] > 0 } {
+          set name [lmbox_var person(name) $name]
+          if { [lmbox_var person(notes)] != "" } { append data "$person(notes)\n" }
+          if { [lmbox_var person(birthday)] != "" } { append data "Birthday: $person(birthday)\n" }
+          set icon $person(icon)
+        }
+        lmbox_log CALLERID $phone:$name
+        set title "INCOMING PHONE CALL"
+        set text "Phone Number: $phone\nCaller ID: $name\n$data"
+        # Send to configured notifiers
+        foreach script [lmbox var lmbox:callerid:list] {
+          if { [catch { $script $title $text $icon } errmsg] } {
+            lmbox puts "$script: $errmsg"
+          }
+        }
+     }
+
+     halt {
+        lmbox_shutdown
+     }
+
+     reboot {
+        lmbox_shutdown reboot
+     }
+
+     status {
+        set vpos 0
+        if { [set len [lmbox get player length]] > 0 } {
+          set vpos [expr [lmbox get player position]*100/$len]
+        }
+        append data "Player: [lmbox get player status]: [lmbox get player file]/$vpos%, [lmbox get tv channel]/[lmbox get tv norm]/[lmbox get tv chanlist]\n"
+     }
+
+     post {
+        foreach { name value } [split $query "&="] { set $name $value }
+     }
+
+     default {
+        catch { eval $cmd } data
+     }
+    }
+    return $data
+}
+
+# HTTP/telnet/UDP socket handler
+proc http_handler {} {
+
+    global lmbox_chan
+    global lmbox_type
+    global lmbox_port
+    global lmbox_data
+    global lmbox_ipaddr
+    set http_regexp {^GET ([^? ]+)\??([^ ]*) HTTP/1.0$}
+
+    set query ""
+    set allow_from "[lmbox config allow_from 127.0.0.1]"
+    if { ![regexp $allow_from $lmbox_ipaddr] } {
+      lmbox puts "$lmbox_ipaddr: access denied"
+      return
+    }
+    switch -- $lmbox_type {
+     udp {
+       set line [string trim $lmbox_data]
+       lmbox puts "$lmbox_ipaddr: $line"
+       # See if this is a HTTP request
+       if { [regexp $http_regexp $line x line query] } {
+         set url [lmbox urldecode $line]
+         set query [lmbox urldecode $query]
+       }
+       catch { http_exec $url $query } data
+       # Send reply back
+       if { $data != "" } {
+         lmbox udpsend $lmbox_ipaddr $lmbox_port $data -noreply 1
+       }
+     }
+
+     default {
+       while { ![eof $lmbox_chan] } {
+         set line [string trim [gets $lmbox_chan]]
+         lmbox puts "$lmbox_ipaddr: $line"
+         # See if this is a HTTP request
+         if { [regexp $http_regexp $line x line query] } {
+           set url [lmbox urldecode $line]
+           set query [lmbox urldecode $query]
+           catch { http_exec $url $query } data
+           puts $lmbox_chan "HTTP/1.0 200 OK\r"
+           puts $lmbox_chan "Content-Type: text/html\r"
+           puts $lmbox_chan "Content-Length: [string length $data]\r\n\r"
+           puts $lmbox_chan $data
+           return
+         }
+         # This is a telnet session
+         catch { http_exec $line } data
+         catch { puts $lmbox_chan $data }
+         if { [catch { flush $lmbox_chan }] } { break }
+       }
+     }
+    }
+}

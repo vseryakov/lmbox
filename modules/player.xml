@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<object name="player,player1,player2,player3">
+  <event name="OnFinish">
+    player_onfinish this
+    switch -- [lmbox getpage] {
+     videopage {
+       lmbox setpage [lmbox prevpage]
+     }
+    }
+  </event>
+  <event name="OnStart">
+    player_onstart this
+  </event>
+  <event name="OnStop">
+    player_onstop this
+  </event>
+</object>
+
+<page name="videopage" color="#1950b5" backgroundstyle="color">
+  <timer name="videotimer" interval="5000" enabled="false">
+    lmbox call player osd hide
+    lmbox set videotimer enabled 0
+    lmbox set videotimer interval 5000
+  </timer>
+  <event name="OnGotFocus">
+    lmbox call player move 0 0 0 0
+    if { [player_play] == -1 } {
+      lmbox setpage [lmbox prevpage]
+    }
+  </event>
+  <event name="OnLostFocus">
+  </event>
+  <event name="cancel"> lmbox setpage [lmbox prevpage] </event>
+  <event name="stop"> player_stop;lmbox setpage [lmbox prevpage] </event>
+  <event name="play"> player_play </event>
+  <event name="record"> player_record </event>
+  <event name="pause,button1"> player_pause </event>
+  <event name="mute"> player_mute </event>
+  <event name="info,green,button2"> player_info </event>
+  <event name="yellow"> player_event menu lmbox showoverlay videocontrolpage </event>
+  <event name="menu1"> player_event menu1 </event>
+  <event name="menu2"> player_event menu2 </event>
+  <event name="menu3"> player_event menu3 </event>
+  <event name="menu4"> player_event menu4 </event>
+  <event name="menu5"> player_event menu5 </event>
+  <event name="menu6"> player_event menu6 </event>
+  <event name="menu7"> player_event menu7 </event>
+  <event name="accept"> player_event accept </event>
+  <event name="up"> player_event up player_aspect -0.1 </event>
+  <event name="down"> player_event down player_aspect 0.1 </event>
+  <event name="prev"> player_event prev player_seek -600 </event>
+  <event name="next"> player_event next player_seek 600 </event>
+  <event name="nextpage,button5"> player_seek 20 </event>
+  <event name="prevpage,button4"> player_seek -20 </event>
+  <event name="nexttrack"> player_event nexttrack player_next </event>
+  <event name="prevtrack"> player_event prevtrack player_prev </event>
+  <event name="volumeup"> player_volume 2 </event>
+  <event name="volumedown"> player_volume -2 </event>
+  <event name="channelup"> player_event next player_aspect 0.1 </event>
+  <event name="channeldown"> player_event prev player_aspect -0.1 </event>
+  <event name="number0"> player_event number0 player_controls hue 256 </event>
+  <event name="number1"> player_event number1 player_controls hue -256 </event>
+  <event name="number2"> player_event number2 player_controls contrast 256 </event>
+  <event name="number3"> player_event number3 player_controls contrast -256 </event>
+  <event name="number4"> player_event number4 player_controls brightness 256 </event>
+  <event name="number5"> player_event number5 player_controls brightness -256 </event>
+  <event name="number6"> player_event number6 player_controls saturation 256 </event>
+  <event name="number7"> player_event number7 player_controls saturation -256 </event>
+  <event name="number8"> player_event number8 player_avoffset 3600 </event>
+  <event name="number9"> player_event number9 player_avoffset -3600 </event>
+  <event name="blue"> player_deinterlace </event>
+</page>
+
+<page name="videocontrolpage" color="#1950b5" backgroundstyle="color">
+  <timer name="videotimer" interval="5000" enabled="false">
+    lmbox call player osd hide
+    lmbox set videotimer enabled 0
+    lmbox set videotimer interval 5000
+  </timer>
+  <event name="OnGotFocus">
+    lmbox call player move 230 50 380 340
+    lmbox call system focusnext
+    lmbox set videoinfo caption [lmbox get player info]
+    if { [lmbox get player status] != "play" } { lmbox setpage [lmbox prevpage] }
+    foreach { key name } { position "Seek30" aspect "" hue "" brightness "" saturation "" contrast "" avoffset "A/V Sync" deinterlace "Deinterlace" } {
+      set name [lmbox_nvl $name [string totitle $key]]
+      switch -- $key {
+       deinterlace {
+          set filter [lindex [split [lmbox get player videofilter] :,=] 2]
+          set value [lmbox_nvl $filter None]
+       }
+       position {
+          set value [player_pos]
+          lmbox set videoposition2 caption "Seek900\n$value"
+       }
+       default {
+          set value [lmbox get player $key]
+       }
+      }
+      lmbox set video$key caption "$name\n$value"
+    }
+  </event>
+  <event name="stop,cancel"> lmbox showoverlay </event>
+  <event name="play"> player_play </event>
+  <event name="record"> player_record </event>
+  <event name="pause"> player_pause </event>
+  <event name="mute"> player_mute </event>
+  <event name="info,green,keyi"> player_info </event>
+  <event name="menu"> player_event menu player_info </event>
+  <event name="menu1"> player_event menu1 </event>
+  <event name="menu2"> player_event menu2 </event>
+  <event name="menu3"> player_event menu3 </event>
+  <event name="menu4"> player_event menu4 </event>
+  <event name="menu5"> player_event menu5 </event>
+  <event name="menu6"> player_event menu6 </event>
+  <event name="menu7"> player_event menu7 </event>
+  <event name="accept"> player_event accept </event>
+  <event name="up"> player_event up player_aspect -0.1 </event>
+  <event name="down"> player_event down player_aspect 0.1 </event>
+  <event name="prev"> player_event prev player_seek -900 </event>
+  <event name="next"> player_event next player_seek 900 </event>
+  <event name="nextpage"> player_seek 30 </event>
+  <event name="prevpage"> player_seek -30 </event>
+  <event name="nexttrack"> player_event nexttrack player_next </event>
+  <event name="prevtrack"> player_event prevtrack player_prev </event>
+  <event name="volumeup"> player_volume 5 </event>
+  <event name="volumedown"> player_volume -5 </event>
+  <event name="channelup"> player_event next player_aspect 0.1 </event>
+  <event name="channeldown"> player_event prev player_aspect -0.1 </event>
+  <event name="number0"> player_event number0 player_controls hue 256 </event>
+  <event name="number1"> player_event number1 player_controls hue -256 </event>
+  <event name="number2"> player_event number2 player_controls contrast 256 </event>
+  <event name="number3"> player_event number3 player_controls contrast -256 </event>
+  <event name="number4"> player_event number4 player_controls brightness 256 </event>
+  <event name="number5"> player_event number5 player_controls brightness -256 </event>
+  <event name="number6"> player_event number6 player_controls saturation 256 </event>
+  <event name="number7"> player_event number7 player_controls saturation -256 </event>
+  <event name="number8"> player_event number8 player_avoffset 3600 </event>
+  <event name="number9"> player_event number9 player_avoffset -3600 </event>
+  <event name="blue,keyd"> player_deinterlace </event>
+  <label x="20" y="10" template="titlelabel" caption="Video Controls" />
+  <label name="videoinfo" x="20" y="30" width="200" height="100" wordwrap="true" font="vera.ttf" fontsize="10" />
+
+  <button x="20" y="130" width="60" caption="Snapshot" template="t_videobutton" action="keyt">
+    player_snapshot
+  </button>
+
+  <button x="20" y="160" caption="&lt;&lt;" template="t_videobutton">
+    player_seek -30
+    set pos [player_pos]
+    lmbox set videoposition caption "Seek30\n$pos%"
+    lmbox set videoposition2 caption "Seek30\n$pos%"
+  </button>
+  <label name="videoposition" x="50" y="160" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="160" caption="&gt;&gt;" template="t_videobutton">
+    player_seek 30
+    set pos [player_pos]
+    lmbox set videoposition caption "Seek30\n$pos%"
+    lmbox set videoposition2 caption "Seek30\n$pos%"
+  </button>
+
+  <button x="20" y="190" caption="&lt;&lt;" template="t_videobutton">
+    player_seek -900
+    set pos [player_pos]
+    lmbox set videoposition caption "Seek900\n$pos%"
+    lmbox set videoposition2 caption "Seek900\n$pos%"
+  </button>
+  <label name="videoposition2" x="50" y="190" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="190" caption="&gt;&gt;" template="t_videobutton">
+    player_seek 900
+    set pos [player_pos]
+    lmbox set videoposition caption "Seek900\n$pos%"
+    lmbox set videoposition2 caption "Seek900\n$pos%"
+  </button>
+
+  <button x="20" y="220" caption="&lt;&lt;" template="t_videobutton">
+    player_aspect -0.1
+    lmbox set videoaspect caption "Aspect\n[lmbox get player aspect]"
+  </button>
+  <label name="videoaspect" x="50" y="220" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="220" caption="&gt;&gt;" template="t_videobutton">
+    player_aspect 0.1
+    lmbox set videoaspect caption "Aspect\n[lmbox get player aspect]"
+  </button>
+
+  <button x="20" y="250" caption="&lt;&lt;" template="t_videobutton">
+    player_controls hue -256
+    lmbox set videohue caption "Hue\n[lmbox get player hue]"
+  </button>
+  <label name="videohue" x="50" y="250" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="250" caption="&gt;&gt;" template="t_videobutton">
+    player_controls hue -256
+    lmbox set videohue caption "Hue\n[lmbox get player hue]"
+  </button>
+
+  <button x="20" y="280" caption="&lt;&lt;" template="t_videobutton">
+    player_controls contrast -256
+    lmbox set videocontrast caption "Contrast\n[lmbox get player contrast]"
+  </button>
+  <label name="videocontrast" x="50" y="280" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="280" caption="&gt;&gt;" template="t_videobutton">
+    player_controls contrast 256
+    lmbox set videocontrast caption "Contrast\n[lmbox get player contrast]"
+  </button>
+
+  <button x="20" y="310" caption="&lt;&lt;" template="t_videobutton">
+    player_controls brightness -256
+    lmbox set videobrightness caption "Brightness\n[lmbox get player brightness]"
+  </button>
+  <label name="videobrightness" x="50" y="310" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="310" caption="&gt;&gt;" template="t_videobutton">
+    player_controls brightness 256
+    lmbox set videobrightness caption "Brightness\n[lmbox get player brightness]"
+  </button>
+
+  <button x="20" y="340" caption="&lt;&lt;" template="t_videobutton">
+    player_controls saturation -256
+    lmbox set videosaturation caption "Saturation\n[lmbox get player saturartion]"
+  </button>
+  <label name="videosaturation" x="50" y="340" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="340" caption="&gt;&gt;" template="t_videobutton">
+    player_controls saturation 256
+    lmbox set videosaturation caption "Saturation\n[lmbox get player saturartion]"
+  </button>
+
+  <button x="20" y="370" caption="&lt;&lt;" template="t_videobutton">
+    player_avoffset -3600
+    lmbox set videoavoffset caption "A/V Sync\n[lmbox get player avoffset]"
+  </button>
+  <label name="videoavoffset" x="50" y="370" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="370" caption="&gt;&gt;" template="t_videobutton">
+    player_avoffset 3600
+    lmbox set videoavoffset caption "A/V Sync\n[lmbox get player avoffset]"
+  </button>
+
+  <button x="20" y="400" caption="&lt;&lt;" template="t_videobutton">
+    player_deinterlace
+    set filter [lindex [split [lmbox get player videofilter] :,=] 2]
+    lmbox set videodeinterlace caption "Deinterlace\n[lmbox_nvl $filter None]"
+  </button>
+  <label name="videodeinterlace" x="50" y="400" width="100" height="20" template="t_videolabel" />
+  <button x="150" y="400" caption="&gt;&gt;" template="t_videobutton">
+    player_deinterlace
+    set filter [lindex [split [lmbox get player videofilter] :,=] 2]
+    lmbox set videodeinterlace caption "Deinterlace\n[lmbox_nvl $filter None]"
+  </button>
+</page>
+
+</lmbox>

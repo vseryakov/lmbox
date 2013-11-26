@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="calendarpage" background="background.jpg">
+  <help>
+    Clicking or pressing on selected calendar square will
+    show calendar alarm page for the selected day.
+
+    Next/Prev buttons will move to the next/prev months.
+  </help>
+  <event name="OnGotFocus">
+    calendar_setup
+  </event>
+  <label x="20" y="10" name="calendartitle" width="300" height="20" template="clocklabel"></label>
+  <label x="480" y="10" template="titlelabel">lmBox: Calendar</label>
+  
+  <label x="30" y="30" width="700" height="20" font="fonts/efrom.ttf" fontsize="15" fontcolor="#011c05">Sun          Mon          Tue           Wed           Thu            Fri            Sat</label>
+
+  <button name="calendar0" x="20" y="50" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar1" x="105" y="50" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar2" x="190" y="50" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar3" x="275" y="50" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar4" x="360" y="50" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar5" x="445" y="50" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar6" x="530" y="50" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+
+  <button name="calendar7" x="20" y="105" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar8" x="105" y="105" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar9" x="190" y="105" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar10" x="275" y="105" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar11" x="360" y="105" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar12" x="445" y="105" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar13" x="530" y="105" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  
+  <button name="calendar14" x="20" y="160" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar15" x="105" y="160" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar16" x="190" y="160" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar17" x="275" y="160" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar18" x="360" y="160" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar19" x="445" y="160" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar20" x="530" y="160" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+
+  <button name="calendar21" x="20" y="215" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar22" x="105" y="215" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar23" x="190" y="215" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar24" x="275" y="215" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar25" x="360" y="215" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar26" x="445" y="215" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar27" x="530" y="215" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+
+  <button name="calendar28" x="20" y="270" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar29" x="105" y="270" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar30" x="190" y="270" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar31" x="275" y="270" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar32" x="360" y="270" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar33" x="445" y="270" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar34" x="530" y="270" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+
+  <button name="calendar35" x="20" y="325" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar36" x="105" y="325" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar37" x="190" y="325" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar38" x="275" y="325" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar39" x="360" y="325" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar40" x="445" y="325" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  <button name="calendar41" x="530" y="325" width="70" height="50" template="t_calendar">
+    calendar_day
+  </button>
+  
+  <button x="40" y="390" caption="Next" template="t_button2" action="nextpage">
+    calendar_setup nextMonth
+  </button>
+  <button x="140" y="390" caption="Prev" template="t_button2" action="prevpage">
+    calendar_setup prevMonth
+  </button>
+  <button x="240" y="390" caption="Back" template="t_button2" action="cancel">
+    lmbox setpage mainpage
+  </button>
+</page>
+
+<page name="calendardaypage" background="background.jpg">
+  <help>
+  Use arrow keys/buttons to select time.
+
+  Media button will show movie/music files to fire on alarm.
+  </help>
+  <event name="prevpage"> lmbox postevent home </event>
+  <event name="nextpage"> lmbox postevent end </event>
+  <label name="alarmclock" x="20" y="15" width="300" height="20" template="clocklabel" />
+  <label name="alarmtitle" x="500" y="15" template="titlelabel">lmBox: Alarm</label>
+
+  <label x="30" y="50" template="textlabel">Time:</label>
+  <listbox name="hourslist" x="100" y="50" width="45" height="20" template="t_listbox5" >
+  </listbox>
+  <label x="145" y="50" template="textlabel">:</label>
+  <listbox name="minuteslist" x="160" y="50" width="45" height="20" template="t_listbox5" >
+  </listbox>
+  <label x="30" y="85" template="textlabel">Alarm:</label>
+  <textfield name="alarmtext" x="100" y="85" width="100" template="t_textfield" />
+  <label x="30" y="120" template="textlabel">Type:</label>
+  <listbox name="typelist" x="110" y="120" width="100" height="20" template="t_listbox5" >
+    <event name="OnSelectionChange">
+      lmbox set alarmfile caption Choose...
+    </event>
+  </listbox>
+  <label x="30" y="155" template="textlabel">Media:</label>
+  <button name="alarmfile" x="110" y="155" caption="Choose..." template="t_button" color="#1a4f7b" height="20">
+    <event name="OnClick">
+      calendar_media
+    </event>
+    <event name="OnGotFocus">
+      lmbox set alarmstatus caption [lmbox get alarmfile caption]
+    </event>
+    <event name="OnLostFocus">
+      lmbox set alarmstatus caption ""
+    </event>
+  </button>
+  <label x="30" y="190" template="textlabel">Repeat:</label>
+  <listbox name="repeatlist" x="110" y="190" width="100" height="20" template="t_listbox5" />
+
+  <button x="30" y="380" caption="Add" template="t_button2" action="play">
+    calendar_add
+  </button>
+  <button x="130" y="380" caption="Reset" template="t_button2">
+    calendar_reset
+  </button>
+  <button x="230" y="380" caption="Delete" template="t_button2">
+    calendar_remove
+  </button>
+  <button x="330" y="380" caption="Back" template="t_button2" action="cancel">
+    lmbox setpage calendarpage
+  </button>
+
+  <listbox name="alarmlist" x="220" y="60" width="350" height="270" template="t_alarmlist">
+    <event name="OnSelectionChange">
+      calendar_info
+    </event>
+    <event name="OnGotFocus">
+      calendar_info
+    </event>
+    <event name="OnLostFocus">
+      lmbox set alarmstatus caption ""
+    </event>
+  </listbox>
+  <label name="alarmstatus" x="30" y="410" width="450" height="40" template="statuslabel" fontcolor="#000000"></label>
+</page>
+
+</lmbox>
+

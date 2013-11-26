@@ -1,0 +1,4 @@
+event=button/power.*
+action=/sbin/halt
+
+

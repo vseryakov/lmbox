@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="configpage" background="background.jpg">
+   <clocklabel x="20" y="10"  width="300" height="20" template="clocklabel"></clocklabel>
+   <label x="400" y="10" template="titlelabel">lmBox: Settings</label>
+   <listbox name="configlist" x="20" y="50" width="570" height="300" template="t_configlist">
+     <event name="OnChoose">
+       eval [lmbox get configlist selecteddata]
+     </event>
+   </listbox>
+   <button x="20" y="360" caption="Back" template="t_button2" action="cancel">
+     <event name="OnGotFocus">
+       lmbox set status caption "Go to main menu"
+     </event>
+     <event name="OnClick">
+       lmbox setpage mainpage
+     </event>
+   </button>
+   <label name="status" x="20" y="400" width="610" height="30" template="statuslabel"></label>
+</page>
+
+<page name="mainconfigpage" background="background.jpg">
+  <event name="prevpage"> lmbox postevent home </event>
+  <event name="nextpage"> lmbox postevent end </event>
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label name="configtitle" x="400" y="10" template="titlelabel">lmBox: Main Settings</label>
+
+  <label x="30" y="70" width="100" height="20" template="infolabel">Admin Code:</label>
+  <textfield name="admin_password" x="140" y="65" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Admin password to access restricted pages"
+    </event>
+  </textfield>
+  <label x="30" y="100" width="100" height="20" template="infolabel">Teen Code:</label>
+  <textfield name="teen_password" x="140" y="95" width="70" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Teen password to access restricted pages"
+    </event>
+  </textfield>
+  <label x="30" y="130" width="100" height="20" template="infolabel">HTTP Port:</label>
+  <textfield name="http_port" x="140" y="125" width="70" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Port for HTTP server, 0 to disable embedded http server"
+    </event>
+  </textfield>
+  <label x="30" y="160" width="100" height="20" template="infolabel">HTTP Allow:</label>
+  <textfield name="allow_from" x="140" y="155" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "IP addresses from which HTTP connections are allowed"
+    </event>
+  </textfield>
+  <label x="30" y="190" width="100" height="20" template="infolabel">Modem:</label>
+  <textfield name="modem_device" x="140" y="185" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Modem device for CallerID detection, usually /dev/modem"
+    </event>
+  </textfield>
+
+  <label x="300" y="70" width="200" height="25" template="infolabel">Sound Effects</label>
+  <togglebutton name="sound_effects" x="410" y="65" template="t_togglebutton" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Play short sound effects on menu mvovements"
+    </event>
+  </togglebutton>
+  <label x="300" y="100" width="100" height="20" template="infolabel">Music Effects</label>
+  <listbox name="music_effects" x="410" y="100" width="140" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Visual effects during music playback"
+    </event>
+  </listbox>
+  <label x="300" y="130" width="100" height="20" template="infolabel">Photo Effects</label>
+  <listbox name="photo_effects" x="410" y="130" width="140" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Visual effects during photo albums view"
+    </event>
+  </listbox>
+  <label x="300" y="160" width="100" height="20" template="infolabel">Idle Minutes</label>
+  <listbox name="idle_shutdown" x="410" y="160" width="30" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Shutdown lmbox after given idle minutes, 0 disables shutdown"
+    </event>
+  </listbox>
+
+  <button x="100" y="370" caption="Save" template="t_button2" action="save">
+    config_save
+    lmbox setpage configpage
+  </button>
+  <button x="200" y="370" caption="Back" template="t_button2" action="cancel">
+    lmbox setpage configpage
+  </button>
+  <label name="status" x="20" y="405" width="610" height="50" template="statuslabel"></label>
+</page>
+
+<page name="pathconfigpage" background="background.jpg">
+  <event name="prevpage"> lmbox postevent home </event>
+  <event name="nextpage"> lmbox postevent end </event>
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label name="configtitle" x="400" y="10" template="titlelabel">lmBox: Path Settings</label>
+
+  <label x="30" y="70" width="100" height="20" template="infolabel">Movie CSV File:</label>
+  <textfield name="movie_file" x="170" y="65" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to CSV file with movie descriptions, format is: ID|Title|Files|CreateTime|UpdateTime|Genre|Description"
+    </event>
+  </textfield>
+  <label x="30" y="100" width="100" height="20" template="infolabel">Movies:</label>
+  <textfield name="movie_path" x="170" y="95" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to movie files, multiple directories can be provided, if path contains spaces, the whole directory name should be embraced with { }"
+    </event>
+  </textfield>
+  <label x="30" y="130" width="100" height="20" template="infolabel">Photos:</label>
+  <textfield name="photo_path" x="170" y="125" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to photo albums"
+    </event>
+  </textfield>
+  <label x="30" y="160" width="100" height="20" template="infolabel">Music:</label>
+  <textfield name="music_path" x="170" y="155" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to music files"
+    </event>
+  </textfield>
+  <label x="30" y="190" width="100" height="20" template="infolabel">Home Videos:</label>
+  <textfield name="camera_path" x="170" y="185" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to camera/video clips"
+    </event>
+  </textfield>
+  <label x="30" y="220" width="100" height="20" template="infolabel">Covers:</label>
+  <textfield name="cover_path" x="170" y="215" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to movie covers"
+    </event>
+  </textfield>
+  <label x="30" y="250" width="100" height="20" template="infolabel">Contacts:</label>
+  <textfield name="contact_path" x="170" y="245" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to contact images and text files"
+    </event>
+  </textfield>
+  <label x="30" y="280" width="100" height="20" template="infolabel">Games:</label>
+  <textfield name="games_path" x="170" y="275" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to flash games"
+    </event>
+  </textfield>
+
+  <button x="100" y="370" caption="Save" template="t_button2" action="save">
+    config_save
+    lmbox setpage configpage
+  </button>
+  <button x="200" y="370" caption="Back" template="t_button2" action="cancel">
+    lmbox setpage configpage
+  </button>
+  <label name="status" x="20" y="400" width="610" height="60" template="statuslabel"></label>
+</page>
+
+<page name="fontspage" background="background.jpg">
+   <help>
+   Page for rendering fonts in realtime to see how they look
+   </help>
+   <event name="OnGotFocus">
+     lmbox set fontlist rootpath fonts/
+   </event>
+   <event name="f12">
+     set fontsize [lmbox get fonttext fontsize]
+     if { $fontsize != 8 } {
+       incr fontsize -1
+       lmbox set fonttext fontsize $fontsize
+     }
+   </event>
+   <event name="f11">
+     set fontsize [lmbox get fonttext fontsize]
+     if { $fontsize != 26 } {
+       incr fontsize
+       lmbox set fonttext fontsize $fontsize
+     }
+   </event>
+   <event name="cancel">
+     lmbox setpage mainpage
+   </event>
+   <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+   <label x="450" y="10" template="titlelabel">lmBox: Fonts</label>
+   <filebrowser name="fontlist" x="15" y="40" width="370" height="350" template="t_movielist" >
+     <event name="OnSelectionChange">
+       set path [lmbox get fontlist filename]
+       if { ![file isdirectory $path] } {
+         lmbox set fonttext font $path
+         lmbox set fonttext caption "This is a text for testing font rendering of [file tail $path]. Use F11 and F12 keys to insrease or decrease font size."
+       }
+     </event>
+   </filebrowser>
+   <label name="fonttext" x="400" y="40" width="180" height="200" font="vera.ttf" fontsize="16" wordwrap="true"/>
+</page>
+
+</lmbox>
+

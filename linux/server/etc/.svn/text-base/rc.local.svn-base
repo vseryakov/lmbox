@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# /etc/rc.local: Local multi-user startup script.
+#
+
+rmmod genrtc
+modprobe rtc
+echo 1024 > /proc/sys/dev/rtc/max-user-freq
+
+sleep 10
+hdparm -q -A1 -d1 -S248 /dev/hda
+hdparm -q -A1 -a32 -d1 -S248 /dev/hdb
+hdparm -q -A1 -a32 -d1 -S248 /dev/hdc
+hdparm -q -A1 -a32 -d1 -S248 /dev/hdd
+hdparm -q -A1 -a32 -d1 -S248 /dev/hde
+hdparm -q -A1 -a32 -d1 -S248 /dev/hdf
+
+ntpdate tick.usno.navy.mil
+
+/usr/local/bin/ddclient
+
+amixer sset Line mute
+
+

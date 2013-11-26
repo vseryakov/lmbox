@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<system>
+  <event name="mymusic">
+    lmbox setpage musicpage
+  </event>
+</system>
+
+<page name="musicpage" background="background.jpg">
+  <help>
+  Music player supports playback as single songs and the whole directories. Just
+  select directory and press Play.
+
+  Volume up/down will control music volume.
+
+  Shuffle button when pressed will change it title to Unshuffle and when Play pressed 
+  will randomize songs list.
+
+  During playback, next page button will make the player to play next song in 
+  the play list.
+  </help>
+  <event name="OnGotFocus">
+    lmbox set musicfilelist rootpath [music_setup]
+  </event>
+  <event name="prevtrack"> music_prev </event>
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel"></clocklabel>
+  <label name="musiccount" x="300" y="10" width="150" height="20" template="countlabel"></label>
+  <label name="musictitle" x="400" y="10" template="titlelabel">lmBox: Music</label>
+  <label name="musicinfo" x="285" y="40" width="290" height="320" template="t_musicinfo" />
+  <picture name="musicicon" x="450" y="214" width="120" height="140" image="none.gif" />
+  <filebrowser name="musicfilelist" x="20" y="40" width="250" height="320" template="t_musiclist">
+    <event name="OnGotFocus">
+      music_info count [lmbox get musicfilelist filename]
+      music_info file [lmbox get musicfilelist filename]
+    </event>
+    <event name="OnPathChange">
+      music_info count [lmbox get musicfilelist filename]
+    </event>
+    <event name="OnSelectionChange">
+      music_info file [lmbox get musicfilelist filename]
+    </event>
+    <event name="OnChoose">
+      music_play
+    </event>
+  </filebrowser>
+  <button x="20" y="390" caption="Play" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set musicstatus caption "Play music track"
+    </event>
+    <event name="OnClick">
+      music_play
+    </event>
+  </button>
+  <button x="90" y="390" caption="Pause" template="t_graybutton" action="pause">
+    <event name="OnGotFocus">
+      lmbox set musicstatus caption "Pause music player"
+    </event>
+    <event name="OnClick">
+      music_pause
+    </event>
+  </button>
+  <button x="160" y="390" caption="Stop" template="t_graybutton" action="stop">
+    <event name="OnGotFocus">
+      lmbox set musicstatus caption "Stop music player"
+    </event>
+    <event name="OnClick">
+      music_stop
+    </event>
+  </button>
+  <button x="230" y="390" caption="Next" template="t_redbutton" action="red,nexttrack">
+    <event name="OnGotFocus">
+      lmbox set musicstatus caption "Play next track"
+    </event>
+    <event name="OnClick">
+      music_next
+    </event>
+  </button>
+  <button x="300" y="390" caption="Shuffle" template="t_greenbutton" action="green" name="shuffle">
+    <event name="OnGotFocus">
+      lmbox set musicstatus caption "Set/unset random playing mode"
+    </event>
+    <event name="OnClick">
+      music_shuffle
+    </event>
+  </button>
+  <button x="370" y="390" caption="Info" template="t_yellowbutton" action="yellow,info">
+    <event name="OnGotFocus">
+      lmbox set musicstatus caption "Scroll info text"
+    </event>
+    <event name="OnClick">
+      music_info scroll [lmbox get musicfilelist filename]
+    </event>
+  </button>
+  <button x="440" y="390" caption="Favorite" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Add song(s) to favorite links"
+    </event>
+    <event name="OnClick">
+      music_favorite [lmbox get musicfilelist filename]
+    </event>
+  </button>
+  <button x="520" y="390" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set musicstatus caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <label name="status" x="20" y="425" width="620" height="30" template="statuslabel"></label>
+</page>
+
+<page name="musicselectpage" background="background.jpg">
+  <event name="OnGotFocus">
+    lmbox set musicfilelist rootpath [music_setup]
+    music_info count [lmbox get musicfilelist filename]
+  </event>
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel"></clocklabel>
+  <label name="musiccount" x="300" y="10" width="150" height="20" template="countlabel"></label>
+  <label name="musictitle" x="500" y="10" template="titlelabel">lmBox: Music</label>
+  <filebrowser name="musicfilelist" x="15" y="50" width="570" height="320" template="t_listbox2">
+    <event name="OnChoose">
+      music_select
+    </event>
+    <event name="OnPathChange">
+      music_info count [lmbox get musicfilelist filename]
+    </event>
+  </filebrowser>
+  <button x="20" y="390" caption="Select" template="t_redbutton" action="play">
+    music_select
+  </button>
+  <button x="150" y="390" caption="Cancel" template="t_bluebutton" action="cancel">
+    lmbox setpage [lmbox prevpage]
+  </button>
+  <label name="status" x="15" y="420" width="620" height="30" template="statuslabel"></label>
+</page>
+
+</lmbox>

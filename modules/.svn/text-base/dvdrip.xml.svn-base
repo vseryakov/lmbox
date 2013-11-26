@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="dvdrippage" background="background.jpg">
+  <event name="OnGotFocus">
+    dvdrip_setup
+  </event>
+  <timer interval="10000" enabled="true">
+    dvdrip_info progress
+  </timer>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel" />
+  <label x="450" y="10" template="titlelabel">lmBox: DVD Rip</label>
+  <label x="30" y="40" width="100" height="20" template="yellowlabel">DVD Titles:</label>
+  <listbox name="dvdtitle" x="30" y="60" width="350" height="170" template="t_movielist" fontsize="14">
+    <event name="OnGotFocus">
+      lmbox set status caption "List of DVD titles"
+    </event>
+    <event name="OnSelectionChange">
+      dvdrip_info status
+    </event>
+  </listbox>
+  <label x="30" y="250" width="100" height="20" template="yellowlabel">Save Name:</label>
+  <textfield name="dvdname" x="30" y="270" width="260" template="t_textfield" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Name of the ripped movie file"
+    </event>
+  </textfield>
+  <label x="30" y="310" width="80" height="20" template="yellowlabel">MP3 Audio:</label>
+  <togglebutton name="dvdmp3" x="110" y="310" template="t_togglebutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Check if you want to rip audio in MP3 format instead of AC3 (optional)"
+    </event>
+  </togglebutton>
+  <label x="170" y="310" width="80" height="20" template="yellowlabel">Audio Track:</label>
+  <listbox name="dvdaudio" x="260" y="310" width="100" height="20" template="t_listbox5">
+    <event name="OnGotFocus">
+      lmbox set status caption "Use different audio track if any, default is first track (optional)"
+    </event>
+  </listbox>
+  <label x="370" y="310" width="80" height="20" template="yellowlabel">Subtitles:</label>
+  <listbox name="dvdsubtitle" x="450" y="310" width="50" height="20" template="t_listbox5">
+    <event name="OnGotFocus">
+      lmbox set status caption "Extract subtitles channel, use Info to see what subtitles IDs are available"
+    </event>
+  </listbox>
+  <picture name="dvdicon" x="390" y="40" width="200" height="230" image="none.gif" />
+  <button x="30" y="370" caption="Scan" template="t_greenbutton" action="green">
+    <event name="OnGotFocus">
+      lmbox set status caption "Scan DVD titles"
+    </event>
+    <event name="OnClick">
+      lmbox run dvdrip_scan
+    </event>
+  </button>
+  <button x="100" y="370" caption="Rip" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Perform DVD ripping"
+    </event>
+    <event name="OnClick">
+      lmbox run "dvdrip_run {} {} [lmbox get dvdmp3 checked]"
+    </event>
+  </button>
+  <button x="170" y="370" caption="Play" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Play selected DVD title"
+    </event>
+    <event name="OnClick">
+      dvdrip_play
+    </event>
+  </button>
+  <button x="240" y="370" caption="Info" template="t_graybutton" action="info">
+    <event name="OnGotFocus">
+      lmbox set status caption "Show details about selected DVD title"
+    </event>
+    <event name="OnClick">
+      dvdrip_info title
+    </event>
+  </button>
+  <button x="310" y="370" caption="Screenshot" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Take random screenshot from the selected DVD title"
+    </event>
+    <event name="OnClick">
+      dvdrip_screenshot
+    </event>
+  </button>
+  <button x="410" y="370" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Return to the main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <label name="status" x="20" y="400" width="550" height="60" template="statuslabel" />
+</page>
+
+</lmbox>

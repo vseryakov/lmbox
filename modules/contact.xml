@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="contactpage" background="background.jpg">
+  <help>
+  </help>
+  <event name="OnGotFocus">
+    switch -- [set seek [lmbox get contactseek text]] {
+     "" -
+     Filter {
+        lmbox set contactseek text Filter
+        contact_setup
+     }
+     default {
+        contact_setup "\[regexp -nocase {$seek} \[contact_values\]]"
+     }
+    }
+    lmbox call contactlist setfocus
+  </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel" />
+  <label name="contactcount" x="350" y="10" width="200" height="20" template="countlabel"></label>
+  <label name="contacttitle" x="450" y="10" template="titlelabel">lmBox: Contacts</label>
+  <listbox name="contactlist" x="15" y="40" width="370" height="300" template="t_contactlist">
+    <event name="OnGotFocus">
+      contact_info status [lmbox get contactlist selecteddata]
+    </event>
+    <event name="OnChoose">
+      contact_info info [lmbox get contactlist selecteddata]
+    </event>
+    <event name="OnSelectionChange">
+      contact_info status [lmbox get contactlist selecteddata]
+    </event>
+  </listbox>
+  <picture name="contacticon" x="390" y="45" width="180" height="260" image="none.gif" borderstyle="normal" bordercolor="#e0e2e5" />
+  <button x="20" y="405" caption="Info" template="t_greenbutton" action="green,info">
+    <event name="OnGotFocus">
+      lmbox set status caption "Contact details"
+    </event>
+    <event name="OnClick">
+      contact_info info [lmbox get contactlist selecteddata]
+    </event>
+  </button>
+  <textfield name="contactseek" x="80" y="405" template="t_yellowbutton" fontcolor="#e0e2e5" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Enter contacts filter"
+      if { [lmbox get contactseek text] == "Filter" } {
+        lmbox set contactseek text ""
+      }
+    </event>
+    <event name="OnLostFocus">
+      if { [lmbox get contactseek text] == "" } {
+        lmbox set contactseek text Filter
+      }
+    </event>
+    <event name="OnChange">
+      if { [set seek [lmbox get contactseek text]] != "" } {
+        contact_setup "\[regexp -nocase {$seek} \[contact_values\]]" 1
+      }
+    </event>
+  </textfield>
+  <button x="140" y="405" caption="Back" template="t_bluebutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <label name="status" x="50" y="350" width="550" height="40" template="statuslabel" />
+</page>
+
+</lmbox>

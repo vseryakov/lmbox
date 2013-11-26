@@ -1,0 +1,13 @@
+#!/bin/sh
+
+/sbin/killall5 -15
+/sbin/killall5 -9
+/sbin/swapoff -a
+/bin/umount -a
+/bin/mount -n -o remount,ro /
+
+if [ "$RUNLEVEL" = "0" ]; then
+    /sbin/poweroff -d -f -h -i
+else
+    /sbin/reboot -d -f -i
+fi

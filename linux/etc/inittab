@@ -1,0 +1,6 @@
+id:5:initdefault:
+s1::sysinit:/etc/rc.sysinit
+s4::ctrlaltdel:/sbin/shutdown -t3 -r now
+s2:06:wait:/etc/rc.shutdown
+r2:S12345:wait:/etc/rc.sync
+x1:S12345:respawn:/etc/rc.xstart

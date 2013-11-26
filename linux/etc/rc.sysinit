@@ -1,0 +1,60 @@
+#!/bin/sh
+
+/bin/hostname lmbox
+/bin/mount -n -t proc none /proc
+/bin/mount -n -t sysfs none /sys
+/sbin/swapon -a
+/bin/mount -n -o remount,ro /
+/etc/start_udev
+
+if [ -x /sbin/fsck ]; then
+  /sbin/fsck -A -T -C -a
+  if [ $? -gt 1 ]; then
+    echo "Filesystem check failed, please repair manually and reboot."
+    #/sbin/sulogin -p
+    /bin/umount -a
+    /bin/mount -n -o remount,ro /
+    /sbin/reboot -f
+    exit 0
+  fi
+fi
+/bin/mount -n -o remount,rw /
+/bin/rm -rf /etc/mtab* /tmp/.X*
+/bin/mount -o remount,rw /
+/bin/mount -f -t proc none /proc
+/bin/mount -f -t sysfs none /sys
+/bin/mount -a -t noproc,nosysfs,noext3,nonfs
+
+/bin/echo 1024 > /proc/sys/dev/rtc/max-user-freq
+
+export HOME=/root
+export PATH=$PATH:/usr/X11R6/bin:/usr/local/bin
+ulimit -c unlimited
+
+/sbin/hdparm -q -A1 -a32 -d1 -S248 /dev/hda
+/sbin/hwclock --localtime --hctosys
+/usr/bin/setserial /dev/ttyS0 uart none
+/usr/bin/setterm -blank 0
+
+/sbin/modprobe button
+/sbin/rmmod genrtc
+/sbin/modprobe rtc
+/sbin/modprobe usbhid
+/sbin/modprobe uhci-hcd
+/sbin/modprobe lirc_serial
+/sbin/modprobe 8139too
+/sbin/modprobe snd-emu10k1
+/sbin/modprobe ivtv
+
+/sbin/ifconfig lo 127.0.0.1
+/sbin/ifconfig eth0 192.168.0.5 netmask 255.255.255.0 broadcast 192.168.0.255
+/sbin/route add default gw 192.168.0.1
+
+/usr/sbin/syslogd -m 0
+/sbin/portmap
+/usr/sbin/sshd
+/usr/sbin/acpid -l /var/log/messages
+/usr/sbin/lircd -d /dev/lirc0
+/usr/sbin/alsactl restore
+
+echo Layout1 > /etc/rc.layout

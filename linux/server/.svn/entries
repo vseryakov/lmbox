@@ -1,0 +1,34 @@
+8
+
+dir
+643
+svn://cbi/lmbox/linux/server
+svn://cbi
+
+
+
+2007-03-13T22:38:56.852041Z
+1
+vlad
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a039343a-d428-4015-8587-7628d4a5aa31
+
+tftpboot
+dir
+
+etc
+dir
+

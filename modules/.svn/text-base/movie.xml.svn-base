@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<system>
+  <event name="myvideos">
+    movie_setup Movie
+    lmbox setpage moviepage
+  </event>
+</system>
+
+<page name="moviepage" background="background.jpg">
+  <help>
+  Movie page lists all available movies.
+
+  To play a movie select it in the listbox and press Play
+  button to watch the whole movie or Select/Enter/OK button
+  to continue from the last stop.
+
+  If movie consists from multiple files, on the status it
+  will be shown as #1-2 or #1-n, where n is the file count.
+
+  To jump in the movie list, press 2 to selected the first
+  movie that begins with A, to jump to the first movie that begins
+  with D press 3, press 4 to jump to the movies starting with G,
+  press 5 to jump to letter J, press 6 to jump to letter M, press
+  7 to jump to letter P, press 8 to jump to letter T, press 9 to
+  jump to letter W.
+
+  In the movie info page, press page down/up to scroll info text
+
+  Movie search page works like a filter, it stays until changed.
+  </help>
+  <event name="OnGotFocus">
+    switch -- [set seek [lmbox get movieseek text]] {
+     "" -
+     Filter {
+        lmbox set movieseek text Filter
+     }
+     default {
+        movie_setup "" "\[regexp -nocase {$seek} \$title\]"
+     }
+    }
+    lmbox call movie_list setfocus
+  </event>
+  <event name="yellow"> lmbox call movieseek setfocus </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label name="movie_count" x="350" y="10" width="200" height="20" template="countlabel"></label>
+  <label x="450" y="10" template="titlelabel">lmBox: Movies</label>
+  <line x="13" y="27" width="600" height="1" template="titlelabel" />
+  <line x="13" y="379" width="600" height="1" template="titlelabel" />
+
+  <listbox name="movie_list" x="15" y="40" width="370" height="290" template="t_movielist">
+    <event name="OnGotFocus">
+      movie_info genre [lmbox get movie_list selecteddata]
+    </event>
+    <event name="OnChoose">
+      movie_play [lmbox get movie_list selecteddata]
+    </event>
+    <event name="OnSelectionChange">
+      movie_info genre [lmbox get movie_list selecteddata]
+      sound_click
+    </event>
+  </listbox>
+  <picture name="movieicon" x="410" y="40" template="t_movieimage" />
+  <button name="movieplay" x="15" y="340" caption="Play" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Play movie"
+    </event>
+    <event name="OnClick">
+      movie_play [lmbox get movie_list selecteddata] 1
+    </event>
+  </button>
+  <button x="75" y="340" caption="Search" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Specify search criteria"
+    </event>
+    <event name="OnClick">
+      lmbox setpage moviesearchpage
+    </event>
+  </button>
+  <button x="135" y="340" caption="Info" template="t_greenbutton" action="green,info">
+    <event name="OnGotFocus">
+      lmbox set status caption "See movie information"
+    </event>
+    <event name="OnClick">
+      lmbox set movieinfopage data [lmbox get movie_list selecteddata]
+      lmbox varset movie_prevpage [lmbox getpage]
+      lmbox setpage movieinfopage
+    </event>
+  </button>
+  <button x="195" y="340" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <button x="255" y="340" caption="Favorite" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Add the movie to favorite links"
+    </event>
+    <event name="OnClick">
+      movie_favorite [lmbox get movie_list selecteddata]
+    </event>
+  </button>
+  <textfield name="movieseek" x="325" y="340" template="t_yellowbutton" fontcolor="#e0e2e5" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Enter movie filter"
+      if { [lmbox get movieseek text] == "Filter" } {
+        lmbox set movieseek text ""
+      }
+    </event>
+    <event name="OnLostFocus">
+      if { [lmbox get movieseek text] == "" } {
+        lmbox set movieseek text Filter
+      }
+    </event>
+    <event name="OnChange">
+      movie_setup "" "\[regexp -nocase {[lmbox get movieseek text]} \$title\]"
+    </event>
+  </textfield>
+  <label name="status" x="50" y="380" width="550" height="60" template="statuslabel" />
+</page>
+
+<page name="movieinfopage" background="background.jpg">
+  <event name="OnGotFocus">
+    movie_info info [lmbox get movieinfopage data]
+    lmbox call moviefilelist setfocus
+  </event>
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel"></clocklabel>
+  <label x="400" y="10" template="titlelabel">lmBox: Movies</label>
+  <line x="13" y="27" width="600" height="1" template="titlelabel" />
+
+  <listbox name="moviefilelist" x="20" y="40" width="350" height="120" borderstyle="normal" abordercolor="#e0e2e5" bordercolor="#000000" template="t_movielist">
+    <event name="*">
+      switch -- [lmbox getevent] {
+       nextpage {
+          lmbox set moviedescr lineoffset [expr [lmbox get moviedescr lineoffset]+3]
+       }
+       prevpage {
+          lmbox set moviedescr lineoffset [expr [lmbox get moviedescr lineoffset]-3]
+       }
+       accept {
+          movie_play [lmbox get movieinfopage data] 0 [lmbox get moviefilelist selecteddata]
+       }
+       default {
+          return lmbox_ignore
+       }
+      }
+    </event>
+    <event name="OnSelectionChange">
+      movie_info file [lmbox get moviefilelist selecteddata]
+    </event>
+    <event name="OnChoose">
+      movie_play [lmbox get movieinfopage data] 0 [lmbox get moviefilelist selecteddata]
+    </event>
+  </listbox>
+  <label name="moviedescr" x="20" y="165" width="350" height="230" template="infolabel" fontcolor="#e0e2e5" />
+  <picture name="movieicon" x="410" y="40" template="t_movieimage" />
+  <label name="status" x="440" y="335" width="180" height="180" template="statuslabel" textalign="top" />
+  <button x="20" y="410" caption="Play" template="t_greenbutton" action="green,play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Play selected movie file"
+    </event>
+    <event name="OnClick">
+      movie_play [lmbox get movieinfopage data] 0 [lmbox get moviefilelist selecteddata]
+    </event>
+  </button>
+  <button x="80" y="410" caption="Search" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Specify search criteria"
+    </event>
+    <event name="OnClick">
+      lmbox setpage moviesearchpage
+    </event>
+  </button>
+  <button x="140" y="410" caption="Back" template="t_bluebutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to movies page"
+    </event>
+    <event name="OnClick">
+      lmbox setpage [lmbox var movie_prevpage [lmbox prevpage]]
+      lmbox varset movie_prevpage ""
+    </event>
+  </button>
+  <button x="200" y="410" caption="Reset" template="t_yellowbutton" action="yellow">
+    <event name="OnGotFocus">
+      lmbox set status caption "Reset movie cache"
+    </event>
+    <event name="OnClick">
+      movie_reset [lmbox get movieinfopage data]
+      lmbox set status caption "Movie saved positions cleared, all files will be played from the beginning"
+    </event>
+  </button>
+  <button x="260" y="410" caption="<<" template="t_graybutton" action="prevpage">
+    <event name="OnGotFocus">
+      lmbox set status caption "Scroll description backward"
+    </event>
+    <event name="OnClick">
+      lmbox set moviedescr lineoffset [expr [lmbox get moviedescr lineoffset]-3]
+    </event>
+  </button>
+  <button x="320" y="410" caption=">>" template="t_graybutton" action="nextpage">
+    <event name="OnGotFocus">
+      lmbox set status caption "Scroll description forward"
+    </event>
+    <event name="OnClick">
+      lmbox set moviedescr lineoffset [expr [lmbox get moviedescr lineoffset]+3]
+    </event>
+  </button>
+  <button x="380" y="410" caption="Icon" template="t_graybutton" action="nextpage">
+    <event name="OnGotFocus">
+      lmbox set status caption "Make movie screenshot for icon"
+    </event>
+    <event name="OnClick">
+      movie_snapshot [lmbox get movieinfopage data]
+      movie_info info [lmbox get movieinfopage data]
+    </event>
+  </button>
+</page>
+
+<page name="moviesearchpage" background="background.jpg">
+  <event name="OnGotFocus">
+    movie_genres list Genres
+  </event>
+  <event name="prevpage"> lmbox postevent home </event>
+  <event name="nextpage"> lmbox postevent end </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label x="350" y="10" template="titlelabel">lmBox: Movie Search</label>
+  <rectangle x="13" y="27" width="620" height="373" template="titlelabel" borderstyle="round" backgroundstyle="none" />
+  <label x="40" y="50" width="80" height="30" template="infolabel">Keywords:</label>
+  <textfield name="Keyword" x="130" y="50" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search for given keyword in movie titles, genres, actors, descriptions"
+    </event>
+    <event name="OnLostFocus">
+      lmbox_filter movie_filter
+    </event>
+  </textfield>
+
+  <label x="40" y="90" width="80" height="30" template="infolabel">Title:</label>
+  <textfield name="Title" x="130" y="90" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search for given keyword in movie titles"
+    </event>
+    <event name="OnLostFocus">
+      lmbox_filter movie_filter
+    </event>
+  </textfield>
+
+  <label x="40" y="130" width="80" height="30" template="infolabel">Genres:</label>
+  <textfield name="Genre" x="130" y="130" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search for given keyword in movie genre"
+    </event>
+    <event name="OnLostFocus">
+      lmbox_filter movie_filter
+    </event>
+  </textfield>
+
+  <label x="40" y="170" width="80" height="30" template="infolabel">Actors:</label>
+  <textfield name="Actor" x="130" y="170" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search for given keyword in movie actors and crews"
+    </event>
+    <event name="OnLostFocus">
+      lmbox_filter movie_filter
+    </event>
+  </textfield>
+
+  <label x="40" y="210" width="80" height="30" template="infolabel">Description:</label>
+  <textfield name="Description" x="130" y="210" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search for given keyword in movie descriptions"
+    </event>
+    <event name="OnLostFocus">
+      lmbox_filter movie_filter
+    </event>
+  </textfield>
+
+  <label x="70" y="280" width="70" height="30" template="infolabel">New</label>
+  <togglebutton name="New" x="40" y="280" template="t_togglebutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search new or never seen movies"
+    </event>
+    <event name="OnClick">
+      lmbox_filter movie_filter
+    </event>
+  </togglebutton>
+
+  <label x="180" y="280" width="70" height="30" template="infolabel">New5</label>
+  <togglebutton name="New5" x="150" y="280" template="t_togglebutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search new movies added in the last 5 days"
+    </event>
+    <event name="OnClick">
+      lmbox_filter movie_filter
+    </event>
+  </togglebutton>
+
+  <label x="290" y="280" width="70" height="30" template="infolabel">New10</label>
+  <togglebutton name="New10" x="260" y="280" template="t_togglebutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search new movies added in the last 10 days"
+    </event>
+    <event name="OnClick">
+      lmbox_filter movie_filter
+    </event>
+  </togglebutton>
+
+  <label x="70" y="320" width="70" height="30" template="infolabel">New30</label>
+  <togglebutton name="New30" x="40" y="320" template="t_togglebutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search new movies added in the last 30 days"
+    </event>
+    <event name="OnClick">
+      lmbox_filter movie_filter
+    </event>
+  </togglebutton>
+
+  <label x="180" y="320" width="70" height="30" template="infolabel">New60</label>
+  <togglebutton name="New60" x="150" y="320" template="t_togglebutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search new movies added in the last 60 days"
+    </event>
+    <event name="OnClick">
+      lmbox_filter movie_filter
+    </event>
+  </togglebutton>
+
+  <label x="290" y="320" width="70" height="30" template="infolabel">Updated</label>
+  <togglebutton name="Updated" x="260" y="320" template="t_togglebutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search for movies recently updated with new info/video"
+    </event>
+    <event name="OnClick">
+      lmbox_filter movie_filter
+    </event>
+  </togglebutton>
+
+  <label x="400" y="50" width="200" height="30" template="infolabel">Movie Genres:</label>
+  <listbox name="Genres" x="400" y="70" width="200" height="250" template="t_genrelist" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Search movies for selected genres, use OK to select/unselect genre"
+    </event>
+    <event name="OnChoose">
+      lmbox_filter movie_filter
+    </event>
+  </listbox>
+  <label x="400" y="330" width="100" height="30" template="infolabel">Current Filter:</label>
+  <label name="Genres_filter" x="400" y="350" width="200" height="40" template="greenlabel">None</label>
+
+  <button x="30" y="370" caption="Search" template="t_redbutton" action="red,play">
+    <event name="OnClick">
+      lmbox_filter movie_filter [lmbox get focusedwidget name]
+      movie_search
+    </event>
+  </button>
+  <button x="90" y="370" caption="Reset" template="t_greenbutton" action="green,clear">
+    <event name="OnClick">
+      lmbox_reset movie_filter
+    </event>
+  </button>
+  <button x="150" y="370" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnClick">
+      lmbox setpage [lmbox prevpage]
+    </event>
+  </button>
+  <label name="status" x="15" y="400" width="610" height="32" template="statuslabel"/>
+</page>
+
+<page name="moviebrowsepage" background="background.jpg">
+  <event name="OnGotFocus">
+    movie_genres list
+  </event>
+  <event name="play"> movie_play [lmbox get movie_list selecteddata] 1</event>
+  <event name="yellow"> lmbox call movieseek setfocus </event>
+  <event name="green"> lmbox postevent info </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label name="movie_count" x="350" y="10" width="200" height="20" template="countlabel"></label>
+  <label x="450" y="10" template="titlelabel">lmBox: Movies</label>
+  <line x="13" y="27" width="620" height="1" template="titlelabel" />
+  <line x="13" y="379" width="400" height="1" template="titlelabel" />
+
+  <listbox name="moviegenrelist" x="15" y="40" width="140" height="280" template="t_genrelist" >
+    <event name="OnSelectionChange">
+      movie_setup [lmbox get moviegenrelist selectedtext] [movie_genre_filter filter]
+    </event>
+    <event name="OnChoose">
+      movie_genre_filter set [lmbox get moviegenrelist selectedtext]
+    </event>
+  </listbox>
+  <listbox name="movie_list" x="160" y="40" width="450" height="250" template="t_movielist">
+    <event name="OnChoose">
+      movie_play [lmbox get movie_list selecteddata]
+    </event>
+    <event name="OnGotFocus,OnSelectionChange">
+      movie_info genre [lmbox get movie_list selecteddata]
+    </event>
+  </listbox>
+  <picture name="movieicon" x="460" y="300" width="120" height="140" image="none.gif" borderstyle="normal" bordercolor="#e0e2e5" />
+  <button x="15" y="340" caption="Play" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Play selected movie"
+    </event>
+    <event name="OnClick">
+      movie_play [lmbox get movie_list selecteddata]
+    </event>
+  </button>
+  <button x="75" y="340" caption="Reset" template="t_redbutton" action="red,clear">
+    <event name="OnGotFocus">
+      lmbox set status caption "Remove last selected genre from the current filter"
+    </event>
+    <event name="OnClick">
+      movie_genre_filter clear
+      movie_setup "" [movie_genre_filter filter]
+    </event>
+  </button>
+  <button x="135" y="340" caption="Info" template="t_greenbutton" action="info">
+    <event name="OnGotFocus">
+      lmbox set status caption "See movie information"
+    </event>
+    <event name="OnClick">
+      lmbox set movieinfopage data [lmbox get movie_list selecteddata]
+      lmbox varset movie_prevpage [lmbox getpage]
+      lmbox setpage movieinfopage
+    </event>
+  </button>
+  <button x="195" y="340" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <button x="255" y="340" caption="Favorite" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Add the movie to favorite links"
+    </event>
+    <event name="OnClick">
+      movie_favorite [lmbox get movie_list selecteddata]
+    </event>
+  </button>
+  <textfield name="movieseek" x="325" y="340" template="t_yellowbutton" fontcolor="#e0e2e5" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Enter movie filter"
+      if { [lmbox get movieseek text] == "Filter" } {
+        lmbox set movieseek text ""
+      }
+    </event>
+    <event name="OnLostFocus">
+      if { [lmbox get movieseek text] == "" } {
+        lmbox set movieseek text Filter
+      }
+    </event>
+    <event name="OnChange">
+      movie_setup "" [movie_genre_filter filter]
+    </event>
+  </textfield>
+  <label x="160" y="300" width="100" height="30" template="greenlabel">Current Filter:</label>
+  <label name="moviefilter" x="260" y="300" width="190" height="30" template="greenlabel">None</label>
+  <label name="status" x="50" y="380" width="370" height="60" template="statuslabel" />
+</page>
+
+<page name="movie_mosaicpage" background="background.jpg" >
+  <event name="OnGotFocus">
+    lmbox setconfig movie_nrows 1
+    lmbox_mosaic movie init movie_filter
+  </event>
+  <event name="stop">
+    player_stop
+  </event>
+
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label name="movie_count" x="350" y="10" width="200" height="20" template="countlabel"></label>
+  <label x="450" y="10" template="titlelabel">lmBox: Movies</label>
+
+  <line x="13" y="27" width="600" height="1" template="titlelabel" />
+
+  <picture name="movie_00" x="20" y="80" template="t_movieicon" />
+  <picture name="movie_01" x="170" y="80" template="t_movieicon" />
+  <picture name="movie_02" x="320" y="80" template="t_movieicon" />
+  <picture name="movie_03" x="470" y="80" template="t_movieicon" />
+  <label name="label_00" x="20" y="245" template="t_movielabel" />
+  <label name="label_01" x="170" y="245" template="t_movielabel" />
+  <label name="label_02" x="320" y="245" template="t_movielabel" />
+  <label name="label_03" x="470" y="245" template="t_movielabel" />
+
+  <button x="40" y="320" caption="Play" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Play movie"
+    </event>
+    <event name="OnClick">
+      movie_play [lmbox var movie_id] 1
+    </event>
+  </button>
+
+  <button x="100" y="320" caption="Search" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Specify search criteria"
+    </event>
+    <event name="OnClick">
+      lmbox setpage moviesearchpage
+    </event>
+  </button>
+
+  <button x="160" y="320" caption="Info" template="t_greenbutton" action="info,green">
+    <event name="OnGotFocus">
+      lmbox set status caption "See movie information"
+    </event>
+    <event name="OnClick">
+      lmbox set movieinfopage data [lmbox var movie_id]
+      lmbox varset movie_prevpage [lmbox getpage]
+      lmbox setpage movieinfopage
+    </event>
+  </button>
+
+  <button x="220" y="320" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+
+  <button x="280" y="320" caption="Favorite" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Add the movie to favorite links"
+    </event>
+    <event name="OnClick">
+      movie_favorite [lmbox var movie_id]
+    </event>
+  </button>
+
+  <textfield name="movie_filter" x="350" y="320" template="t_moviefilter" />
+
+  <button x="410" y="320" width="40" caption="<<" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Scroll icons backward"
+    </event>
+    <event name="OnClick">
+      lmbox_mosaic movie prevpage
+    </event>
+  </button>
+
+  <button x="460" y="320" width="40" caption=">>" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Scroll icons forward"
+    </event>
+    <event name="OnClick">
+      lmbox_mosaic movie nextpage
+    </event>
+  </button>
+
+  <line x="13" y="350" width="600" height="1" template="titlelabel" />
+  <label name="status" x="50" y="351" width="550" height="80" template="statuslabel" />
+</page>
+
+</lmbox>
+

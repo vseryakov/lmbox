@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<object name="webbrowser">
+  <event name="OnClose">
+    if { [lmbox getpage] == "webpage" } {
+      lmbox setpage [lmbox prevpage]
+    }
+  </event>
+</object>
+
+<page name="webpage" color="#DDDDDD" backgroundstyle="normal" >
+   <event name="OnGotFocus">
+     if { [lmbox get webbrowser location] == "" } {
+       lmbox set webbrowser location ""
+     }
+     lmbox call webbrowser open
+   </event>
+   <event name="OnLostFocus">
+     lmbox call webbrowser close
+   </event>
+   <event name="accept,up,down,next,prev,nextpage,prevpage,nexttrack,prevtrack">
+     lmbox call webbrowser event key [lmbox getevent]
+   </event>
+   <event name="cancel,escape,close">
+     lmbox setpage [lmbox prevpage]
+   </event>
+</page>
+
+</lmbox>

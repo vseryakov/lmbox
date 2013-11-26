@@ -1,0 +1,986 @@
+
+<html><head><meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../style.css">
+<script type="text/javascript">
+function bookmarksite(title, url){
+if (document.all)
+window.external.AddFavorite(url, title);
+else if (window.sidebar)
+window.sidebar.addPanel(title, url, "")
+}
+</script>
+
+
+
+
+<meta NAME="description" CONTENT="Watch online TV broadcasts from Germany.">
+
+
+<title>TV from Germany</title>
+
+</head><script><!--
+if (top == self)top.location.href="index.html?"+location.href;
+//--></script><script LANGUAGE="javascript"><!--
+var Web; var TheBrowser; function listen(website,audio, IE5) { window.open(audio,"F15","width=120,height=40,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes"); Web = website; TheBrowser = 1; var tmr =
+window.setTimeout("ShowWeb();",0) } function ShowWeb() { if(TheBrowser == 1) {
+window.open(Web,"www","width=600,height=340,toolbar=no,location=yes,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes"); } }
+//--></script><body bgcolor="#440000" topmargin="0" leftmargin="0" link="#FFcc00" infvlink="#FFcc00" alink="#FFFF00"><center>
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="javascript:void(location.href='mailto:?subject='+escape('A friend of yours recommends an interesting website')+'&body='+escape(document.title + '\n\n' + location.href))" class=""><img
+src="../em.gif" border="0" alt="Tell a Friend"></a>
+
+
+<font class="hd6">Watch TV from Germany:</font><BR>
+
+
+</td></tr></table><table width="100%" border="0" cellspacing="0" cellpadding="0" height="22"><tr><td width="5"></td><td align="left" class="q"><table border="0"><tr><td>
+<script type="text/javascript"><!--
+google_ad_client = "pub-1964102517134879";google_hints = "online broadcast broadband tv television speedtest adsl dsl cable vod news";google_alternate_ad_url = "http://wwitv.com/img/adrec.htm";google_ad_width = 336;
+google_ad_height = 280;google_ad_format = "336x280_as";google_ad_type = "text_image";google_ad_channel = "8376273414";google_page_url = document.location;google_color_border = "440000";google_color_bg = "440000";google_color_link = "FFCC00";google_color_url =
+"FF6600";google_color_text = "FF9900";
+//--></script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></td><td valign="top"></td></tr></table>
+<table width="100%"  cellpadding="0" cellspacing="0" height="18" bgcolor="990000"><tr><td valign="middle" align="left"><a class="hd4" href="../page/add_url.htm">Add new TV channel / Report broken link</a><font class="hd3"> | </font><a class="hd4"
+href="../speedtest/index.html">Required Bandwidth</a><font class="hd3"> | </font>
+<a class="hd4" href="../page/plugintester.htm">Required Software</a></td></tr></table></td><td width="5"></td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td width="5"></td><td valign="top"><table width="100%" border="0" cellspacing="0"
+cellpadding="0" height="8"><tr><td></td></tr></table><table width="100%" cellspacing="0" cellpadding="0" class="q"><tr><td>
+
+
+
+
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="140" height="16" bgcolor="#990000"><font class="hd">Channel </font></td>
+<td width="62" bgcolor="#990000"><font class="hd"><b>Stream</b></font></td>
+<td width="20" bgcolor="#990000"><font class="hd">Fav.</font></td><td bgcolor="#990000"><font class="hd">Information</font></td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.1-2-3.tv" target="TV">1-2-3 TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.1-2-3.tv','http://wwitv.com/t1/8243.asx',0)">290K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - 1-2-3 TV','http://wwitv.com/tv_channels/8243.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Offers a broad range of products.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.3sat.de/" target="TV">3Sat</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.3sat.de/','http://wwitv.com/t1/7984.asx',0)">441K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - 3Sat','http://wwitv.com/tv_channels/7984.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">General TV station.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.9live.de/" target="TV">9 Live</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.9live.de/','http://wwitv.com/t1/8352.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - 9 Live','http://wwitv.com/tv_channels/8352.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Phone-in quiz show.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.parlament-berlin.de/pari/web/wdefault.nsf/vHTML/C15_4?OpenDocument" target="TV">Abgeordnetenhaus Berlin</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.parlament-berlin.de/pari/web/wdefault.nsf/vHTML/C15_4?OpenDocument','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Abgeordnetenhaus Berlin','http://wwitv.com/tv_channels/b2311.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Parlament Berlin.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.adac-tv.de/" target="TV">ADAC TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.adac-tv.de/','http://wwitv.com/t1/b3282.asx',0)">40K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ADAC TV','http://wwitv.com/tv_channels/b3282.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">General German automobiles club.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.sat1.de/auto/automagazin/videos/content/16477/" target="TV">ADAC-Stauprognose</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.sat1.de/auto/automagazin/videos/content/16477/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ADAC-Stauprognose','http://wwitv.com/tv_channels/b3356.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Traffic prediction for the coming
+weekend.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.antennewest.de/" target="TV">Antenne West</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.antennewest.de/','http://wwitv.com/t1/b2618.asx',0)">350K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Antenne West','http://wwitv.com/tv_channels/b2618.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional television for the region: The Eifel, Saar,
+ Mosel, east Belgium & Luxembourg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.aqua-tv.de/" target="TV">AQUA TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.aqua-tv.de/','http://wwitv.com/t1/b2104.asx',0)">386K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - AQUA TV','http://wwitv.com/tv_channels/b2104.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The watersports magazine.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://sport.ard.de/sp/fussball/bundesliga/sportschau.jhtml" target="TV">ARD Sportschau</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://sport.ard.de/sp/fussball/bundesliga/sportschau.jhtml','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ARD Sportschau','http://wwitv.com/tv_channels/5727.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded sport events available on
+website.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tagesschau.de/sendungen/0,,SPM7,00.html" target="TV">ARD Tagesschau</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.tagesschau.de/sendungen/0,,SPM7,00.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ARD Tagesschau','http://wwitv.com/tv_channels/b2081.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded news.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tagesschau.de/sendungen/" target="TV">ARD Tagesschau</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tagesschau.de/sendungen/','http://wwitv.com/t1/7154.asx',0)">325K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ARD Tagesschau','http://wwitv.com/tv_channels/7154.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The most popular German news program on
+demand.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.questico.com/users/astrotv/" target="TV">Astro TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.questico.com/users/astrotv/','http://wwitv.com/t1/8231.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Astro TV','http://wwitv.com/tv_channels/8231.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Astrology.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.autofernsehen.de" target="TV">Auto Fernsehen</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.autofernsehen.de','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Auto Fernsehen','http://wwitv.com/tv_channels/b2220.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Short driving impressions of cars.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.bahntv-online.de/" target="TV">Bahn TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.bahntv-online.de/','http://wwitv.com/t1/8429.asx',0)">700K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Bahn TV','http://wwitv.com/tv_channels/8429.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Channel dedicated to the traffic.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.br-online.de/" target="TV">Bayerischer Rundfunk</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.br-online.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Bayerischer Rundfunk','http://wwitv.com/tv_channels/b3258.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Muenchen.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://player.narrowstep.tv/skins/0018/nsp.aspx?player=BerlinTV" target="TV">Berlin TV</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://player.narrowstep.tv/skins/0018/nsp.aspx?player=BerlinTV','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Berlin TV','http://wwitv.com/tv_channels/b3358.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Touristic channel.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.br-online.de/alpha/" target="TV">BR Alpha</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.br-online.de/alpha/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - BR Alpha','http://wwitv.com/tv_channels/b2332.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Educational programs from the Bayerischen Rundfunk from
+MÅnchen.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.hamburgische-buergerschaft.de/cms_de.php?templ=akt_livestream.tpl&sub1=62&sub2=402&cont=1107" target="TV">Buergerschaft HH</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.hamburgische-buergerschaft.de/cms_de.php?templ=akt_livestream.tpl&sub1=62&sub2=402&cont=1107','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Buergerschaft HH','http://wwitv.com/tv_channels/b2033.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Hamburger Parliament (sometimes
+online).</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tfh-wildau.de/" target="TV">Campus TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tfh-wildau.de/','http://wwitv.com/t1/b2360.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Campus TV','http://wwitv.com/tv_channels/b2360.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV from the Technischen Fachhochschule
+Wildau.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.center.tv/" target="TV">Center TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.center.tv/','http://wwitv.com/t1/8404.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Center TV','http://wwitv.com/tv_channels/8404.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Koln.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.cfcev.de/" target="TV">CFC</a></td><td class="wa">
+<a class="w" href="javascript:listen('http://www.cfcev.de/','http://wwitv.com/t1/b1874.m3u',0)">350K</a>
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - CFC','http://wwitv.com/tv_channels/b1874.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Christian TV Chiemgau.</td></tr>
+
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.clip-tv.net/" target="TV">Clip TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.clip-tv.net/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Clip TV','http://wwitv.com/tv_channels/b1855.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Black Music, Hard Stuff, Classics, Rock, Electronic and
+Pop.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.anleger-fernsehen.de" target="TV">DAF TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.anleger-fernsehen.de','http://wwitv.com/t1/b2224.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - DAF TV','http://wwitv.com/tv_channels/b2224.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Financial news.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.deltv.org/" target="TV">Del TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.deltv.org/','http://wwitv.com/t1/b2599.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Del TV','http://wwitv.com/tv_channels/b2599.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Ice hockey channel.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.deluxemusic.tv/" target="TV">Deluxe Music TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.deluxemusic.tv/','http://wwitv.com/t1/8033.asx',0)">400K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Deluxe Music TV','http://wwitv.com/tv_channels/8033.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Music TV channel without moderation.</td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.derschmuckkanal.de" target="TV">Der Schmuckkanal</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.derschmuckkanal.de','http://wwitv.com/t1/b3240.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Der Schmuckkanal','http://wwitv.com/tv_channels/b3240.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Offers jewellery.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://webportal.bundestag.t-bn.de/Fernsehtext/servlets/Frameset/Index?bandwidth=300" target="TV">Deutscher Bundestag</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://webportal.bundestag.t-bn.de/Fernsehtext/servlets/Frameset/Index?bandwidth=300','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Deutscher Bundestag','http://wwitv.com/tv_channels/b2252.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">German Parliament in Berlin.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.dhd24.tv/" target="TV">DHD 24 TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.dhd24.tv/','http://wwitv.com/t1/b2062.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - DHD 24 TV','http://wwitv.com/tv_channels/b2062.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Interactive TV station.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.donautv.com/web/" target="TV">Donau TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.donautv.com/web/','http://wwitv.com/t1/b2091.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Donau TV','http://wwitv.com/tv_channels/b2091.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Deggendorf.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.dresden-fernsehen.de/" target="TV">Dresden Fernsehen</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.dresden-fernsehen.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Dresden Fernsehen','http://wwitv.com/tv_channels/b2191.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Dresden.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.dsf.de/de/unternehmen/un-media/media.html" target="TV">DSF</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.dsf.de/de/unternehmen/un-media/media.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - DSF','http://wwitv.com/tv_channels/b3246.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded sports news  (Deutsches Sport Fernsehen).</td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://dw-world.de" target="TV">DW-TV</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://dw-world.de','http://wwitv.com/t1/b1636.ram',0)">256K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - DW-TV','http://wwitv.com/tv_channels/b1636.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Worldnews channel / Deutsche Welle (not available in the
+USA).</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://dw-world.de" target="TV">DW-TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://dw-world.de','http://wwitv.com/t1/6333.asx',0)">250K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - DW-TV','http://wwitv.com/tv_channels/6333.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Worldnews channel / Deutsche Welle (not available in the
+USA).</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.eberswalde.tv/" target="TV">Eberswalde</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.eberswalde.tv/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Eberswalde','http://wwitv.com/tv_channels/8041.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ard-digital.de/" target="TV">Eins Extra</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://www.ard-digital.de/','http://wwitv.com/t1/b2113.ram',0)">328K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Eins Extra','http://wwitv.com/tv_channels/b2113.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Live from Mon.-Fri. / 14:00 - 19:00 H (German
+time).</td></tr>
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.elbekanal.de/" target="TV">Elbekanal</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.elbekanal.de/','http://wwitv.com/t1/b2482.asx',0)">320K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Elbekanal','http://wwitv.com/tv_channels/b2482.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Sch&#246;nebeck.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ertv.de/" target="TV">ERTV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.ertv.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ERTV','http://wwitv.com/tv_channels/b3255.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from G&#246;rlitz.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://euro-3.de" target="TV">Euro 3</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://euro-3.de','http://wwitv.com/t1/b1808.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Euro 3','http://wwitv.com/tv_channels/b1808.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from the Bodensee.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.fashionguide-tv.com" target="TV">FashionGuide TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.fashionguide-tv.com','http://wwitv.com/t1/b3513.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - FashionGuide TV','http://wwitv.com/tv_channels/b3513.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Fashion channel.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.findaway.tv/" target="TV">Findaway</a></td><td class="qt">
+
+<a class="qu" href="javascript:listen('http://www.findaway.tv/','http://wwitv.com/t1/b2655.qtl',0)">150K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Findaway','http://wwitv.com/tv_channels/b2655.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Cultural alternative TV  from Berlin.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.flott-tv.de/" target="TV">Flott-TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.flott-tv.de/','http://wwitv.com/t1/b3247.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Flott-TV','http://wwitv.com/tv_channels/b3247.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Guenzburg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.focus.de/videos" target="TV">Focus Online</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.focus.de/videos','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Focus Online','http://wwitv.com/tv_channels/b3248.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded news.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.franken-tv.de/" target="TV">Franken TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.franken-tv.de/','http://wwitv.com/t1/b2101.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Franken TV','http://wwitv.com/tv_channels/b2101.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Located in N&#252;rnberg.</td></tr>
+<tr><td class="name" width="120"><font class="new">NEW!:<br>.</font><a class="travel" href="http://www.game-tv.com" target="TV">Game TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.game-tv.com','http://wwitv.com/t1/b2454.asx',0)">750K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Game TV','http://wwitv.com/tv_channels/b2454.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Previews from new computergames.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.bietbox.de/" target="TV">Gems TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.bietbox.de/','http://wwitv.com/t1/b2105.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Gems TV','http://wwitv.com/tv_channels/b2105.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Interactive shopping TV.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://giga.de/" target="TV">GIGA TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://giga.de/','http://wwitv.com/t1/7136.asx',0)">690K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - GIGA TV','http://wwitv.com/tv_channels/7136.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Computer / Music station.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://oceans.greenpeace.org/de/ocean-defenders-tv" target="TV">Greenpeace TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://oceans.greenpeace.org/de/ocean-defenders-tv','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Greenpeace TV','http://wwitv.com/tv_channels/b3157.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Streaming news items available on the
+website.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.hamburg1.de/" target="TV">Hamburg 1</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.hamburg1.de/','http://wwitv.com/t1/b2106.asx',0)">290K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Hamburg 1','http://wwitv.com/tv_channels/b2106.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded news.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.hammtv.de/" target="TV">Hamm TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.hammtv.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Hamm TV','http://wwitv.com/tv_channels/b3249.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Hamm.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.help24.tv/" target="TV">Help TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.help24.tv/','http://wwitv.com/t1/b3285.asx',0)">359K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Help TV','http://wwitv.com/tv_channels/b3285.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Consulting television from Dortmund.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://salam.hr-online.de/website/fernsehen/sendungen/video_archiv5300.jsp?rubrik=5300" target="TV">Hessischer Rundfunk</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://salam.hr-online.de/website/fernsehen/sendungen/video_archiv5300.jsp?rubrik=5300','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Hessischer Rundfunk','http://wwitv.com/tv_channels/b3250.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Hessen.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.hs-tv.de/archives/001129.php" target="TV">HS TV</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.hs-tv.de/archives/001129.php','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - HS TV','http://wwitv.com/tv_channels/b3283.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Heinsberg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.hse24.de/" target="TV">HSE 24</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.hse24.de/','http://wwitv.com/t1/b1809.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - HSE 24','http://wwitv.com/tv_channels/b1809.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Shopping channel.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.hse24.de/" target="TV">HSE 24 Digital</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.hse24.de/','http://wwitv.com/t1/b1921.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - HSE 24 Digital','http://wwitv.com/tv_channels/b1921.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Offers a broad range of products.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.intv.de/" target="TV">INTV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.intv.de/','http://wwitv.com/t1/b2095.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - INTV','http://wwitv.com/tv_channels/b2095.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The infochannel from Ingolstadt.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://player.narrowstep.tv/?player=paralympicsporttv" target="TV">IPC sports</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://player.narrowstep.tv/?player=paralympicsporttv','http://wwitv.com/t1/b2606.asx',0)">384K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - IPC sports','http://wwitv.com/tv_channels/b2606.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Paralympics sport TV.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.jatv.de/" target="TV">JATV</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.jatv.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - JATV','http://wwitv.com/tv_channels/8297.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Archived clips, reports and comedy.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.jenatv.de/index.php?main=archiv&lf=videofiles" target="TV">Jena TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.jenatv.de/index.php?main=archiv&lf=videofiles','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Jena TV','http://wwitv.com/tv_channels/b3261.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Jena.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.koeln1.tv/" target="TV">Koeln 1 TV</a></td><td class="qr"><center>
+<a class="www" href="javascript:listen('http://www.koeln1.tv/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Koeln 1 TV','http://wwitv.com/tv_channels/b3262.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Koeln.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ksta.de/php/tv/aktuell.php" target="TV">KSTA</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.ksta.de/php/tv/aktuell.php','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KSTA','http://wwitv.com/tv_channels/b3242.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Koeln.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kulturmd.de/" target="TV">Kultur MD</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kulturmd.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Kultur MD','http://wwitv.com/tv_channels/b3284.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV station from Magdeburg.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kwtv.de/" target="TV">KWTV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.kwtv.de/','http://wwitv.com/t1/b2361.asx',0)">232K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KWTV','http://wwitv.com/tv_channels/b2361.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Wildau / K&#246;nigs
+Wusterhausen.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.bayern.landtag.de/streaming.index.jsp" target="TV">Landtag Bayern</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.bayern.landtag.de/streaming.index.jsp','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Landtag Bayern','http://wwitv.com/tv_channels/b3324.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The State-Parliament of Bayern (not always
+online).</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.landtag-bw.de/aktuelles/landtag_live/index.asp" target="TV">Landtag BW</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.landtag-bw.de/aktuelles/landtag_live/index.asp','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Landtag BW','http://wwitv.com/tv_channels/b3325.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The State-Parliament of Baden-Wuerttemberg  (not
+always online).</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.landtag-mv.de" target="TV">Landtag MV</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://www.landtag-mv.de','http://wwitv.com/t1/b2619.ram',0)">45K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Landtag MV','http://wwitv.com/tv_channels/b2619.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The State-Parliament of Mecklenburg - Vorpommern (not
+always online).</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.landtag.nrw.de/portal/WWW/Navigation/Landtag_Live/Inhalt.jsp" target="TV">Landtag NRW</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.landtag.nrw.de/portal/WWW/Navigation/Landtag_Live/Inhalt.jsp','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Landtag NRW','http://wwitv.com/tv_channels/7268.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The State-Parliament of Northrhine-Westfalia (not
+always online).</td></tr>
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.sr-online.de/landtag" target="TV">Landtag Saarland</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.sr-online.de/landtag','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Landtag Saarland','http://wwitv.com/tv_channels/b3326.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The State-Parliament of Saarland (not always
+online).</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.thueringen.de/tlt/" target="TV">Landtag Th&#252;ringen</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.thueringen.de/tlt/','http://wwitv.com/t1/b2222.asx',0)">250K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Landtag Th&#252;ringen','http://wwitv.com/tv_channels/b2222.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Th&#252;ringer federal state parliament -
+Erfurt (parliament).</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.lastminute.tv/" target="TV">Lastminute TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.lastminute.tv/','http://wwitv.com/t1/b2440.asx',0)">755K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Lastminute TV','http://wwitv.com/tv_channels/b2440.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Commercial travel channel.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.funkhaus-leipzig.de/cms/index.php?dummy=1&s_id=23" target="TV">Leipzig Fernsehen</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.funkhaus-leipzig.de/cms/index.php?dummy=1&s_id=23','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Leipzig Fernsehen','http://wwitv.com/tv_channels/b1585.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV with recorded news.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://l-tv.de/" target="TV">LTV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://l-tv.de/','../web.htm',0)">website</a>
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - LTV','http://wwitv.com/tv_channels/b3312.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Ludwigsburg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ltv-aktuell.de/" target="TV">LTV Aktuell</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.ltv-aktuell.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - LTV Aktuell','http://wwitv.com/tv_channels/b3437.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Cottbus.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.muenchen-tv.de" target="TV">M&#252;nchen 2</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.muenchen-tv.de','http://wwitv.com/t1/b2459.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - M&#252;nchen 2','http://wwitv.com/tv_channels/b2459.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from M&#252;nchen.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.muenchen-tv.de" target="TV">M&#252;nchen TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.muenchen-tv.de','http://wwitv.com/t1/b2078.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - M&#252;nchen TV','http://wwitv.com/tv_channels/b2078.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from M&#252;nchen.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.mdf1.de" target="TV">MDF 1</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.mdf1.de','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - MDF 1','http://wwitv.com/tv_channels/b3311.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Magdeburg.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.mdr.de/" target="TV">MDR</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.mdr.de/','http://wwitv.com/t1/b3239.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - MDR','http://wwitv.com/tv_channels/b3239.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Leipzig.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.meissen-fernsehen.de" target="TV">Meissen Fernsehen</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.meissen-fernsehen.de','http://wwitv.com/t1/b3359.asx',0)">150K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Meissen Fernsehen','http://wwitv.com/tv_channels/b3359.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV for Meissen.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">NEW!:<br>.</font><a class="travel" href="http://www.zoomin.tv/videoplayer/index.cfm?id=246812&mode=normal&quality=2&pid=mittelsachsentv" target="TV">Mittelsachsen TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.zoomin.tv/videoplayer/index.cfm?id=246812&mode=normal&quality=2&pid=mittelsachsentv','../wen.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Mittelsachsen TV','http://wwitv.com/tv_channels/b3588.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Mittweida.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.motortv.de/motor.php?activex=false" target="TV">Motor TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.motortv.de/motor.php?activex=false','http://wwitv.com/t1/b2393.asx',0)">150K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Motor TV','http://wwitv.com/tv_channels/b2393.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Independent and alternative music station.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.muldentaltv.de/sender/index-magazin.htm" target="TV">Muldental TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.muldentaltv.de/sender/index-magazin.htm','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Muldental TV','http://wwitv.com/tv_channels/b3275.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Grimma.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.n24.de/tv/streaming/" target="TV">N24</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.n24.de/tv/streaming/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - N24','http://wwitv.com/tv_channels/6324.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">News TV with recorded streams..</td></tr>
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.nrw.tv" target="TV">NRW TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.nrw.tv','http://wwitv.com/t1/b2066.asx',0)">880K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - NRW TV','http://wwitv.com/tv_channels/b2066.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV from Dortmund for Nordrhein-Westfalen.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.n-tv.de/" target="TV">n-tv</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.n-tv.de/','http://wwitv.com/t1/6247.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - n-tv','http://wwitv.com/tv_channels/6247.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">News TV.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.oberlausitz.tv/" target="TV">Oberlausitz TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.oberlausitz.tv/','http://wwitv.com/t1/b1732.asx',0)">711K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Oberlausitz TV','http://wwitv.com/tv_channels/b1732.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Oberlausitz (Ostsachsen):</td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://live.ok43.de/stream.php" target="TV">OK 43</a></td><td class="qt">
+
+<a class="qu" href="javascript:listen('http://live.ok43.de/stream.php','http://wwitv.com/t1/b1750.qtl',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - OK 43','http://wwitv.com/tv_channels/b1750.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The public access channel in Essen.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.otv.de/" target="TV">OTV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.otv.de/','http://wwitv.com/t1/b2116.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - OTV','http://wwitv.com/tv_channels/b2116.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Oberpfalz TV from Amberg.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.petn.tv/" target="TV">PETN Citychannel</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.petn.tv/','http://wwitv.com/t1/b3228.asx',0)">1100K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - PETN Citychannel','http://wwitv.com/tv_channels/b3228.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Citynews from Leipzig.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.petn.tv/" target="TV">PETN Moviechannel</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.petn.tv/','http://wwitv.com/t1/b3225.asx',0)">1000K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - PETN Moviechannel','http://wwitv.com/tv_channels/b3225.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Movie channel.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.petn.tv/" target="TV">PETN Musicchannel</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.petn.tv/','http://wwitv.com/t1/b3227.asx',0)">1100K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - PETN Musicchannel','http://wwitv.com/tv_channels/b3227.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Music channel.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.petn.tv/" target="TV">PETN Sportschannel</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.petn.tv/','http://wwitv.com/t1/b3226.asx',0)">1100K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - PETN Sportschannel','http://wwitv.com/tv_channels/b3226.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Sports TV.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.phoenix.de" target="TV">Phoenix</a></td><td class="qr">
+<a class="r" href="javascript:listen('http://www.phoenix.de','http://wwitv.com/t1/6844.ram',0)">452K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Phoenix','http://wwitv.com/tv_channels/6844.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">News from Bonn, documentaries, debates. Transmission
+sometimes interrupted.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.potsdamtv.net/" target="TV">Potsdam TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.potsdamtv.net/','http://wwitv.com/t1/b3317.asx',0)">350K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Potsdam TV','http://wwitv.com/tv_channels/b3317.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Potsdam.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.qvc.de/" target="TV">QVC</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.qvc.de/','http://wwitv.com/t1/b2392.asx',0)">350K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - QVC','http://wwitv.com/tv_channels/b2392.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">(Home Shopping) Offers a broad range of products.</td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.radiobremen.de/tv/buten-un-binnen/" target="TV">Radio Bremen</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.radiobremen.de/tv/buten-un-binnen/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Radio Bremen','http://wwitv.com/tv_channels/b3300.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional news from Bremen.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.rbb-online.de/_/fernsehen/index_jsp.html" target="TV">RBB</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.rbb-online.de/_/fernsehen/index_jsp.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - RBB','http://wwitv.com/tv_channels/b3263.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Berlin Brandenburg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.regiotvstuttgart.de/" target="TV">Regio TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.regiotvstuttgart.de/','http://wwitv.com/t1/b3398.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Regio TV','http://wwitv.com/tv_channels/b3398.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Stuttgart.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.rfh-tv.de/" target="TV">RFH</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.rfh-tv.de/','http://wwitv.com/t1/b2435.asx',0)">240K</a>
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - RFH','http://wwitv.com/tv_channels/b2435.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Halberstadt.</td></tr>
+
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.rfltv.de/" target="TV">RFL TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.rfltv.de/','http://wwitv.com/t1/b2096.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - RFL TV','http://wwitv.com/tv_channels/b2096.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional television from Landshut.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.rfr.de" target="TV">RFR TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.rfr.de','http://wwitv.com/t1/b2097.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - RFR TV','http://wwitv.com/tv_channels/b2097.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional television from Oberbayern - Rosenheim.</td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://rheinahr.tv/rheinahr.tv/aktuelle%20Sendungen.html" target="TV">Rhein-Ahr TV</a></td><td class="qt"><center>
+
+<a class="www" href="javascript:listen('http://rheinahr.tv/rheinahr.tv/aktuelle%20Sendungen.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Rhein-Ahr TV','http://wwitv.com/tv_channels/b2320.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Rheinland-Pfalz.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.rhein-sieg-tv.de/" target="TV">Rhein-Sieg TV</a></td><td class="qt"><center>
+<a class="www" href="javascript:listen('http://www.rhein-sieg-tv.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Rhein-Sieg TV','http://wwitv.com/tv_channels/b3264.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Siegburg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.riesatv.de/" target="TV">Riesa TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.riesatv.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Riesa TV','http://wwitv.com/tv_channels/b1733.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Mittelsachsen.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.rtl.de/news/news.php" target="TV">RTL</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.rtl.de/news/news.php','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - RTL','http://wwitv.com/tv_channels/7225.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Look for the video-lounge for recorded news
+broadcast.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.rtlshop.de/" target="TV">RTL Shop</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.rtlshop.de/','http://wwitv.com/t1/b2074.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - RTL Shop','http://wwitv.com/tv_channels/b2074.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Offers a broad range of products.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ruparty.de/" target="TV">Ruparty</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.ruparty.de/','http://wwitv.com/t1/b2502.asx',0)">273K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Ruparty','http://wwitv.com/tv_channels/b2502.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV for russian german people.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.sachsen-fernsehen.de/" target="TV">Sachsen Fernsehen</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.sachsen-fernsehen.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Sachsen Fernsehen','http://wwitv.com/tv_channels/b1684.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded news from Sachsen aus Chemnitz
+.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.1730sat1.de/" target="TV">Sat1 Regionalfernsehen</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.1730sat1.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Sat1 Regionalfernsehen','http://wwitv.com/tv_channels/b3310.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV from various regions.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.skb-tv.de/" target="TV">SKB</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.skb-tv.de/','http://wwitv.com/t1/b3357.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - SKB','http://wwitv.com/tv_channels/b3357.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV for Brandenburg an der Havel and
+Belzig.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.srf-online.de/" target="TV">Sonneberger TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.srf-online.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Sonneberger TV','http://wwitv.com/tv_channels/b3266.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Sonneberg.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.sonnenklar.tv/" target="TV">Sonnenklar.tv</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.sonnenklar.tv/','http://wwitv.com/t1/b2076.asx',0)">280K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Sonnenklar.tv','http://wwitv.com/tv_channels/b2076.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Travel shopping TV.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.spiegel.de/videos/" target="TV">Spiegel TV</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.spiegel.de/videos/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Spiegel TV','http://wwitv.com/tv_channels/7202.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">A lot of archieved news, reports and previews</td></tr>
+
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="https://www.sportswin.tv/" target="TV">Sportswin</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('https://www.sportswin.tv/','http://wwitv.com/t1/b2221.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Sportswin','http://wwitv.com/tv_channels/b2221.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Online sportsbetting.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.raze.tv" target="TV">Sportswin TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.raze.tv','http://wwitv.com/t1/7874.asx',0)">450K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Sportswin TV','http://wwitv.com/tv_channels/7874.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Horseracing TV.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.sr-online.de/fernsehen/447/" target="TV">SR-Online</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.sr-online.de/fernsehen/447/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - SR-Online','http://wwitv.com/tv_channels/b3413.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Saarbr&#252;cken.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.stadttv-duesseldorf.de/" target="TV">Stadt TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.stadttv-duesseldorf.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Stadt TV','http://wwitv.com/tv_channels/b1886.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local Internet TV from Dusseldorf.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.streetclip.tv/" target="TV">Streetclip TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.streetclip.tv/','http://wwitv.com/t1/b2426.asx',0)">1100K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Streetclip TV','http://wwitv.com/tv_channels/b2426.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Music and culture channel.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.terra-nova.tv/" target="TV">Terra Nova</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.terra-nova.tv/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Terra Nova','http://wwitv.com/tv_channels/b2132.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Documentaries about nature, animals, environment and
+humans.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.traumpartner.tv/" target="TV">Traumpartner TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.traumpartner.tv/','http://wwitv.com/t1/b2333.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Traumpartner TV','http://wwitv.com/tv_channels/b2333.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Internet dating.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.trp1.de/" target="TV">TRP 1</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.trp1.de/','http://wwitv.com/t1/b2111.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TRP 1','http://wwitv.com/tv_channels/b2111.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional television from Niederbayern (Passau).</td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tunespoon.tv/" target="TV">Tunespoon</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.tunespoon.tv/','http://wwitv.com/t1/8088.asx',0)">380K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Tunespoon','http://wwitv.com/tv_channels/8088.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Music Videos.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tvaktuell.com/" target="TV">TV Aktuell</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tvaktuell.com/','http://wwitv.com/t1/b2102.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Aktuell','http://wwitv.com/tv_channels/b2102.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional television from Regensburg.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-allgaeu.de/" target="TV">TV Allgaeu</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tv-allgaeu.de/','http://wwitv.com/t1/b3376.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Allgaeu','http://wwitv.com/tv_channels/b3376.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wochenspiegel-abg.de/" target="TV">TV Altenburg</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wochenspiegel-abg.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Altenburg','http://wwitv.com/tv_channels/b2022.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV for the Altenburger Land.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-augsburg.com/" target="TV">TV Augsburg</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tv-augsburg.com/','http://wwitv.com/t1/b2460.asx',0)">300K</a>
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Augsburg','http://wwitv.com/tv_channels/b2460.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tvb.de/" target="TV">TV Berlin</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tvb.de/','http://wwitv.com/t1/b2192.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Berlin','http://wwitv.com/tv_channels/b2192.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Berlin.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.itv-coburg.de/" target="TV">TV Coburg</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.itv-coburg.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Coburg','http://wwitv.com/tv_channels/b3241.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Coburg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-el.de/sites/ganze_sendung.php?version=dsl&flash=ja&js=ja" target="TV">TV Emscher-Lippe</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.tv-el.de/sites/ganze_sendung.php?version=dsl&flash=ja&js=ja','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Emscher-Lippe','http://wwitv.com/tv_channels/b3243.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Herten.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tvhalle.de" target="TV">TV Halle</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.tvhalle.de','http://wwitv.com/t1/b1930.asx',0)">900K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Halle','http://wwitv.com/tv_channels/b1930.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Halle.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-mittelrhein.com/" target="TV">TV Mittelrhein</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tv-mittelrhein.com/','http://wwitv.com/t1/b2461.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Mittelrhein','http://wwitv.com/tv_channels/b2461.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV aus Koblenz.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-regional.de/regionalmagazin/Regionalmagazin-Aktuell.html" target="TV">TV Regional</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.tv-regional.de/regionalmagazin/Regionalmagazin-Aktuell.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Regional','http://wwitv.com/tv_channels/b3353.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Lausick, Colditz, Gro&#223;bothen
+and Zschadrass.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.sauerland-tv.de/" target="TV">TV Sauerland</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.sauerland-tv.de/','http://wwitv.com/t1/b3237.asx',0)">555K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Sauerland','http://wwitv.com/tv_channels/b3237.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV from Sauerland.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.regio-tv.com/" target="TV">TV Schwaben</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.regio-tv.com/','http://wwitv.com/t1/b3238.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Schwaben','http://wwitv.com/tv_channels/b3238.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Ulm.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tvshop.com/" target="TV">TV shop</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tvshop.com/','http://wwitv.com/t1/7976.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV shop','http://wwitv.com/tv_channels/7976.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Fitness, wellness, health, domestic, music and spare
+time.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-suedbaden.de/" target="TV">TV Suedbaden</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tv-suedbaden.de/','http://wwitv.com/t1/7947.asx',0)">350K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Suedbaden','http://wwitv.com/tv_channels/7947.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional Television from Freiburg.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tvtouring.de/" target="TV">TV Touring 1</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tvtouring.de/','http://wwitv.com/t1/b2098.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Touring 1','http://wwitv.com/tv_channels/b2098.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV touring Aschaffenburg.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tvtouring.de/" target="TV">TV Touring 2</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.tvtouring.de/','http://wwitv.com/t1/b2099.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Touring 2','http://wwitv.com/tv_channels/b2099.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV touring Schweinfurt.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tvtouring.de/" target="TV">TV Touring 3</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tvtouring.de/','http://wwitv.com/t1/b2100.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TV Touring 3','http://wwitv.com/tv_channels/b2100.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV touring W&#252;rzburg.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-oberfranken.de" target="TV">TVO</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.tv-oberfranken.de','http://wwitv.com/t1/b2067.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - TVO','http://wwitv.com/tv_channels/b2067.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV from Oberfranken.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.viva.tv/index.php/TV/Playlist" target="TV">VIVA TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.viva.tv/index.php/TV/Playlist','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - VIVA TV','http://wwitv.com/tv_channels/6615.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Music TV Station with webclips.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.regionaltv.net/www/image-video_stream.phtml" target="TV">Waldheim TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.regionaltv.net/www/image-video_stream.phtml','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Waldheim TV','http://wwitv.com/tv_channels/b3260.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Gro&#223;weitzschen.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wdr.de/themen/global/webmedia/" target="TV">WDR</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://www.wdr.de/themen/global/webmedia/','http://wwitv.com/t1/7200.ram',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WDR','http://wwitv.com/tv_channels/7200.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">The main news programs of the Westdeutscher Rundfunk are shown
+ live.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wetter.com/" target="TV">Wetter</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.wetter.com/','http://wwitv.com/t1/8433.asx',0)">440K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Wetter','http://wwitv.com/tv_channels/8433.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded and live weatherforecast.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wmtv-online.de/webtv/dsl/vidstart2.html" target="TV">WM TV</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.wmtv-online.de/webtv/dsl/vidstart2.html','http://wwitv.com/t1/b2334.asx',0)">517K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WM TV','http://wwitv.com/tv_channels/b2334.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Regional TV for M&#252;nsterland / M&#252;nster.</td></tr>
+
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wuerfelzucker.tv/" target="TV">Wuerfelzucker.tv</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.wuerfelzucker.tv/','http://wwitv.com/t1/b2387.asx',0)">500K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Wuerfelzucker.tv','http://wwitv.com/tv_channels/b2387.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">German music.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wwtv.de/" target="TV">WWTV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.wwtv.de/','http://wwitv.com/t1/b3244.asx',0)">650K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WWTV','http://wwitv.com/tv_channels/b3244.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Wied.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.xenonline.de/" target="TV">XEN.ON</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.xenonline.de/','http://wwitv.com/t1/b2025.asx',0)">625K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - XEN.ON','http://wwitv.com/tv_channels/b2025.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Campus Television.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.zdfinfokanal.de" target="TV">ZDF</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.zdfinfokanal.de','http://wwitv.com/t1/6428.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ZDF','http://wwitv.com/tv_channels/6428.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">On of the main public TV stations of Germany.</td></tr>
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.heute.de/" target="TV">ZDF Heute</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.heute.de/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ZDF Heute','http://wwitv.com/tv_channels/7153.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded news and special reports.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.zdf.de/ZDFmediathek/inhalt/9/0,4070,1200009-1,00.html" target="TV">ZDF Mediathek</a></td><td class="qm"><center>
+<a class="www" href="javascript:listen('http://www.zdf.de/ZDFmediathek/inhalt/9/0,4070,1200009-1,00.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ZDF Mediathek','http://wwitv.com/tv_channels/b1889.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Recorded sports items available on
+website.</td></tr>
+
+<tr><td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.tv-zwickau.de/inhalt/sendungen/TAonline.html" target="TV">Zwickau TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.tv-zwickau.de/inhalt/sendungen/TAonline.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Zwickau TV','http://wwitv.com/tv_channels/b2223.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Sachsen.</td></tr>
+
+</table></td></tr></table></td><td  valign="top" width="5"></td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td width="5"></td>
+<td><table width="100%" cellspacing="0" cellpadding="0"><tr><td width="100%" height="17" bgcolor="#990000"><script type="text/javascript"><!--
+google_ad_client = "pub-1964102517134879";google_hints = "online broadcast broadband tv television speedtest adsl dsl cable vod news media";google_ad_width = 468;google_ad_height = 15;google_ad_format = "468x15_0ads_al";google_ad_channel ="7827767283";google_page_url =
+document.location;google_color_border = "990000";google_color_bg = "990000";google_color_link = "FFcc00";google_color_url = "FF6600";google_color_text = "FF9900";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td></tr></table></td>
+<td  valign="top" width="5"></td></tr></table>
+<BR>
+<a class="hd3" href="../page/add_url.htm">Click HERE</a><font class="hd3">to add a new Internet TV station or to report a broken link!</font><BR><a class="hd3" href="../page/wwitv.htm"
+target="wwiTV4all">Copyright
+&copy; 1998-2007 wwiTV.com</a><BR><BR>
+</center>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-76858-5";
+urchinTracker();
+</script>
+</body></html>
+
+
+
+
+
+
+

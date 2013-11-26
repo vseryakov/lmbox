@@ -1,0 +1,6 @@
+alias df="df -h -P"
+alias ll="ls -lA"
+alias mc="mc -b"
+alias slog="tail -60 /var/log/messages"
+alias lsync="cd /root && rsync -aq vlad::lmbox /root/lmbox"
+alias lcp="socat readline tcp4:localhost:80"

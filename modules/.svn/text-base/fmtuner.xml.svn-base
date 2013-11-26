@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="fmtunerpage" background="background.jpg">
+   <clocklabel x="20" y="15"  width="300" height="20" template="clocklabel" />
+   <rectangle x="100" y="80" width="450" height="105" />
+   <label x="400" y="10" template="titlelabel">lmBox: Radio Tuner</label>
+   <label x="150" y="85" name="fmtunerfreq" template="titlelabel" fontsize="50" />
+   <label x="500" y="85" name="fmtunerpreset" template="titlelabel" fontcolor="#FFFFFF" />
+   <label x="500" y="150" name="fmtunerstereo" template="titlelabel" fontsize="12" />
+   <button x="100" y="230" caption="Play" template="t_button2" action="play">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play radio"
+     </event>
+     <event name="OnClick">
+       fmtuner_play
+     </event>
+   </button>
+   <button x="220" y="230" caption="Stop" template="t_button2" action="stop">
+     <event name="OnGotFocus">
+       lmbox set status caption "Stop radio"
+     </event>
+     <event name="OnClick">
+       fmtuner_stop
+     </event>
+   </button>
+   <button x="340" y="230" caption="Next" template="t_button2" action="nexttrack">
+     <event name="OnGotFocus">
+       lmbox set status caption "Increase radio frequency"
+     </event>
+     <event name="OnClick">
+       fmtuner_next 0.10
+     </event>
+   </button>
+   <button x="460" y="230" caption="Prev" template="t_button2" action="prevtrack">
+     <event name="OnGotFocus">
+       lmbox set status caption "Decrease radio frequency"
+     </event>
+     <event name="OnClick">
+       fmtuner_next -0.10
+     </event>
+   </button>
+   <button x="100" y="280" caption="FF" template="t_button2">
+     <event name="OnGotFocus">
+       lmbox set status caption "Seek for next stable radio frequency"
+     </event>
+     <event name="OnClick">
+       fmtuner_seek 1
+     </event>
+   </button>
+   <button x="220" y="280" caption="REW" template="t_button2">
+     <event name="OnGotFocus">
+       lmbox set status caption "Go back"
+     </event>
+     <event name="OnClick">
+       fmtuner_seek -1
+     </event>
+   </button>
+   <button x="340" y="280" caption="Save" template="t_button2">
+     <event name="OnGotFocus">
+       lmbox set status caption "Save frequency into presets, when pressed go and choose SetN button to save"
+     </event>
+     <event name="OnClick">
+       fmtuner_save
+     </event>
+   </button>
+   <button x="460" y="280" caption="Back" template="t_button2" action="cancel">
+     <event name="OnGotFocus">
+       lmbox set status caption "Go back"
+     </event>
+     <event name="OnClick">
+       lmbox setpage mainpage
+     </event>
+   </button>
+   <button x="100" y="330" caption="Set 1" template="t_button2" action="number1">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 1
+     </event>
+   </button>
+   <button x="220" y="330" caption="Set 2" template="t_button2" action="number2">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 2
+     </event>
+   </button>
+   <button x="340" y="330" caption="Set 3" template="t_button2" action="number3">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 3
+     </event>
+   </button>
+   <button x="460" y="330" caption="Set 4" template="t_button2" action="number4">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 4
+     </event>
+   </button>
+   <button x="100" y="380" caption="Set 5" template="t_button2" action="number5">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 5
+     </event>
+   </button>
+   <button x="220" y="380" caption="Set 6" template="t_button2" action="number6">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 6
+     </event>
+   </button>
+   <button x="340" y="380" caption="Set 7" template="t_button2" action="number7">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 7
+     </event>
+   </button>
+   <button x="460" y="380" caption="Set 8" template="t_button2" action="number8">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play/Save preset station"
+     </event>
+     <event name="OnClick">
+       fmtuner_preset 8
+     </event>
+   </button>
+   <label name="status" x="10" y="410" width="580" height="30" template="statuslabel"></label>
+</page>
+
+</lmbox>
+

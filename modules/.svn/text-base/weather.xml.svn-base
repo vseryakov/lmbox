@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+<page name="weatherpage" background="background.jpg">
+  <event name="OnGotFocus">
+    weather_setup
+  </event>
+  <clocklabel x="20" y="15"  width="300" height="20" template="clocklabel" />
+  <label x="380" y="10" template="titlelabel" >lmBox: Weather</label>
+
+  <picture name="iweather0" x="25" y="45" width="75" height="75" image="none.gif" />
+  <label name="weather0" x="105" y="45" width="480" height="115" template="yellowlabel" />
+
+  <label name="weather1" x="40" y="160" width="75" height="35" fontsize="10" template="yellowlabel" />
+  <label name="weather2" x="130" y="160" width="75" height="35" fontsize="10" template="yellowlabel" />
+  <label name="weather3" x="220" y="160" width="75" height="35" fontsize="10" template="yellowlabel" />
+  <label name="weather4" x="310" y="160" width="75" height="35" fontsize="10" template="yellowlabel" />
+  <label name="weather5" x="400" y="160" width="75" height="35" fontsize="10" template="yellowlabel" />
+  <label name="weather6" x="490" y="160" width="75" height="35" fontsize="10" template="yellowlabel" />
+
+  <label name="tweather1" x="40" y="280" width="75" height="15" fontsize="10" template="yellowlabel" textalign="top"/>
+  <label name="tweather2" x="130" y="280" width="75" height="15" fontsize="10" template="yellowlabel" textalign="top"/>
+  <label name="tweather3" x="220" y="280" width="75" height="15" fontsize="10" template="yellowlabel" textalign="top"/>
+  <label name="tweather4" x="310" y="280" width="75" height="15" fontsize="10" template="yellowlabel" textalign="top"/>
+  <label name="tweather5" x="400" y="280" width="75" height="15" fontsize="10" template="yellowlabel" textalign="top"/>
+  <label name="tweather6" x="490" y="280" width="75" height="15" fontsize="10" template="yellowlabel" textalign="top"/>
+
+  <label name="status" x="30" y="330" width="480" height="100" template="whitelabel" />
+
+  <button name="iweather1" x="40" y="200" template="t_weather">
+    <event name="OnGotFocus">
+      weather_info
+    </event>
+  </button>
+  <button name="iweather2" x="130" y="200" template="t_weather">
+    <event name="OnGotFocus">
+      weather_info
+    </event>
+  </button>
+  <button name="iweather3" x="220" y="200" template="t_weather">
+    <event name="OnGotFocus">
+      weather_info
+    </event>
+  </button>
+  <button name="iweather4" x="310" y="200" template="t_weather">
+    <event name="OnGotFocus">
+      weather_info
+    </event>
+  </button>
+  <button name="iweather5" x="400" y="200" template="t_weather">
+    <event name="OnGotFocus">
+      weather_info
+    </event>
+  </button>
+  <button name="iweather6" x="490" y="200" template="t_weather">
+    <event name="OnGotFocus">
+      weather_info
+    </event>
+  </button>
+
+  <button x="170" y="410" caption="Back" template="t_bluebutton" action="cancel">
+    lmbox setpage mainpage
+  </button>
+  <button x="270" y="410" caption="Refresh" template="t_redbutton" action="red">
+    weather_refresh
+  </button>
+  <button x="370" y="410" caption="Radar" template="t_greenbutton" action="green">
+    lmbox setpage weatherradarpage
+  </button>
+</page>
+
+<page name="weatherradarpage" background="background.jpg">
+  <event name="OnGotFocus">
+    weather_radarsetup
+  </event>
+
+  <clocklabel x="20" y="15"  width="300" height="20" template="clocklabel" />
+  <label x="380" y="10" template="titlelabel" fontcolor="#546fac" >lmBox: Weather Radar</label>
+
+  <picture name="weatherradar" x="60" y="60" width="450" height="340" image="none.gif" />
+
+  <button x="250" y="410" caption="Back" template="t_bluebutton" action="cancel">
+    lmbox setpage weatherpage
+  </button>
+
+  <button x="350" y="410" caption="Refresh" template="t_redbutton" action="red">
+    weather_radarsetup 1
+  </button>
+</page>
+
+<page name="weatherconfigpage" background="background.jpg">
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label name="configtitle" x="350" y="10" template="titlelabel">lmBox: Weather Settings</label>
+
+  <label x="30" y="45" width="80" height="20" template="infolabel">Station:</label>
+  <listbox name="weather_station" x="90" y="45" width="430" height="120" borderstyle="normal" borderx="2" bordery="2" abordercolor="#FFFFFF" template="t_listbox3" selitemfontcolor="#000000" >
+    <event name="OnSelectionChange">
+      lmbox set status caption "Weather station for current conditions: [lmbox get weather_station selecteddata]"
+    </event>
+  </listbox>
+  <label x="30" y="170" width="80" height="20" template="infolabel">Zone:</label>
+  <listbox name="weather_zone" x="90" y="170" width="430" height="120" borderstyle="normal" borderx="2" bordery="2" abordercolor="#FFFFFF" template="t_listbox3" selitemfontcolor="#000000" >
+    <event name="OnSelectionChange">
+      lmbox set status caption "Weather zone for forecasts: [lmbox get weather_zone selecteddata]"
+    </event>
+  </listbox>
+  <label x="30" y="300" width="100" height="20" template="infolabel">Radar:</label>
+  <textfield name="weather_radar" x="90" y="300" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Weather radar area from www.weather.com: dca, sfo, lax, nyc, mia, ... "
+    </event>
+  </textfield>
+
+  <button x="100" y="370" caption="Save" template="t_button2" action="save">
+    config_save
+    lmbox setpage configpage
+  </button>
+  <button x="200" y="370" caption="Back" template="t_button2" action="cancel">
+    lmbox setpage configpage
+  </button>
+  <label name="status" x="10" y="405" width="480" height="50" template="statuslabel"></label>
+</page>
+
+</lmbox>
+

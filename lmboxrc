@@ -1,0 +1,101 @@
+set bgimage [glob -nocomplain [file normalize ~/lmbox/images/bg/*]]
+lappend bgimage lmbox.jpg
+
+lmbox setconfig bgimage [lindex $bgimage [expr round(rand()*100) % [llength $bgimage]]]
+lmbox setconfig hidecursor 1
+lmbox setconfig xscale 1
+lmbox setconfig yscale 1
+
+lmbox setkey f1 help
+lmbox setkey ctrl+m mute
+lmbox setkey ctrl+i info
+lmbox setkey ctrl+u volumeup
+lmbox setkey ctrl+d volumedown
+lmbox setkey ctrl+p play
+lmbox setkey ctrl+s stop
+lmbox setkey ctrl+z pause
+lmbox setkey ctrl+r red
+lmbox setkey ctrl+g green
+lmbox setkey ctrl+y yellow
+lmbox setkey ctrl+b blue
+
+lmbox setkey 0 number0
+lmbox setkey 1 number1
+lmbox setkey 2 number2
+lmbox setkey 3 number3
+lmbox setkey 4 number4
+lmbox setkey 5 number5
+lmbox setkey 6 number6
+lmbox setkey 7 number7
+lmbox setkey 8 number8
+lmbox setkey 9 number9
+lmbox setkey a keya
+lmbox setkey b keyb
+lmbox setkey c keyc
+lmbox setkey d keyd
+lmbox setkey e keye
+lmbox setkey f keyf
+lmbox setkey g keyg
+lmbox setkey h keyh
+lmbox setkey i keyi
+lmbox setkey j keyj
+lmbox setkey k keyk
+lmbox setkey l keyl
+lmbox setkey m keym
+lmbox setkey n keyn
+lmbox setkey o keyo
+lmbox setkey p keyp
+lmbox setkey q keyq
+lmbox setkey r keyr
+lmbox setkey s keys
+lmbox setkey t keyt
+lmbox setkey u keyu
+lmbox setkey v keyv
+lmbox setkey w keyw
+lmbox setkey x keyx
+lmbox setkey y keyy
+lmbox setkey z keyz
+lmbox setkey slash key/
+lmbox setkey quote key\"
+lmbox setkey comma key,
+lmbox setkey minus key-
+lmbox setkey dot key.
+lmbox setkey semicolon key;
+lmbox setkey equals key=
+lmbox setkey leftbracket key\[
+lmbox setkey backslash key\\
+lmbox setkey rightbracket key\]
+lmbox setkey backquote key`
+
+lmbox setkey escape quit
+lmbox setkey enter accept
+lmbox setkey backspace cancel
+lmbox setkey tab next
+lmbox setkey shift+tab prev
+lmbox setkey leftarrow prev
+lmbox setkey rightarrow next
+lmbox setkey uparrow up
+lmbox setkey downarrow down
+lmbox setkey pageup prevpage
+lmbox setkey pagedown nextpage
+lmbox setkey ctrl+pageup prevtrack
+lmbox setkey ctrl+pagedown nexttrack
+lmbox setkey home first
+lmbox setkey end last
+lmbox setkey insert info
+
+lmbox setkey num+escape quit
+lmbox setkey num+enter accept
+lmbox setkey num+backspace cancel
+lmbox setkey num+tab next
+lmbox setkey num+leftarrow prev
+lmbox setkey num+rightarrow next
+lmbox setkey num+uparrow up
+lmbox setkey num+downarrow down
+lmbox setkey num+pageup prevpage
+lmbox setkey num+pagedown nextpage
+lmbox setkey num+home first
+lmbox setkey num+end last
+lmbox setkey num+insert info
+
+

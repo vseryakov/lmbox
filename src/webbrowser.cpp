@@ -1,0 +1,901 @@
+/*
+ *
+ * Author Vlad Seryakov vlad@crystalballinc.com
+ *   
+ * The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://mozilla.org/.
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See
+ * the License for the specific language governing rights and limitations
+ * under the License.
+ *
+ */
+
+#ifdef HAVE_MOZILLA
+
+#include "lmbox.h"
+
+static void title_changed_cb (GtkMozEmbed *embed, WebBrowserObject *browser)
+{
+    char *title = gtk_moz_embed_get_title(embed);
+    if (title) {
+        gtk_window_set_title(GTK_WINDOW(browser->toplevel), title);
+        g_free(title);
+    }
+}
+
+static void url_activate_cb (GtkEditable *widget, WebBrowserObject *browser)
+{
+    gchar *text = gtk_editable_get_chars(widget, 0, -1);
+    gtk_moz_embed_load_url(GTK_MOZ_EMBED(browser->mozilla), text);
+    g_free(text);
+}
+
+static void close_clicked_cb (GtkButton *button, WebBrowserObject *browser)
+{
+    browser->BrowserClose();
+}
+
+static void back_clicked_cb (GtkButton *button, WebBrowserObject *browser)
+{
+    gtk_moz_embed_go_back(GTK_MOZ_EMBED(browser->mozilla));
+}
+
+static void stop_clicked_cb (GtkButton *button, WebBrowserObject *browser)
+{
+    gtk_moz_embed_stop_load(GTK_MOZ_EMBED(browser->mozilla));
+}
+
+static void forward_clicked_cb (GtkButton *button, WebBrowserObject *browser)
+{
+    gtk_moz_embed_go_forward(GTK_MOZ_EMBED(browser->mozilla));
+}
+
+static void reload_clicked_cb (GtkButton *button, WebBrowserObject *browser)
+{
+    gint x, y;
+    GdkModifierType state = (GdkModifierType)0;
+    gdk_window_get_pointer(NULL, &x, &y, &state);
+    gtk_moz_embed_reload(GTK_MOZ_EMBED(browser->mozilla), (state & GDK_SHIFT_MASK) ? GTK_MOZ_EMBED_FLAG_RELOADBYPASSCACHE : GTK_MOZ_EMBED_FLAG_RELOADNORMAL);
+}
+
+static void visibility_cb (GtkMozEmbed *embed, gboolean visibility, WebBrowserObject *browser)
+{
+    browser->SetVisible(visibility);
+}
+
+static void new_window_cb (GtkMozEmbed *embed, GtkMozEmbed **newEmbed, guint chromemask, WebBrowserObject *browser)
+{
+    char bname[256];
+    static int browserID = 0;
+    snprintf(bname, sizeof(bname), "%s%d", browser->GetName(), ++browserID);
+    SDL_Rect r = browser->GetArea();
+    WebBrowserObject *browser2 = new WebBrowserObject(bname);
+    browser2->BrowserSetChrome(chromemask);
+    browser2->BrowserOpen();
+    browser2->SetParent(browser);
+    browser->AddObject(browser2);
+    *newEmbed = GTK_MOZ_EMBED(browser2->BrowserGetEmbed());
+}
+
+static void size_to_cb (GtkMozEmbed *embed, gint width, gint height, WebBrowserObject *browser)
+{
+    browser->SetPosition(-1, -1, width, height);
+}
+
+static void location_cb (GtkMozEmbed *embed, WebBrowserObject *browser)
+{
+    browser->FireEvent("OnLocationChange");
+    char *location = gtk_moz_embed_get_location(embed);
+    if (location) {
+        int pos = 0;
+        systemObject->Log(0, "location: %s", location);
+        gtk_editable_delete_text(GTK_EDITABLE(browser->urlEntry), 0, -1);
+        gtk_editable_insert_text(GTK_EDITABLE(browser->urlEntry), location, strlen(location), &pos);
+        g_free(location);
+    }
+    browser->BrowserButtons();
+}
+
+static void net_start_cb (GtkMozEmbed *embed, WebBrowserObject *browser)
+{
+    browser->Lock();
+    char *location = gtk_moz_embed_get_location(embed);
+    systemObject->Log(0, "start: %s", location);
+    g_free(location);
+    browser->Unlock();
+    browser->FireEvent("OnStart");
+    gtk_widget_set_sensitive(browser->stopButton, TRUE);
+    gtk_widget_set_sensitive(browser->reloadButton, FALSE);
+    browser->loadPercent = 0;
+    browser->bytesLoaded = 0;
+    browser->maxBytesLoaded = 0;
+    browser->SetStatus(0);
+}
+
+static void net_stop_cb (GtkMozEmbed *embed, WebBrowserObject *browser)
+{
+    browser->FireEvent("OnStop");
+    gtk_widget_set_sensitive(browser->stopButton, FALSE);
+    gtk_widget_set_sensitive(browser->reloadButton, TRUE);
+    gtk_progress_set_percentage(GTK_PROGRESS(browser->progressBar), 0);
+    browser->loadPercent = 0;
+    browser->bytesLoaded = 0;
+    browser->maxBytesLoaded = 0;
+    browser->SetStatus(0);
+}
+
+static void net_state_cb (GtkMozEmbed *embed, gint flags, guint status, WebBrowserObject *browser)
+{
+    if (flags & GTK_MOZ_EMBED_FLAG_IS_REQUEST) {
+      if (flags & GTK_MOZ_EMBED_FLAG_REDIRECTING) {
+          browser->SetStatus("Redirecting ...");
+      } else
+      if (flags & GTK_MOZ_EMBED_FLAG_TRANSFERRING) {
+          browser->SetStatus("Transferring data ...");
+      } else
+      if (flags & GTK_MOZ_EMBED_FLAG_NEGOTIATING) {
+          browser->SetStatus("Waiting for authorization...");
+      }
+    }
+
+    if (status == GTK_MOZ_EMBED_STATUS_FAILED_DNS) {
+        browser->SetStatus("Site not found.");
+    } else
+    if (status == GTK_MOZ_EMBED_STATUS_FAILED_CONNECT) {
+        browser->SetStatus("Failed to connect to site.");
+    } else
+    if (status == GTK_MOZ_EMBED_STATUS_FAILED_TIMEOUT) {
+        browser->SetStatus("Failed due to connection timeout.");
+    } else
+    if (status == GTK_MOZ_EMBED_STATUS_FAILED_USERCANCELED) {
+        browser->SetStatus("User canceled connecting to site.");
+    }
+
+    if (flags & GTK_MOZ_EMBED_FLAG_IS_DOCUMENT) {
+        if (flags & GTK_MOZ_EMBED_FLAG_START) {
+            browser->SetStatus("Loading ...");
+        } else
+        if (flags & GTK_MOZ_EMBED_FLAG_STOP) {
+            browser->SetStatus("Done.");
+        }
+    }
+}
+
+static void progress_cb (GtkMozEmbed *embed, gint cur, gint max,  WebBrowserObject *browser)
+{
+    if (max < 1) {
+        gtk_progress_set_activity_mode(GTK_PROGRESS(browser->progressBar), FALSE);
+        browser->loadPercent = 0;
+        browser->bytesLoaded = cur;
+        browser->maxBytesLoaded = 0;
+        browser->SetStatus(0);
+    } else {
+        browser->bytesLoaded = cur;
+        browser->maxBytesLoaded = max;
+        if (cur > max) {
+            browser->loadPercent = 100;
+        } else {
+            browser->loadPercent = (cur * 100) / max;
+        }
+        char msg[256];
+        if (browser->loadPercent) {
+            snprintf(msg, sizeof(msg), "%d%% complete, %d bytes of %d loaded", browser->loadPercent, browser->bytesLoaded, browser->maxBytesLoaded);
+            browser->SetStatus(msg);
+        } else
+        if (browser->bytesLoaded) {
+            snprintf(msg, sizeof(msg), "%d bytes loaded", browser->bytesLoaded);
+            browser->SetStatus(msg);
+        }
+        gtk_progress_set_percentage(GTK_PROGRESS(browser->progressBar), browser->loadPercent / 100.0);
+    }
+}
+
+static void link_message_cb (GtkMozEmbed *embed, WebBrowserObject *browser)
+{
+    char *msg = gtk_moz_embed_get_link_message(embed);
+    browser->SetStatus(msg);
+    g_free(msg);
+}
+
+static void js_status_cb (GtkMozEmbed *embed, WebBrowserObject *browser)
+{
+    char *msg = gtk_moz_embed_get_js_status(embed);
+    browser->SetStatus(msg);
+    g_free(msg);
+}
+
+static void destroy_cb (GtkMozEmbed *embed, WebBrowserObject *browser)
+{
+    browser->BrowserClose();
+}
+
+static gint delete_cb(GtkWidget *widget, GdkEventAny *event, WebBrowserObject *browser)
+{
+    browser->BrowserClose();
+    return TRUE;
+}
+
+static gint open_uri_cb (GtkMozEmbed *embed, const char *uri, WebBrowserObject *browser)
+{
+    char msg[256];
+    snprintf(msg, sizeof(msg), "Opening %s...", uri);
+    browser->SetStatus(msg);
+    systemObject->Log(0, "open: %s", uri);
+    return FALSE;
+}
+
+static gint dom_key_down_cb (GtkMozEmbed *embed, nsIDOMKeyEvent *event, WebBrowserObject *browser)
+{
+    return NS_OK;
+}
+
+static gint dom_key_up_cb (GtkMozEmbed *embed, nsIDOMKeyEvent *event, WebBrowserObject *browser)
+{
+    return NS_OK;
+}
+
+static gint dom_key_press_cb (GtkMozEmbed *embed, nsIDOMKeyEvent *event, WebBrowserObject *browser)
+{
+    browser->HandleKeyEvent(event);
+    return NS_OK;
+}
+
+static gint dom_mouse_down_cb (GtkMozEmbed *embed, nsIDOMMouseEvent *event,  WebBrowserObject *browser)
+{
+    return NS_OK;
+}
+
+static gint dom_mouse_up_cb (GtkMozEmbed *embed, nsIDOMMouseEvent *event, WebBrowserObject *browser)
+{
+    return NS_OK;
+}
+
+static gint dom_mouse_click_cb (GtkMozEmbed *embed, nsIDOMMouseEvent *event, WebBrowserObject *browser)
+{
+    browser->PerformMouseAction(event);
+    return NS_OK;
+}
+
+static gint dom_mouse_dbl_click_cb (GtkMozEmbed *embed, nsIDOMMouseEvent *event, WebBrowserObject *browser)
+{
+    return NS_OK;
+}
+
+static gint dom_mouse_over_cb (GtkMozEmbed *embed, nsIDOMMouseEvent *event, WebBrowserObject *browser)
+{
+    return NS_OK;
+}
+
+static gint dom_mouse_out_cb (GtkMozEmbed *embed, nsIDOMMouseEvent *event, WebBrowserObject *browser)
+{
+    return NS_OK;
+}
+
+WebBrowserObject::WebBrowserObject(const char *name): GUI_Widget(name, 0, 0, 0, 0)
+{
+    type = TYPE_WEBBROWSER;
+    status = 0;
+    mozilla = 0;
+    toplevel = 0;
+    location = 0;
+    loadPercent = 0;
+    bytesLoaded = 0;
+    maxBytesLoaded = 0;
+    toolbar_flag = 1;
+
+    char *mhome = getenv("HOME");
+    char *muser = (char*)systemObject->configGetValue("user_name","lmbox");
+    char *mpath = g_strdup_printf("%s/%s", mhome ? mhome : "/tmp", ".mozilla");
+    gtk_moz_embed_set_profile_path(mpath, muser);
+
+    MemberFunctionProperty < WebBrowserObject > *mp;
+    mp = new MemberFunctionProperty < WebBrowserObject > ("location", this, &WebBrowserObject::pget_Location, &WebBrowserObject::pset_Location, false);
+    AddProperty(mp);
+    mp = new MemberFunctionProperty < WebBrowserObject > ("status", this, &WebBrowserObject::pget_Status, NULL, false);
+    AddProperty(mp);
+    mp = new MemberFunctionProperty < WebBrowserObject > ("version", this, &WebBrowserObject::pget_Version, NULL, false);
+    AddProperty(mp);
+
+    MemberMethodHandler < WebBrowserObject > *mh;
+    mh = new MemberMethodHandler < WebBrowserObject > ("data", this, 1, &WebBrowserObject::m_Data);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("back", this, 0, &WebBrowserObject::m_Back);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("open", this, 0, &WebBrowserObject::m_Open);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("stop", this, 0, &WebBrowserObject::m_Stop);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("forward", this, 0, &WebBrowserObject::m_Forward);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("reload", this, 0, &WebBrowserObject::m_Reload);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("refresh", this, 0, &WebBrowserObject::m_Refresh);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("close", this, 0, &WebBrowserObject::m_Close);
+    AddMethod(mh);
+    mh = new MemberMethodHandler < WebBrowserObject > ("event", this, 2, &WebBrowserObject::m_Event);
+    AddMethod(mh);
+}
+
+WebBrowserObject::~WebBrowserObject()
+{
+    lmbox_free(status);
+    lmbox_free(location);
+    DestroyEventHandlers();
+    BrowserClose();
+    if (toplevel) {
+        gtk_widget_destroy(toplevel);
+        g_object_unref(urlEntry);
+        g_object_unref(toolbar);
+    }
+}
+
+Display *WebBrowserObject::GetDisplay()
+{
+    if (toplevel) {
+        return GDK_WINDOW_XDISPLAY(toplevel->window);
+    }
+    return DynamicObject::GetDisplay();
+}
+
+Window WebBrowserObject::GetWindow()
+{
+    if (toplevel) {
+        return GDK_WINDOW_XID(toplevel->window);
+    }
+    return DynamicObject::GetWindow();
+}
+
+int WebBrowserObject::BrowserOpen(void)
+{
+    Lock();
+    if (!area.w) {
+        area.w = systemObject->configGetInt("video_width", systemObject->GetScreenWidth());
+    }
+    if (!area.h) {
+        area.h = systemObject->configGetInt("video_height", systemObject->GetScreenHeight());
+    }
+    if (!toplevel) {
+        toplevel = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+        gtk_widget_realize(toplevel);
+        gdk_window_set_decorations(toplevel->window, (GdkWMDecoration)0);
+        toplevelVBox = gtk_vbox_new(FALSE, 0);
+        gtk_container_add(GTK_CONTAINER(toplevel), toplevelVBox);
+
+        mozilla = gtk_moz_embed_new();
+        gtk_moz_embed_set_chrome_mask(GTK_MOZ_EMBED(mozilla), GTK_MOZ_EMBED_FLAG_ALLCHROME);
+
+        toolbarHBox = gtk_hbox_new(FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(toplevelVBox), toolbarHBox, FALSE, FALSE, 0);
+        toolbar = gtk_toolbar_new();
+        g_object_ref(toolbar);
+        gtk_toolbar_set_orientation(GTK_TOOLBAR(toolbar), GTK_ORIENTATION_HORIZONTAL);
+        gtk_toolbar_set_style(GTK_TOOLBAR(toolbar), GTK_TOOLBAR_BOTH);
+        if (toolbar_flag) {
+            gtk_box_pack_start(GTK_BOX(toolbarHBox), toolbar, FALSE, FALSE, 0);
+        }
+        backButton = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar), "Back", "Go Back", "Go Back", 0, GTK_SIGNAL_FUNC(back_clicked_cb), this);
+        stopButton = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar), "Stop", "Stop", "Stop", 0, GTK_SIGNAL_FUNC(stop_clicked_cb), this);
+        forwardButton = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar), "Forward", "Forward", "Forward", 0, GTK_SIGNAL_FUNC(forward_clicked_cb), this);
+        reloadButton = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar), "Reload", "Reload", "Reload", 0, GTK_SIGNAL_FUNC(reload_clicked_cb), this);
+        closeButton = gtk_toolbar_append_item(GTK_TOOLBAR(toolbar), "Close", "Close window", "Close window", 0, GTK_SIGNAL_FUNC(close_clicked_cb), this);
+        urlEntry = gtk_entry_new();
+        g_object_ref(urlEntry);
+        if (toolbar_flag) {
+            gtk_box_pack_start(GTK_BOX(toolbarHBox), urlEntry, TRUE, TRUE, 0);
+        }
+        gtk_box_pack_start(GTK_BOX(toplevelVBox), mozilla, TRUE, TRUE, 0);
+        progressAreaHBox = gtk_hbox_new(FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(toplevelVBox), progressAreaHBox, FALSE, FALSE, 0);
+        progressBar = gtk_progress_bar_new();
+        gtk_box_pack_start(GTK_BOX(progressAreaHBox), progressBar, FALSE, FALSE, 0);
+        statusAlign = gtk_alignment_new(0, 0, 1, 1);
+        gtk_widget_set_usize(statusAlign, 1, -1);
+        statusBar = gtk_statusbar_new();
+        gtk_statusbar_set_has_resize_grip(GTK_STATUSBAR(statusBar), 0);
+        gtk_container_add(GTK_CONTAINER(statusAlign), statusBar);
+        gtk_box_pack_start(GTK_BOX(progressAreaHBox), statusAlign, TRUE, TRUE, 0);
+
+        gtk_widget_set_sensitive(closeButton, TRUE);
+        gtk_widget_set_sensitive(backButton, FALSE);
+        gtk_widget_set_sensitive(stopButton, FALSE);
+        gtk_widget_set_sensitive(forwardButton, FALSE);
+        gtk_widget_set_sensitive(reloadButton, FALSE);
+
+        gtk_signal_connect(GTK_OBJECT(urlEntry), "activate", GTK_SIGNAL_FUNC(url_activate_cb), this);
+        
+        gtk_signal_connect(GTK_OBJECT(toplevel), "delete_event", GTK_SIGNAL_FUNC(delete_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "destroy", GTK_SIGNAL_FUNC(destroy_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "destroy_browser", GTK_SIGNAL_FUNC(destroy_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "title", GTK_SIGNAL_FUNC(title_changed_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "new_window", GTK_SIGNAL_FUNC(new_window_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "visibility", GTK_SIGNAL_FUNC(visibility_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "size_to", GTK_SIGNAL_FUNC(size_to_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "location", GTK_SIGNAL_FUNC(location_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "net_start", GTK_SIGNAL_FUNC(net_start_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "net_stop", GTK_SIGNAL_FUNC(net_stop_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "net_state",  GTK_SIGNAL_FUNC(net_state_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "progress", GTK_SIGNAL_FUNC(progress_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "link_message", GTK_SIGNAL_FUNC(link_message_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "js_status", GTK_SIGNAL_FUNC(js_status_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "open_uri", GTK_SIGNAL_FUNC(open_uri_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_key_down", GTK_SIGNAL_FUNC(dom_key_down_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_key_up", GTK_SIGNAL_FUNC(dom_key_up_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_mouse_down", GTK_SIGNAL_FUNC(dom_mouse_down_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_mouse_up", GTK_SIGNAL_FUNC(dom_mouse_up_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_key_press", GTK_SIGNAL_FUNC(dom_key_press_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_mouse_click", GTK_SIGNAL_FUNC(dom_mouse_click_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_mouse_dbl_click", GTK_SIGNAL_FUNC(dom_mouse_dbl_click_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_mouse_over", GTK_SIGNAL_FUNC(dom_mouse_over_cb), this);
+        gtk_signal_connect(GTK_OBJECT(mozilla), "dom_mouse_out", GTK_SIGNAL_FUNC(dom_mouse_out_cb), this);
+    }
+    Unlock();
+    SetPosition(area.x, area.y, area.w, area.h);
+    SetVisible(1);
+    if (location) {
+        gtk_moz_embed_load_url(GTK_MOZ_EMBED(mozilla), location);
+    }
+    systemObject->RegisterExternalEventHandler(this);
+    return 0;
+}
+
+int WebBrowserObject::BrowserClose(void)
+{
+    if (!IsVisible()) {
+        return 0;
+    }
+    Stop();
+    systemObject->UnregisterExternalEventHandler(this);
+    Lock();
+    SetVisible(0);
+    // Destroy all children on close
+    for (int i = 0; i < containedobjects.size(); i++) {
+         if (!strcmp(containedobjects[i]->GetType(), "webbrowser")) {
+             RemoveObject(containedobjects[i]);
+         }
+    }
+    Unlock();
+    OnEvent();
+    FireEvent("OnClose");
+    // In standalone mode exit application on main browser close
+    if (!strcmp(systemObject->GetAppName(), "lmboxweb")) {
+        gtk_main_quit();
+    }
+    return 0;
+}
+
+void WebBrowserObject::BrowserSetChrome(guint chromemask)
+{
+    if (toplevel) {
+        gtk_moz_embed_set_chrome_mask(GTK_MOZ_EMBED(mozilla), chromemask);
+    }
+}
+
+void WebBrowserObject::BrowserSnapshot(const char *fname)
+{
+    int width, height;
+    char *c, *buf = 0;
+    GdkColormap *cmap = gdk_colormap_get_system();
+    gdk_drawable_get_size(GDK_DRAWABLE(mozilla->window), &width, &height);
+    GdkPixbuf *pix = gdk_pixbuf_get_from_drawable(0, GDK_DRAWABLE(mozilla->window), cmap, 0, 0, 0, 0, width, height);
+    if (pix) {
+       if (!fname) {
+           buf = strdup(location ? location : "lmboxweb");
+           buf = (char*)realloc(buf, strlen(buf) + 16);
+           fname = buf;
+           if ((c = strrchr(buf, '/'))) {
+               //fname = c + 1;
+           }
+           if ((c = strrchr(fname, '.'))) {
+               *c = 0;
+           }
+           strcat((char*)fname, ".png");
+       }
+       gdk_pixbuf_save (pix, fname, "png", NULL, NULL);
+       gdk_pixbuf_unref(pix);
+       printf("Webbrowser snapshot %s\n",fname);
+    }
+    gdk_colormap_unref(cmap);
+    lmbox_free(buf);
+}
+
+void WebBrowserObject::BrowserButtons(void)
+{
+    gboolean can_go_back = gtk_moz_embed_can_go_back(GTK_MOZ_EMBED(mozilla));
+    gboolean can_go_forward = gtk_moz_embed_can_go_forward(GTK_MOZ_EMBED(mozilla));
+    gtk_widget_set_sensitive(backButton, can_go_back);
+    gtk_widget_set_sensitive(forwardButton, can_go_forward);
+}
+
+void WebBrowserObject::SetVisible(int flag)
+{
+    GUI_Widget::SetVisible(flag);
+    if (!toplevel) {
+        return;
+    }
+    if (!flag) {
+        gtk_widget_hide(toplevel);
+    } else {
+        gtk_widget_show(mozilla);
+        gtk_widget_show(toplevelVBox);
+        gtk_widget_show_all(toolbarHBox);
+        gtk_widget_show_all(progressAreaHBox);
+        gtk_widget_show(toplevel);
+    }
+}
+
+void WebBrowserObject::BrowserData(const char *data)
+{
+    if (data) {
+       gtk_moz_embed_open_stream(GTK_MOZ_EMBED(mozilla), "file://", "text/html");
+       gtk_moz_embed_append_data(GTK_MOZ_EMBED(mozilla), data, strlen(data));
+       gtk_moz_embed_close_stream(GTK_MOZ_EMBED(mozilla));
+    }
+}
+
+bool WebBrowserObject::HandleMouseEvent(const SDL_Event * event, int xoffset, int yoffset)
+{
+    return 0;
+}
+
+void WebBrowserObject::BrowserEvent(const char *etype, const char *data)
+{
+    if (!strcmp(etype, "key")) {
+        int key = NoSymbol, state = 0;
+        // Check for modifiers
+        if (!strncmp(data, "ctrl:", 5)) {
+            state = ControlMask;
+            data += 5;
+        } else
+        if (!strncmp(data, "shift:", 6)) {
+            state = ShiftMask;
+            data += 6;
+        } else
+        if (!strncmp(data, "mod1:", 5)) {
+            state = Mod1Mask;
+            data += 5;
+        }
+        // Predefined key codes
+        if (!strcmp(data, "home")) {
+            key = XK_Home;
+        } else
+        if (!strcmp(data, "end")) {
+            key = XK_End;
+        } else
+        if (!strcmp(data, "prevpage")) {
+            key = XK_Page_Up;
+        } else
+        if (!strcmp(data, "nextpage")) {
+            key = XK_Page_Down;
+        } else
+        if (!strcmp(data, "up")) {
+            key = XK_Up;
+        } else
+        if (!strcmp(data, "down")) {
+            key = XK_Down;
+        } else
+        if (!strcmp(data, "prev")) {
+            key = XK_Left;
+        } else
+        if (!strcmp(data, "next")) {
+            key = XK_Right;
+        } else
+        if (!strcmp(data, "accept")) {
+            key = XK_Return;
+        } else
+        if (!strcmp(data, "nexttrack")) {
+            key = XK_Tab;
+        } else
+        if (!strcmp(data, "prevtrack")) {
+            key = XK_Tab;
+            state = ShiftMask;
+        } else {
+            key = XStringToKeysym(data);
+        }
+        if (key && toplevel) {
+            XKeyEvent event;
+            event.display = GDK_WINDOW_XDISPLAY(toplevel->window);
+            event.window = GDK_WINDOW_XID(toplevel->window);
+            event.root = DefaultRootWindow(event.display);
+            event.subwindow = None;
+            event.time = CurrentTime;
+            event.x = 1;
+            event.y = 1;
+            event.x_root = 1;
+            event.y_root = 1;
+            event.same_screen = TRUE;
+            event.type = KeyPress;
+            event.state = state;
+            XLockDisplay(event.display);
+            event.keycode = XKeysymToKeycode(event.display,key);
+            XSendEvent(event.display, event.window, TRUE, KeyPressMask, (XEvent *)&event);
+            XUnlockDisplay(event.display);
+        }
+    } else
+
+    if (!strcmp(etype, "focus")) {
+        if (!strcmp(data, "mozilla") && toplevel) {
+            XLockDisplay(GDK_WINDOW_XDISPLAY(toplevel->window));
+            XRaiseWindow(GDK_WINDOW_XDISPLAY(toplevel->window), GDK_WINDOW_XID(toplevel->window));
+            XSync(GDK_WINDOW_XDISPLAY(toplevel->window), False);
+            XUnlockDisplay(GDK_WINDOW_XDISPLAY(toplevel->window));
+            gtk_widget_grab_focus(toplevel);
+        } else
+        if (!strcmp(data, "url") && toplevel) {
+            gtk_widget_grab_focus(urlEntry);
+        }
+    } else
+
+    if (!strcmp(etype, "toolbar")) {
+        if (!strToBool(data)) {
+            if (toolbar_flag && toplevel) {
+                gtk_container_remove(GTK_CONTAINER(toolbarHBox), toolbar);
+                gtk_container_remove(GTK_CONTAINER(toolbarHBox), urlEntry);
+            }
+            toolbar_flag = 0;
+        } else {
+            if (!toolbar_flag && toplevel) {
+                gtk_box_pack_start(GTK_BOX(toolbarHBox), toolbar, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(toolbarHBox), urlEntry, TRUE, TRUE, 0);
+            }
+            toolbar_flag = 1;
+        }
+    }
+}
+
+GtkWidget *WebBrowserObject::BrowserGetEmbed(void)
+{
+    return mozilla;
+}
+
+int WebBrowserObject::PerformMouseAction(nsIDOMMouseEvent *event)
+{
+    return 0;
+}
+
+bool WebBrowserObject::HandleKeyEvent(nsIDOMKeyEvent *event)
+{
+    PRUint32 key = 0;
+    event->GetKeyCode(&key);
+    if (key == nsIDOMKeyEvent::DOM_VK_ESCAPE) {
+        // In standalone mode exit application on main browser close
+        if (!strcmp(systemObject->GetAppName(), "lmboxweb") && !parent) {
+            gtk_main_quit();
+        }
+        systemObject->PostEvent("escape", 0, 0);
+        return 1;
+    }
+
+    if (systemObject->configGetInt("webbrowser_trackkeys", 0)) {
+        char buf[32];
+        PRUint32 ch = 0;
+        PRBool alt = 0, ctrl = 0, shift = 0, meta = 0;
+        event->GetCharCode(&ch);
+        event->GetAltKey(&alt);
+        event->GetCtrlKey(&ctrl);
+        event->GetShiftKey(&shift);
+        event->GetMetaKey(&meta);
+        if (ch >= '0' && ch <= '9') {
+            sprintf(buf, "%s%s%snumber%c", alt ? "alt+" : "", ctrl ? "ctrl+" : "", shift ? "shift+" : "", ch);
+            systemObject->PostEvent(buf, 0, 0);
+        } else
+        if (ch >= '0' && ch <= '9') {
+            sprintf(buf, "%s%s%skey%c", alt ? "alt+" : "", ctrl ? "ctrl+" : "", shift ? "shift+" : "", ch);
+            systemObject->PostEvent(buf, 0, 0);
+        }
+    }
+    return 0;
+}
+
+bool WebBrowserObject::HandleEvent(const char *action)
+{
+    if (GUI_Widget::HandleEvent(action)) {
+       return 1;
+    }
+    if (!strcmp(action, "close")) {
+        BrowserClose();
+        return 1;
+    } else
+    if (!strcmp(action, "snapshot")) {
+        BrowserSnapshot(0);
+    }
+    return 0;
+}
+
+int WebBrowserObject::OnGotFocus(void)
+{
+    if (GUI_Widget::OnGotFocus()) {
+        BrowserEvent("focus", "mozilla");
+        return 1;
+    }
+    return 0;
+}
+
+void WebBrowserObject::OnEvent(void)
+{
+    while (toplevel && gtk_events_pending()) {
+        gtk_main_iteration_do(false);
+    }
+}
+
+void WebBrowserObject::SetPosition(int x, int y, int w, int h)
+{
+    GUI_Widget::SetPosition(x, y, w, h);
+    Lock();
+    if (toplevel) {
+        gtk_widget_set_uposition(toplevel, area.x, area.y);
+        gtk_widget_set_usize(toplevel, area.w, area.h);
+    }
+    Unlock();
+}
+
+void WebBrowserObject::SetStatus(const char *msg)
+{
+    Lock();
+    lmbox_free(status);
+    status = lmbox_strdup(msg);
+    gtk_statusbar_pop(GTK_STATUSBAR(statusBar), 1);
+    if (status) {
+        gtk_statusbar_push(GTK_STATUSBAR(statusBar), 1, status);
+    }
+    Unlock();
+    FireEvent("OnStatus");
+}
+
+char *WebBrowserObject::GetStatus(void)
+{
+    Lock();
+    char *str = lmbox_strdup(status);
+    Unlock();
+    return str;
+}
+
+char *WebBrowserObject::GetLocation(void)
+{
+    Lock();
+    char *str = lmbox_strdup(location);
+    Unlock();
+    return str;
+}
+
+void WebBrowserObject::SetLocation(const char *url)
+{
+    Lock();
+    lmbox_free(location);
+    location = lmbox_strdup(url && *url ? url : systemObject->configGetValue("web_home", "http://google.com"));
+    Unlock();
+}
+
+void WebBrowserObject::Back(void)
+{
+    Lock();
+    if (toplevel) {
+        gtk_moz_embed_go_back(GTK_MOZ_EMBED(mozilla));
+    }
+    Unlock();
+}
+
+void WebBrowserObject::Stop(void)
+{
+    Lock();
+    if (toplevel) {
+        gtk_moz_embed_stop_load(GTK_MOZ_EMBED(mozilla));
+    }
+    Unlock();
+}
+
+void WebBrowserObject::Forward(void)
+{
+    Lock();
+    if (toplevel) {
+        gtk_moz_embed_go_forward(GTK_MOZ_EMBED(mozilla));
+    }
+    Unlock();
+}
+
+void WebBrowserObject::Reload(void)
+{
+    Lock();
+    if (toplevel) {
+        gtk_moz_embed_reload(GTK_MOZ_EMBED(mozilla), GTK_MOZ_EMBED_FLAG_RELOADNORMAL);
+    }
+    Unlock();
+}
+
+void WebBrowserObject::Refresh(void)
+{
+    Lock();
+    if (toplevel) {
+        gtk_moz_embed_reload(GTK_MOZ_EMBED(mozilla), GTK_MOZ_EMBED_FLAG_RELOADBYPASSCACHE);
+    }
+    Unlock();
+}
+
+Variant WebBrowserObject::pget_Version(void)
+{
+    string rc = "lmbox WebBrowser ";
+    rc += LMBOX_VERSION;
+    return anytovariant(rc);
+}
+
+Variant WebBrowserObject::pget_Status(void)
+{
+    char *str = GetStatus();
+    Variant v = anytovariant(str ? str : "");
+    lmbox_free(str);
+    return v;
+}
+
+Variant WebBrowserObject::pget_Location(void)
+{
+    char *str = GetLocation();
+    Variant v = anytovariant(str ? str : "");
+    lmbox_free(str);
+    return v;
+}
+
+int WebBrowserObject::pset_Location(Variant value)
+{
+    SetLocation(value);
+    return 0;
+}
+
+Variant WebBrowserObject::m_Back(int numargs, Variant args[])
+{
+    Back();
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Stop(int numargs, Variant args[])
+{
+    Stop();
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Open(int numargs, Variant args[])
+{
+    BrowserOpen();
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Close(int numargs, Variant args[])
+{
+    BrowserClose();
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Forward(int numargs, Variant args[])
+{
+    Forward();
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Reload(int numargs, Variant args[])
+{
+    Reload();
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Refresh(int numargs, Variant args[])
+{
+    Refresh();
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Data(int numargs, Variant args[])
+{
+    BrowserData(args[0]);
+    return VARNULL;
+}
+
+Variant WebBrowserObject::m_Event(int numargs, Variant args[])
+{
+    BrowserEvent(args[0], args[1]);
+    return VARNULL;
+}
+
+#endif

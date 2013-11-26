@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="favorites_page" background="background.jpg">
+  <event name="OnGotFocus">
+    favorites_setup
+    lmbox call favorites_list setfocus
+    favorites_info info [lmbox get favorites_list selecteddata]
+  </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label x="450" y="10" template="titlelabel">lmBox: Favorites</label>
+  <listbox name="favorites_list" x="15" y="40" width="400" height="290" template="t_favoriteslist">
+    <event name="OnChoose">
+      favorites_play [lmbox get favorites_list selecteddata]
+    </event>
+    <event name="OnSelectionChange,OnGotFocus">
+      favorites_info info [lmbox get favorites_list selecteddata]
+    </event>
+  </listbox>
+  <picture name="favorites_image" x="450" y="40" width="160" height="180" image="none.gif" />
+  <button x="20" y="340" caption="Play" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Choose favorite link"
+    </event>
+    <event name="OnClick">
+      lmbox run "favorites_play [lmbox get favorites_list selecteddata]"
+    </event>
+  </button>
+  <button x="80" y="340" caption="New" template="t_bluebutton" action="blue" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Add new favorite link"
+    </event>
+    <event name="OnClick">
+      favorites_edit ""
+    </event>
+  </button>
+  <button x="140" y="340" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <button name="favorites_details" x="200" y="340" caption="Details" template="t_greenbutton" action="green,info">
+    <event name="OnGotFocus">
+      lmbox set status caption "Update/Delete favorite link from the list"
+    </event>
+    <event name="OnClick">
+      favorites_edit [lmbox get favorites_list selecteddata]
+    </event>
+  </button>
+  <button name="favorites_move" x="260" y="340" caption="Favorite" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Move this link to favorites list"
+    </event>
+    <event name="OnClick">
+      favorites_move [lmbox get favorites_list selecteddata]
+    </event>
+  </button>
+  <label name="status" x="50" y="380" width="550" height="80" template="statuslabel" />
+</page>
+
+<page name="favorites_editpage" background="background.jpg">
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label x="400" y="10" template="titlelabel">lmBox: New Favorite Link</label>
+  <rectangle x="40" y="40" width="400" height="290" color="#e0e2e5" borderstyle="round" />
+  <label x="50" y="60" width="100" height="20" template="infolabel">Type:</label>
+  <listbox name="favorites_type" x="180" y="55" width="240" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Type of the favorite link, for Web links or Flash videos use Web type"
+    </event>
+  </listbox>
+  <label x="50" y="100" width="100" height="20" template="infolabel">Title:</label>
+  <textfield name="favorites_title" x="180" y="95" width="240" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Name of the favorite link"
+    </event>
+  </textfield>
+  <label x="50" y="140" width="100" height="20" template="infolabel">URL:</label>
+  <textfield name="favorites_url" x="180" y="135" width="240" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Url of the favorite link"
+    </event>
+  </textfield>
+  <label x="50" y="180" width="100" height="20" template="infolabel">Description:</label>
+  <textfield name="favorites_description" x="180" y="175" width="240" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Description of the favorite link"
+    </event>
+  </textfield>
+  <label x="50" y="220" width="100" height="20" template="infolabel">Category:</label>
+  <label name="favorites_class" x="180" y="215" width="240" height="20" template="infolabel" />
+  <label x="50" y="260" width="100" height="20" template="infolabel">Expires:</label>
+  <listbox name="favorites_expires" x="180" y="255" width="240" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "When this link will expire"
+    </event>
+  </listbox>
+  <label name="favorites_expires2" x="180" y="290" width="240" height="20" template="infolabel"/>
+  <picture name="favorites_icon" x="450" y="40" width="160" height="180" image="none.gif" />
+  <button x="20" y="350" caption="Save" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Save favorites info"
+    </event>
+    <event name="OnClick">
+      favorites_save [lmbox get favorites_editpage data]
+    </event>
+  </button>
+  <button x="80" y="350" caption="Delete" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Delete favorite link from the list"
+    </event>
+    <event name="OnClick">
+      favorites_delete [lmbox get favorites_editpage data]
+    </event>
+  </button>
+  <button x="140" y="350" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Return to the list"
+    </event>
+    <event name="OnClick">
+      lmbox setpage favorites_mosaicpage
+    </event>
+  </button>
+  <label name="status" x="50" y="390" width="550" height="60" template="statuslabel" />
+</page>
+
+<page name="favorites_mosaicpage" background="background.jpg" >
+  <event name="OnGotFocus">
+    lmbox_mosaic favorites init favorites_filter -refresh
+  </event>
+  <event name="stop">
+    player_stop
+  </event>
+
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+
+  <label name="favorites_count" x="350" y="10" width="200" height="20" template="countlabel"></label>
+
+  <label x="450" y="10" template="titlelabel">lmBox: Favorites</label>
+
+  <line x="13" y="27" width="600" height="1" template="titlelabel" />
+
+  <scrollbar name="favorites_scroll" x="570" y="40" width="15" height="320" contenty="23"
+             background="scrollbarvv.png"
+             knob="knobv.png"
+             knbofocus="knobv.png"
+             backgroundstyle="scaled">
+    <event name="OnChange">
+      lmbox_mosaic favorites update [lmbox get favorites_scroll value]
+    </event>
+  </scrollbar>
+
+  <picture name="favorites_00" x="50" y="40" template="t_movieicon" />
+  <picture name="favorites_01" x="180" y="40" template="t_movieicon" />
+  <picture name="favorites_02" x="310" y="40" template="t_movieicon" />
+  <picture name="favorites_03" x="440" y="40" template="t_movieicon" />
+  <label name="label_00" x="50" y="185" template="t_movielabel" />
+  <label name="label_01" x="180" y="185" template="t_movielabel" />
+  <label name="label_02" x="310" y="185" template="t_movielabel" />
+  <label name="label_03" x="440" y="185" template="t_movielabel" />
+
+  <picture name="favorites_10" x="50" y="210" template="t_movieicon" />
+  <picture name="favorites_11" x="180" y="210"  template="t_movieicon" />
+  <picture name="favorites_12" x="310" y="210" template="t_movieicon" />
+  <picture name="favorites_13" x="440" y="210" template="t_movieicon" />
+  <label name="label_10" x="50" y="355" template="t_movielabel" />
+  <label name="label_11" x="180" y="355" template="t_movielabel" />
+  <label name="label_12" x="310" y="355" template="t_movielabel" />
+  <label name="label_13" x="440" y="355" template="t_movielabel" />
+
+  <button x="50" y="380" caption="Play" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Choose favorite link"
+    </event>
+    <event name="OnClick">
+      favorites_play [lmbox var favorites_id]
+    </event>
+  </button>
+
+  <button x="110" y="380" caption="New" template="t_bluebutton" action="blue" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Add new favorite link"
+    </event>
+    <event name="OnClick">
+      favorites_edit ""
+    </event>
+  </button>
+
+  <button x="170" y="380" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+
+  <button name="favorites_details" x="230" y="380" caption="Details" template="t_greenbutton" action="green,info">
+    <event name="OnGotFocus">
+      lmbox set status caption "Update/Delete favorite link from the list"
+    </event>
+    <event name="OnClick">
+      favorites_edit [lmbox var favorites_id]
+    </event>
+  </button>
+
+  <textfield name="favorites_filter" x="290" y="380" template="t_moviefilter" />
+
+  <button name="favorites_move" x="350" y="380" caption="Favorite" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Move this link to favorites list"
+    </event>
+    <event name="OnClick">
+      favorites_move [lmbox var favorites_id]
+      lmbox_mosaic favorites update
+    </event>
+  </button>
+
+  <label name="status" x="50" y="405" width="550" height="30" template="statuslabel" />
+
+</page>
+
+</lmbox>
+

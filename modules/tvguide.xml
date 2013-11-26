@@ -1,0 +1,648 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<system>
+  <event name="livetv">
+    lmbox setpage tvpage
+  </event>
+  <event name="mytv">
+    lmbox setpage tvlistpage
+  </event>
+  <event name="recordedtv">
+    lmbox setpage tvrecpage
+  </event>
+</system>
+
+<page name="tvpage" background="background.jpg" >
+  <help>
+    Clicking or pressing on selected channel will
+    show info page for the selected show.
+  </help>
+  <timer name="tvtimer" interval="3000" enabled="false">
+    lmbox call player osd hide
+    lmbox set tvtimer enabled 0
+    lmbox set tvtimer interval 3000
+  </timer>
+  <event name="OnGotFocus">
+    tvguide_setup matrix 0
+    tvguide_icon
+    lmbox call tvshow01 setfocus
+  </event>
+  <event name="OnLostFocus">
+  </event>
+  <event name="nexttrack"> player_aspect 0.1 </event>
+  <event name="prevtrack"> player_aspect -0.1 </event>
+  <event name="channelup"> player_event next </event>
+  <event name="channeldown"> player_event prev </event>
+  <event name="volumeup"> player_volume 5 </event>
+  <event name="volumedown"> player_volume -5 </event>
+  <event name="pause"> player_pause </event>
+  <event name="mute"> player_mute </event>
+  <event name="blue"> player_deinterlace </event>
+  <event name="menu"> lmbox set tvplay focus 1 </event>
+
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label name="tvchannel" x="210" y="10" width="250" height="20" template="clocklabel" />
+  <label x="480" y="10" template="titlelabel">lmBox: TV Guide</label>
+  <label name="tvstatus" x="300" y="40" width="300" height="140" template="statuslabel" textalign="topleft" fontsize="11"/>
+  <rectangle x="29" y="29" width="202" height="142" color="#e0e2e5" />
+
+  <button name="tvplay" x="30" y="182" caption="Play" template="t_tvbutton" action="play">
+    tvguide_play [lmbox var tvguide_id]
+  </button>
+  <button x="75" y="182" caption="View" template="t_tvbutton">
+    tvguide_channel "" [lmbox var tvguide_id]
+  </button>
+  <button x="120" y="182" caption="Info" template="t_tvbutton" action="info">
+    tvguide_info [lmbox var tvguide_id]
+  </button>
+  <button x="165" y="182" caption="Rec" template="t_tvbutton" action="record">
+     tvguide_schedule [lmbox var tvguide_id] Record
+     tvguide_info [lmbox var tvguide_id]
+  </button>
+  <button x="210" y="182" caption="Back" template="t_tvbutton" action="cancel,stop">
+    lmbox setpage mainpage
+  </button>
+  <button x="255" y="182" width="30" caption="<<" template="t_tvbutton">
+    tvguide_setup matrix -1800
+    tvguide_status [lmbox var tvguide_id]
+  </button>
+  <button x="290" y="182" width="30" caption=">>" template="t_tvbutton">
+    tvguide_setup matrix 1800
+    tvguide_status [lmbox var tvguide_id]
+  </button>
+  <button x="325" y="182" width="30" caption="All" template="t_tvbutton">
+    tvguide_setup matrix 0 "" all
+  </button>
+  <button x="360" y="182" caption="Movies" template="t_tvbutton" fontcolor="#000000" color="#49f385">
+    tvguide_setup matrix 0 "" movie
+  </button>
+  <button x="415" y="182" caption="Kids" template="t_tvbutton" fontcolor="#000000" color="#99ff00">
+    tvguide_setup matrix 0 "" kids
+  </button>
+  <button x="465" y="182" caption="Sport" template="t_tvbutton" color="#6600ff">
+    tvguide_setup matrix 0 "" sport
+  </button>
+  <button x="510" y="182" caption="Search" template="t_tvbutton">
+    lmbox setpage tvsearchpage
+  </button>
+
+  <label name="tvchan" x="30" y="200" width="70" template="t_label"></label>
+  <label x="101" y="200" name="tvslot0" template="t_label">00:00</label>
+  <label x="252" y="200" name="tvslot1" template="t_label">00:30</label>
+  <label x="403" y="200" name="tvslot2" template="t_label">00:00</label>
+
+  <button name="tvch0" x="30" y="220" width="70" height="50" template="t_tvchannel"/>
+  <button name="tvshow01" x="101" y="220" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow02" x="261" y="220" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow03" x="421" y="220" width="160" height="50" template="t_tvguide" />
+
+  <button name="tvch1" x="30" y="270" width="70" height="50" template="t_tvchannel"/>
+  <button name="tvshow11" x="101" y="270" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow12" x="261" y="270" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow13" x="421" y="270" width="160" height="50" template="t_tvguide" />
+
+  <button name="tvch2" x="30" y="320" width="70" height="50" template="t_tvchannel"/>
+  <button name="tvshow21" x="101" y="320" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow22" x="261" y="320" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow23" x="421" y="320" width="160" height="50" template="t_tvguide" />
+
+  <button name="tvch3" x="30" y="370" width="70" height="50" template="t_tvchannel"/>
+  <button name="tvshow31" x="101" y="370" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow32" x="261" y="370" width="160" height="50" template="t_tvguide" />
+  <button name="tvshow33" x="421" y="370" width="160" height="50" template="t_tvguide" />
+
+</page>
+
+<page name="tvlistpage" background="background.jpg">
+  <event name="OnGotFocus">
+    tvguide_setup list 0
+    lmbox call tvlist setfocus
+  </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel" />
+  <label x="300" y="10" name="tvtitle" template="textlabel">lmBox: TV Shows</label>
+  <listbox name="tvlist" x="20" y="40" width="130" height="270" fontcolor="#61bf5f" template="t_tvlist" scrollbarwidth="0">
+    <event name="OnChoose">
+      tvguide_play [lmbox get tvlist selecteddata]
+    </event>
+    <event name="OnSelectionChange">
+      lmbox set tvlist2 selectedindex [lmbox get tvlist selectedindex]
+      tvguide_status [lmbox get tvlist selecteddata]
+    </event>
+  </listbox>
+  <listbox name="tvlist2" x="150" y="40" width="460" height="270" template="t_tvlist">
+    <event name="OnGotFocus">
+      lmbox postevent next
+    </event>
+  </listbox>
+  <button x="20" y="320" caption="Play" template="t_greenbutton" action="play,green">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Play selected program"
+    </event>
+    <event name="OnClick">
+      tvguide_play [lmbox get tvlist selecteddata]
+    </event>
+  </button>
+  <button x="80" y="320" caption="Next" template="t_graybutton" action="volumeup">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Show TV programs playing in the next 30 minutes"
+    </event>
+    <event name="OnClick">
+      tvguide_setup list 1800
+    </event>
+  </button>
+  <button x="140" y="320" caption="Prev" template="t_graybutton" action="volumedown">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Shows TV programs played in the previous 30 minuts"
+    </event>
+    <event name="OnClick">
+      tvguide_setup list -1800
+    </event>
+  </button>
+  <button x="200" y="320" caption="Info" template="t_yellowbutton" action="info,yellow">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Show details about the TV program"
+    </event>
+    <event name="OnClick">
+      tvguide_info [lmbox get tvlist selecteddata]
+    </event>
+  </button>
+  <button x="260" y="320" caption="Record" template="t_redbutton" action="red,record">
+   <event name="OnClick">
+     tvguide_schedule [lmbox get tvlist selecteddata] Record
+     tvguide_info [lmbox get tvlist selecteddata]
+   </event>
+   <event name="OnGotFocus">
+     lmbox set tvstatus caption "Setup recording of this TV show"
+   </event>
+  </button>
+  <button x="320" y="320" caption="Search" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Search for TV programs"
+    </event>
+    <event name="OnClick">
+      lmbox setpage tvsearchpage
+    </event>
+  </button>
+  <button x="380" y="320" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Return to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <label name="tvstatus" x="20" y="360" width="610" height="80" template="t_tvstatus"></label>
+</page>
+
+<page name="tvinfopage" background="background.jpg">
+  <event name="OnGotFocus">
+    tvguide_icon
+  </event>
+  <event name="OnLostFocus">
+    if { [lmbox newpage] != "tvpage" } {
+      tvguide_stop
+    }
+  </event>
+  <event name="nextpage">
+    lmbox set tvinfotext lineoffset [expr [lmbox get tvinfotext lineoffset]+3]
+  </event>
+  <event name="prevpage">
+    lmbox set tvinfotext lineoffset [expr [lmbox get tvinfotext lineoffset]-3]
+  </event>
+  <label x="400" y="10" template="titlelabel">lmBox: TV Show Info</label>
+  <rectangle x="29" y="29" width="202" height="142" color="#e0e2e5" />
+  <label name="tvinfotitle" x="300" y="50" width="300" height="40" textalign="topleft" fontcolor="#c5cd4a" font="verabd.ttf" fontsize="12" wordwrap="true" />
+  <label name="tvinfogenre" x="300" y="90" width="300" height="40" textalign="topleft" fontcolor="#e0e2e5" font="vera.ttf" fontsize="12" wordwrap="true" />
+  <label name="tvinfotext" x="30" y="200" width="580" height="140" template="scrolllabel" borderstyle="round" bordercolor="#e0e2e5" contentx="5" contenty="5" />
+  <label name="tvrecstatus" x="30" y="345" width="580" height="30" template="whitelabel" fontsize="11"/>
+  <label name="tvstatus" x="50" y="380" width="580" height="30" template="statuslabel" />
+  <button name="tvplay" x="20" y="410" caption="Play" template="t_greenbutton" action="play,green">
+   <event name="OnClick">
+     tvguide_play [lmbox get tvinfopage data]
+   </event>
+   <event name="OnGotFocus">
+     lmbox set tvstatus caption "Watch the TV show"
+   </event>
+  </button>
+  <button name="tvrecord" x="80" y="410" caption="Record" template="t_redbutton" action="red,record">
+   <event name="OnClick">
+     if { [tvguide_schedule [lmbox get tvinfopage data] [lmbox get tvrecord caption]] == "" } {
+       tvguide_info [lmbox get tvinfopage data]
+     }
+   </event>
+   <event name="OnGotFocus">
+     lmbox set tvstatus caption "Setup/cancel recording for this TV show"
+   </event>
+  </button>
+  <button x="140" y="410" caption="Switch" template="t_yellowbutton" action="yellow">
+   <event name="OnClick">
+     tvguide_channel "" [lmbox get tvinfopage data]
+   </event>
+   <event name="OnGotFocus">
+     lmbox set tvstatus caption "Switch to the channel from the current program"
+   </event>
+  </button>
+  <button x="200" y="410" caption="Favorite" template="t_bluebutton" action="blue">
+   <event name="OnClick">
+     tvguide_favorite [lmbox get tvinfopage data]
+   </event>
+   <event name="OnGotFocus">
+     lmbox set tvstatus caption "Add this channel to favorite links"
+   </event>
+  </button>
+  <button x="270" y="410" caption="Back" template="t_graybutton" action="cancel">
+   <event name="OnClick">
+     lmbox setpage [lmbox prevpage]
+   </event>
+   <event name="OnGotFocus">
+     lmbox set tvstatus caption "Return back to TV listing"
+   </event>
+  </button>
+</page>
+
+<page name="tvsearchpage" background="background.jpg">
+  <event name="stop"> lmbox action backspace </event>
+  <event name="prevpage"> lmbox postevent home </event>
+  <event name="nextpage"> lmbox postevent end </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel" />
+  <label name="tvsearchtitle" x="450" y="10" template="titlelabel">lmBox: TV Search</label>
+
+  <label x="50" y="50" width="100" height="30" template="infolabel">Search for:</label>
+  <textfield name="Title" x="170" y="50" template="t_textfield">
+    <event name="OnGotFocus"> lmbox set status caption "Search for keyword in programs/crew" </event>
+    <event name="OnLostFocus"> lmbox_filter tvguide_filter </event>
+  </textfield>
+
+  <label x="50" y="120" width="70" height="30" template="infolabel">All</label>
+  <togglebutton name="All" x="20" y="120" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in all future shows" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="140" y="120" width="70" height="30" template="infolabel">Sitcom</label>
+  <togglebutton name="Sitcom" x="110" y="120" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="250" y="120" width="70" height="30" template="infolabel">Movie</label>
+  <togglebutton name="Movie" x="220" y="120" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="360" y="120" width="70" height="30" template="infolabel">News</label>
+  <togglebutton name="News" x="330" y="120" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="470" y="120" width="70" height="30" template="infolabel">Reality</label>
+  <togglebutton name="Reality" x="440" y="120" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="50" y="160" width="70" height="30" template="infolabel">Doc</label>
+  <togglebutton name="Documentary" x="20" y="160" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="140" y="160" width="70" height="30" template="infolabel">Drama</label>
+  <togglebutton name="Drama" x="110" y="160" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="250" y="160" width="70" height="30" template="infolabel">Comedy</label>
+  <togglebutton name="Comedy" x="220" y="160" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="360" y="160" width="70" height="30" template="infolabel">Talk</label>
+  <togglebutton name="Talk" x="330" y="160" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="470" y="160" width="70" height="30" template="infolabel">Animated</label>
+  <togglebutton name="Animated" x="440" y="160" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="50" y="200" width="70" height="30" template="infolabel">Crime</label>
+  <togglebutton name="Crime" x="20" y="200" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="140" y="200" width="70" height="30" template="infolabel">Fantasy</label>
+  <togglebutton name="Fantasy" x="110" y="200" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="250" y="200" width="70" height="30" template="infolabel">Music</label>
+  <togglebutton name="Music" x="220" y="200" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="360" y="200" width="70" height="30" template="infolabel">Sports</label>
+  <togglebutton name="Sports" x="330" y="200" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="470" y="200" width="70" height="30" template="infolabel">Travel</label>
+  <togglebutton name="Travel" x="440" y="200" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="50" y="240" width="70" height="30" template="infolabel">Action</label>
+  <togglebutton name="Action" x="20" y="240" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="140" y="240" width="70" height="30" template="infolabel">E!</label>
+  <togglebutton name="Entertainment" x="110" y="240" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="250" y="240" width="70" height="30" template="infolabel">Science</label>
+  <togglebutton name="Science" x="220" y="240" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="360" y="240" width="70" height="30" template="infolabel">Health</label>
+  <togglebutton name="Health" x="330" y="240" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="470" y="240" width="70" height="30" template="infolabel">History</label>
+  <togglebutton name="History" x="440" y="240" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="50" y="280" width="70" height="30" template="infolabel">Horror</label>
+  <togglebutton name="Horror" x="20" y="280" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="140" y="280" width="70" height="30" template="infolabel">Romance</label>
+  <togglebutton name="Romance" x="110" y="280" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="250" y="280" width="70" height="30" template="infolabel">War</label>
+  <togglebutton name="War" x="220" y="280" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="360" y="280" width="70" height="30" template="infolabel">Weather</label>
+  <togglebutton name="Weather" x="330" y="280" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="470" y="280" width="70" height="30" template="infolabel">Wrestling</label>
+  <togglebutton name="Wrestling" x="440" y="280" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="50" y="320" width="70" height="30" template="infolabel">Mini</label>
+  <togglebutton name="Miniseries" x="20" y="320" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="140" y="320" width="70" height="30" template="infolabel">Children</label>
+  <togglebutton name="Children" x="110" y="320" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="250" y="320" width="70" height="30" template="infolabel">Theater</label>
+  <togglebutton name="Theater" x="220" y="320" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="360" y="320" width="70" height="30" template="infolabel">Fiction</label>
+  <togglebutton name="Fiction" x="330" y="320" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <label x="470" y="320" width="70" height="30" template="infolabel">Event</label>
+  <togglebutton name="Event" x="440" y="320" template="t_togglebutton">
+    <event name="OnGotFocus"> lmbox set status caption "Search in genres" </event>
+    <event name="OnClick"> lmbox_filter tvguide_filter </event>
+  </togglebutton>
+
+  <button name="tvsearch" x="20" y="370" caption="Search" template="t_greenbutton" action="play,green">
+    <event name="OnGotFocus">
+      lmbox set status caption "Search the shows"
+    </event>
+    <event name="OnClick">
+      lmbox set status caption "Searching..."
+      lmbox refresh
+      tvguide_search
+    </event>
+  </button>
+  <button x="80" y="370" caption="Current" template="t_yellowbutton" action="yellow">
+    <event name="OnGotFocus">
+      lmbox set status caption "Currently playing list"
+    </event>
+    <event name="OnClick">
+      lmbox set status caption "Searching..."
+      lmbox refresh
+      tvguide_search ""
+    </event>
+  </button>
+  <button x="140" y="370" caption="Reset" template="t_bluebutton" action="blue,clear">
+    <event name="OnGotFocus">
+      lmbox set status caption "Clear all fields"
+    </event>
+    <event name="OnClick">
+      lmbox_reset tvguide_filter
+    </event>
+  </button>
+  <button x="200" y="370" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Return to TV show listing"
+    </event>
+    <event name="OnClick">
+      lmbox setpage [lmbox prevpage]
+    </event>
+  </button>
+  <label name="status" x="15" y="410" width="480" height="32" template="statuslabel"/>
+</page>
+
+<page name="tvrecpage" background="background.jpg">
+  <event name="OnGotFocus">
+    tvrec_setup
+  </event>
+  <clocklabel x="20" y="10"  width="300" height="20" template="clocklabel" />
+  <label x="320" y="10" name="tvtitle" template="textlabel">lmBox: Scheduled TV Shows</label>
+  <listbox name="tvlist" x="15" y="50" width="540" height="300" template="t_tvlist">
+    <event name="OnChoose">
+      tvrec_play [lmbox get tvlist selecteddata]
+    </event>
+    <event name="OnSelectionChange">
+      tvrec_info [lmbox get tvlist selecteddata]
+    </event>
+  </listbox>
+  <button x="30" y="360" caption="Play" name="tvplay" template="t_button2" action="play">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Info about scheduled TV show"
+    </event>
+    <event name="OnClick">
+      tvrec_play [lmbox get tvlist selecteddata]
+    </event>
+  </button>
+  <button x="120" y="360" caption="Delete" template="t_button2">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Cancel/Delete TV Show recording"
+    </event>
+    <event name="OnClick">
+      tvrec_delete [lmbox get tvlist selecteddata]
+    </event>
+  </button>
+  <button x="210" y="360" caption="Back" template="t_button2" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set tvstatus caption "Go back to main page"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <label name="tvstatus" x="10" y="400" width="480" height="30" template="statuslabel"></label>
+</page>
+
+<page name="tvconfigpage" background="background.jpg">
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label x="400" y="10" template="titlelabel">lmBox: TV Settings</label>
+
+  <label x="30" y="70" width="100" height="20" template="infolabel">TV Path:</label>
+  <textfield name="tv_path" x="140" y="65" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to recorded TV shows"
+    </event>
+  </textfield>
+  <label x="30" y="100" width="100" height="20" template="infolabel">Zap2it Login:</label>
+  <textfield name="tvguide_login" x="140" y="95" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Zap2it login in the format: username:password, to create account go to http://labs.zap2it.com, use this certificate code: DQYN-JQ2N-IBUT"
+    </event>
+  </textfield>
+  <label x="30" y="130" width="100" height="20" template="infolabel">Deinterlacer:</label>
+  <listbox name="tv_deinterlace" x="140" y="130" width="140" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Deinterlace method for TV video"
+    </event>
+    <event name="OnSelectionChange">
+      lmbox set status caption [lmbox var tv_deinterlace:[lmbox get tv_deinterlace selectedtext]]
+    </event>
+  </listbox>
+
+  <label x="300" y="70" width="100" height="20" template="infolabel">TV Out:</label>
+  <listbox name="tv_out" x="400" y="70" width="100" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Select TV-Out method to be used for video"
+    </event>
+  </listbox>
+  <label x="300" y="100" width="100" height="20" template="infolabel">TV Card:</label>
+  <listbox name="tv_player" x="400" y="100" width="70" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Type of TV Tuner card"
+    </event>
+  </listbox>
+  <label x="300" y="130" width="100" height="20" template="infolabel">TV System:</label>
+  <listbox name="tv_norm" x="400" y="130" width="120" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Type of TV Standard"
+    </event>
+  </listbox>
+  <label x="300" y="160" width="100" height="20" template="infolabel">TV Input:</label>
+  <listbox name="tv_input" x="400" y="160" width="40" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "TV Tuner video input channel"
+    </event>
+  </listbox>
+  <label x="300" y="190" width="100" height="20" template="infolabel">TV Audio:</label>
+  <listbox name="tv_audio" x="400" y="190" width="120" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "TV Tuner audio channel"
+    </event>
+  </listbox>
+  <label x="300" y="220" width="100" height="20" template="infolabel">TV Channels:</label>
+  <listbox name="tv_chanlist" x="400" y="220" width="120" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "TV Tuner channel listing type"
+    </event>
+  </listbox>
+  <label x="300" y="250" width="100" height="20" template="infolabel">TV Device:</label>
+  <listbox name="tv_device" x="400" y="250" width="120" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Video4Linux device"
+    </event>
+  </listbox>
+
+  <button x="40" y="370" caption="Save" template="t_redbutton" action="red">
+    config_save
+    lmbox setpage configpage
+  </button>
+  <button x="120" y="370" caption="Refresh" template="t_graybutton">
+    config_save
+    if { [lmbox config tvguide_login] != "" } {
+      lmbox run tvguide_checker
+    } else {
+      lmbox set status caption "Enter Zap2It login info to use TV Guide"
+    }
+  </button>
+  <button x="200" y="370" caption="Back" template="t_graybutton" action="cancel">
+    lmbox setpage configpage
+  </button>
+  <button x="280" y="370" caption="Video" template="t_yellowbutton" action="yellow">
+    <event name="OnGotFocus">
+      lmbox set status caption "Show TV device video inputs"
+    </event>
+    <event name="OnClick">
+      set info ""
+      lmbox set tv device [lmbox get tv_device selectedtext]
+      foreach { id name type } [lmbox get tv videoinputs] { lappend info $id/$name }
+      lmbox set status caption [lmbox_nvl [join $info ", "] "No video inpuits"]
+    </event>
+  </button>
+  <button x="360" y="370" caption="Audio" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Show TV device audio inputs"
+    </event>
+    <event name="OnClick">
+      set info ""
+      lmbox set tv device [lmbox get tv_device selectedtext]
+      foreach { id name type } [lmbox get tv audioinputs] { lappend info $id/$name }
+      lmbox set status caption [lmbox_nvl [join $info ", "] "No audio inputs"]
+    </event>
+  </button>
+  <label name="status" x="10" y="400" width="480" height="60" template="statuslabel"></label>
+</page>
+
+</lmbox>
+

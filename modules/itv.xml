@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="itvpage" background="background.jpg">
+   <event name="OnGotFocus">
+     itv_setup
+     itv_info links [lmbox get itvchannels selecteddata]
+     itv_size
+   </event>
+   <event name="OnLostFocus">
+     player_minimize
+   </event>
+   <event name="mute"> player_mute </event>
+   <event name="volumeup"> player_volume 5 </event>
+   <event name="volumedown"> player_volume -5 </event>
+
+   <clocklabel x="20" y="10"  width="300" height="20" template="clocklabel"></clocklabel>
+   <label x="400" y="10" template="titlelabel">lmBox: Internet TV/Video</label>
+
+   <line x="13" y="27" width="600" height="1" template="titlelabel" />
+
+   <listbox name="itvchannels" x="15" y="40" width="250" height="270" template="t_genrelist" >
+     <event name="OnChoose">
+       lmbox call itvlinks setfocus
+     </event>
+     <event name="OnGotFocus,OnSelectionChange">
+       itv_info links [lmbox get itvchannels selecteddata]
+     </event>
+   </listbox>
+
+   <listbox name="itvlinks" x="270" y="40" width="350" height="270" template="t_movielist" >
+     <event name="OnChoose">
+       itv_play [lmbox get itvlinks selecteddata]
+     </event>
+     <event name="OnGotFocus,OnSelectionChange">
+       itv_info info [lmbox get itvlinks selecteddata]
+     </event>
+   </listbox>
+
+   <picture name="itvicon" x="500" y="335" width="120" height="80" image="none.gif" />
+
+   <line x="15" y="317" width="610" height="1" color="#e0e2e5" />
+
+   <label name="itvinfo" x="20" y="320" width="410" height="70" template="infolabel" fontcolor="#CCFF99" />
+
+   <button x="20" y="395" caption="Play" template="t_graybutton" action="play">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play selected TV/Video channel"
+     </event>
+     <event name="OnClick">
+       itv_play [lmbox get itvlinks selecteddata]
+     </event>
+   </button>
+   <button x="75" y="395" caption="Pause" template="t_graybutton" action="pause">
+     <event name="OnGotFocus">
+       lmbox set status caption "Pause the video"
+     </event>
+     <event name="OnClick">
+       itv_pause
+     </event>
+   </button>
+
+   <button x="130" y="395" caption="Stop" template="t_graybutton" action="stop">
+     <event name="OnGotFocus">
+       lmbox set status caption "Stop the video"
+     </event>
+     <event name="OnClick">
+       itv_stop
+     </event>
+   </button>
+
+   <button name="itvzoom" x="185" y="395" caption="Zoom" template="t_yellowbutton" action="yellow">
+     <event name="OnGotFocus">
+       lmbox set status caption "Toggle video size between normal, fullscreen and actual size"
+     </event>
+     <event name="*">
+       itv_event
+     </event>
+     <event name="OnClick">
+       itv_size toggle
+     </event>
+   </button>
+
+   <button x="240" y="395" caption="Favorite" template="t_greenbutton" action="green">
+     <event name="OnGotFocus">
+       lmbox set status caption "Add this TV/Video channel to favorite links"
+     </event>
+     <event name="OnClick">
+      itv_favorite [lmbox get itvlinks selecteddata]
+     </event>
+   </button>
+
+   <button x="303" y="395" caption="Info" template="t_graybutton" action="info">
+     <event name="OnGotFocus">
+       lmbox set status caption "Edit options for selected channel and/or link"
+     </event>
+     <event name="OnClick">
+       itv_details
+     </event>
+   </button>
+
+   <button x="360" y="395" caption="New" template="t_bluebutton" action="blue">
+     <event name="OnGotFocus">
+       lmbox set status caption "Add new channel and/or link"
+     </event>
+     <event name="OnClick">
+       itv_details 1
+     </event>
+   </button>
+
+   <button x="415" y="395" caption="Back" template="t_graybutton" action="cancel">
+     <event name="OnGotFocus">
+       lmbox set status caption "Back to main menu"
+     </event>
+     <event name="OnClick">
+      lmbox setpage mainpage
+     </event>
+   </button>
+   <label name="status" x="20" y="420" width="610" height="40" template="statuslabel" />
+</page>
+
+<page name="itvinfopage" background="background.jpg">
+   <event name="OnGotFocus">
+     itv_size small
+   </event>
+
+   <clocklabel x="20" y="10"  width="300" height="20" template="clocklabel"></clocklabel>
+
+   <label x="370" y="10" template="titlelabel">lmBox: Internet TV/Video Options</label>
+
+   <label x="30" y="40" width="100" height="20" template="yellowlabel">Channel URL:</label>
+
+   <textfield name="itvurl" x="130" y="40" width="450" template="t_textfield" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Url of the TV/Video channel, to add just a new channel, leave all link fields empty"
+     </event>
+   </textfield>
+
+   <label x="30" y="80" width="100" height="20" template="yellowlabel">Channel Title:</label>
+
+   <textfield name="itvtitle" x="130" y="80" width="450" template="t_textfield" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Name of TV/Video channel, to add just new channel, leave link fields empty"
+     </event>
+   </textfield>
+
+   <label x="30" y="120" width="100" height="20" template="yellowlabel">Link URL:</label>
+
+   <textfield name="itvlurl" x="130" y="120" width="450" template="t_textfield" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Url of the TV/Video link, to add new link to the existing channel, leave channel url/title empty and selected channel fro the list will be used"
+     </event>
+   </textfield>
+
+   <label x="30" y="160" width="100" height="20" template="yellowlabel">Link Title:</label>
+
+   <textfield name="itvltitle" x="130" y="160" width="450" template="t_textfield" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Name of the TV/Video link, to add new link to the existing channel, leave channel url/title empty and selected channel fro the list will be used"
+     </event>
+   </textfield>
+
+   <label x="30" y="200" width="100" height="20" template="yellowlabel">Link Genre:</label>
+
+   <textfield name="itvlgenre" x="130" y="200" width="450" template="t_textfield" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Genre of the TV/Video channel or link"
+     </event>
+   </textfield>
+
+   <line x="20" y="225" width="610" height="1" color="#e0e2e5" />
+
+   <label name="itvdescr" x="20" y="230" width="600" height="160" template="infolabel" fontcolor="#CCCCCC" />
+
+   <button x="20" y="395" caption="Play" template="t_graybutton" action="play">
+     <event name="*">
+       itv_event
+     </event>
+     <event name="OnGotFocus">
+       lmbox set status caption "Play selected TV/Video channel"
+     </event>
+     <event name="OnClick">
+       itv_play [lmbox get itvlinks selecteddata]
+     </event>
+   </button>
+
+   <button x="80" y="395" caption="Stop" template="t_graybutton" action="stop">
+     <event name="OnGotFocus">
+       lmbox set status caption "Stop the video"
+     </event>
+     <event name="OnClick">
+       itv_stop
+     </event>
+   </button>
+
+   <button x="140" y="395" caption="Save" template="t_redbutton" action="red">
+     <event name="OnGotFocus">
+       lmbox set status caption "Save TV/Video channel and/or link options"
+     </event>
+     <event name="OnClick">
+       itv_save
+     </event>
+   </button>
+
+   <button x="200" y="395" caption="Refresh" template="t_greenbutton" action="green">
+     <event name="OnGotFocus">
+       lmbox set status caption "Refresh channel info and all links in the channel"
+     </event>
+     <event name="OnClick">
+       itv_refresh
+     </event>
+   </button>
+
+   <button x="260" y="395" caption="Queue" template="t_yellowbutton" action="yellow">
+     <event name="OnGotFocus">
+       lmbox set status caption "Queue link url for downloading in the background so it can be played locally later"
+     </event>
+     <event name="OnClick">
+       itv_queue
+     </event>
+   </button>
+
+   <button x="320" y="395" caption="Delete" template="t_bluebutton" action="blue">
+     <event name="OnGotFocus">
+       lmbox set status caption "Delete TV/Video channel or link"
+     </event>
+     <event name="OnClick">
+       itv_delete
+     </event>
+   </button>
+
+   <button x="380" y="395" caption="Back" template="t_graybutton" action="cancel">
+     <event name="OnGotFocus">
+       lmbox set status caption "Back to main menu"
+     </event>
+     <event name="OnClick">
+       lmbox call itvlinks setfocus
+       lmbox setpage itvpage
+     </event>
+   </button>
+   <label name="status" x="20" y="420" width="600" height="40" template="statuslabel" />
+</page>
+
+</lmbox>
+

@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="camerapage" background="background.jpg">
+  <event name="OnGotFocus">
+    camera_setup
+    lmbox call cameralist setfocus
+  </event>
+  <event name="OnLostFocus">
+    camera_stop
+  </event>
+  <event name="blue"> lmbox postevent cancel </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label x="450" y="10" template="titlelabel">lmBox: Camera</label>
+  <listbox name="cameralist" x="15" y="40" width="250" height="290" template="t_movielist">
+    <event name="OnChoose">
+      camera_set player [lmbox get cameralist selecteddata]
+      lmbox setpage videopage
+    </event>
+    <event name="OnSelectionChange">
+      camera_play player [lmbox get cameralist selecteddata] [lmbox get cameraview area]
+      lmbox set status caption [lmbox get cameralist selecteddata]
+    </event>
+  </listbox>
+  <picture name="cameraview" x="285" y="40" width="320" height="240" image="none.gif" borderstyle="normal" bordercolor="#e0e2e5" />
+  <button x="20" y="360" caption="Zoom" template="t_graybutton" action="play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Play stream fullscreen"
+    </event>
+    <event name="OnClick">
+      camera_set player [lmbox get cameralist selecteddata]
+      lmbox setpage videopage
+    </event>
+  </button>
+  <button x="80" y="360" caption="Pause" template="t_graybutton" action="pause">
+    <event name="OnGotFocus">
+      lmbox set status caption "Pause camera stream"
+    </event>
+    <event name="OnClick">
+      camera_pause
+    </event>
+  </button>
+  <button x="140" y="360" caption="Details" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Update/Delete live camera from the list"
+    </event>
+    <event name="OnClick">
+      camera_edit
+    </event>
+  </button>
+  <button x="200" y="360" caption="Mosaic" template="t_yellowbutton" action="yellow">
+    <event name="OnGotFocus">
+      lmbox set status caption "Watch all live cameras"
+    </event>
+    <event name="OnClick">
+      lmbox setpage cameramosaicpage
+    </event>
+  </button>
+  <button x="260" y="360" caption="Add" template="t_graybutton" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Add new live camera"
+    </event>
+    <event name="OnClick">
+      camera_add
+    </event>
+  </button>
+  <button x="340" y="360" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <label name="status" x="50" y="400" width="550" height="60" template="statuslabel" />
+</page>
+
+<page name="cameraeditpage" background="background.jpg">
+  <event name="OnLostFocus">
+    camera_stop
+  </event>
+  <event name="stop"> camera_stop </event>
+  <event name="pause"> camera_pause </event>
+  <event name="play"> camera_test </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label name="cameracount" x="350" y="10" width="200" height="20" template="countlabel"></label>
+  <label name="cameratitle" x="400" y="10" template="titlelabel">lmBox: Add New Camera</label>
+  <label x="50" y="35" width="500" height="40" template="yellowlabel" textalign="center" fontsize="10" >
+   Choose Video Device if your camera is directly attached or enter url of the remote device
+  </label>
+  <rectangle x="40" y="85" width="360" height="240" color="#e0e2e5" borderstyle="round" />
+  <label x="50" y="100" width="150" height="20" template="infolabel">Camera Name:</label>
+  <textfield name="camera_name" x="220" y="95" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Name of the camera, location for example like Living Room"
+    </event>
+  </textfield>
+  <label x="50" y="130" width="150" height="20" template="infolabel">Video Device:</label>
+  <listbox name="camera_device" x="220" y="125" width="140" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Path to recorded V4L device, like /dev/video0"
+    </event>
+  </listbox>
+  <label x="50" y="160" width="150" height="20" template="infolabel">Video Input:</label>
+  <listbox name="camera_input" x="220" y="155" width="140" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Video input source on the V4L device, like 0 or 2 or..."
+    </event>
+  </listbox>
+  <label x="50" y="190" width="150" height="20" template="infolabel">Video System:</label>
+  <listbox name="camera_norm" x="220" y="185" width="140" height="20" template="t_listbox5" selitemfontcolor="#000000" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Type of TV Standard"
+    </event>
+  </listbox>
+  <line x="40" y="245" width="359" height="1" color="#e0e2e5" />
+  <label x="50" y="270" width="150" height="20" template="infolabel">Stream URL:</label>
+  <textfield name="camera_url" x="220" y="265" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Url for network streaming cameras or any xine mrl, like file, fifo, http://host:port ..."
+    </event>
+  </textfield>
+  <picture name="cameraview" x="410" y="120" width="170" height="150" image="none.gif" borderstyle="normal" bordercolor="#c5cd4a" />
+  <button x="40" y="360" caption="Save" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Save camera info"
+    </event>
+    <event name="OnClick">
+      camera_save
+    </event>
+  </button>
+  <button x="100" y="360" caption="Test" template="t_greenbutton" action="green">
+    <event name="OnGotFocus">
+      lmbox set status caption "Test camera, show streaming in the right rect"
+    </event>
+    <event name="OnClick">
+      camera_test
+    </event>
+  </button>
+  <button x="160" y="360" caption="Info" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Video Device info"
+    </event>
+    <event name="OnClick">
+      camera_info
+    </event>
+  </button>
+  <button x="220" y="360" caption="Delete" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Delete camera from the list"
+    </event>
+    <event name="OnClick">
+      camera_delete
+    </event>
+  </button>
+  <button x="280" y="360" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Return to the list"
+    </event>
+    <event name="OnClick">
+      lmbox setpage camerapage
+    </event>
+  </button>
+  <label name="status" x="50" y="400" width="550" height="60" template="statuslabel" />
+</page>
+
+<page name="cameramosaicpage" background="background.jpg">
+  <event name="OnGotFocus">
+    camera_setup mosaic
+  </event>
+  <event name="OnLostFocus">
+    camera_stop all
+  </event>
+  <event name="cancel"> lmbox setpage camerapage </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label name="cameracount" x="350" y="10" width="200" height="20" template="countlabel"></label>
+  <label name="cameratitle" x="450" y="10" template="titlelabel">lmBox: Camera Mosaic</label>
+  <button name="cameraview1" x="135" y="30" width="206" height="175" template="t_button" textalign="bottom" >
+    <event name="OnGotFocus">
+      lmbox set status caption [lmbox get this data]
+    </event>
+    <event name="OnClick">
+      camera_set player [lmbox get this data]
+      lmbox setpage videopage
+    </event>
+  </button>
+  <button name="cameraview2" x="360" y="30" width="206" height="175" template="t_button" textalign="bottom" >
+    <event name="OnGotFocus">
+      lmbox set status caption [lmbox get this data]
+    </event>
+    <event name="OnClick">
+      camera_set player [lmbox get this data]
+      lmbox setpage videopage
+    </event>
+  </button>
+  <button name="cameraview3" x="135" y="220" width="206" height="175" template="t_button" textalign="bottom" >
+    <event name="OnGotFocus">
+      lmbox set status caption [lmbox get this data]
+    </event>
+    <event name="OnClick">
+      camera_set player [lmbox get this data]
+      lmbox setpage videopage
+    </event>
+  </button>
+  <button name="cameraview4" x="360" y="220" width="206" height="175" template="t_button" textalign="bottom" >
+    <event name="OnGotFocus">
+      lmbox set status caption [lmbox get this data]
+    </event>
+    <event name="OnClick">
+      camera_set player [lmbox get this data]
+      lmbox setpage videopage
+    </event>
+  </button>
+  <label name="status" x="50" y="400" width="550" height="60" template="statuslabel" />
+</page>
+
+</lmbox>
+

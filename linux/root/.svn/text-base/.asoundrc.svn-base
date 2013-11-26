@@ -1,0 +1,20 @@
+pcm.cmipci {
+   type hw
+   card 0
+}
+
+ctl.cmipci {
+   type hw
+   card 0
+}
+
+pcm.emu10k1 {
+   type hw
+   card 0
+}
+
+ctl.emu10k1 {
+   type hw
+   card 0
+}
+

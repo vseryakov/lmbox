@@ -1,0 +1,54 @@
+pcm.emu10k1 {
+  type hw
+  card 0
+}
+
+ctl.emu10k1 {
+  type hw
+  card 0
+}
+
+pcm.intel8x0 {
+   type hw
+   card 0
+}
+ 
+ctl.intel8x0 {
+   type hw
+   card 0
+}
+									    
+ctl.nforce-hw {
+    type hw
+    card 0
+}
+
+pcm.nforce-hw {
+    type hw
+    card 0
+}
+
+#
+# For Digital audio output
+#
+#pcm.!default {
+#    type plug
+#    slave.pcm "digital"
+#}
+
+#
+# pcm "hw:0,2,0" should/can be changed to reflect
+# actual playback device, see /proc/asound/devices
+#
+pcm.digital {
+    type dmix
+    ipc_key 1234
+    slave {
+        pcm "hw:0,2,0"
+        period_time 0
+        period_size 1024
+        buffer_size 32768
+        rate 48000
+    }
+}
+

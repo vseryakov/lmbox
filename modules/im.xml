@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="impage" background="background.jpg">
+  <event name="OnGotFocus">
+    im_setup
+    lmbox call imlist setfocus
+    im_info [lmbox get imlist selecteddata]
+  </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label x="450" y="10" template="titlelabel">lmBox: ICQ Status</label>
+  <listbox name="imlist" x="15" y="40" width="400" height="290" template="t_favoriteslist">
+    <event name="OnChoose">
+      im_chatpage
+    </event>
+    <event name="OnSelectionChange,OnGotFocus">
+      im_info [lmbox get imlist selecteddata]
+    </event>
+  </listbox>
+  <picture name="imstatus" x="470" y="40" width="64" height="64" image="icq/offline.gif" />
+  <button x="20" y="340" caption="Refresh" width="61" template="t_redbutton" action="red,play">
+    <event name="OnGotFocus">
+      lmbox set status caption "Refresh contacts list and status"
+    </event>
+    <event name="OnClick">
+      im_setup 1
+    </event>
+  </button>
+  <button x="90" y="340" caption="New" template="t_bluebutton" action="blue" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Add new contact"
+    </event>
+    <event name="OnClick">
+      im_editpage 1
+    </event>
+  </button>
+  <button x="150" y="340" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Go to main menu"
+    </event>
+    <event name="OnClick">
+      lmbox setpage mainpage
+    </event>
+  </button>
+  <button name="imdetails" x="210" y="340" caption="Details" template="t_greenbutton" action="green,info">
+    <event name="OnGotFocus">
+      lmbox set status caption "Update contact info or Delete it from the list"
+    </event>
+    <event name="OnClick">
+      im_editpage
+    </event>
+  </button>
+  <button name="imchat" x="270" y="340" caption="Chat" template="t_yellowbutton" action="yellow">
+    <event name="OnGotFocus">
+      lmbox set status caption "Send message to selected ICQ account"
+    </event>
+    <event name="OnClick">
+      im_chatpage
+    </event>
+  </button>
+  <label name="status" x="50" y="380" width="550" height="80" template="statuslabel" />
+</page>
+
+<page name="imeditpage" background="background.jpg">
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label x="400" y="10" template="titlelabel">lmBox: ICQ Contact</label>
+  <rectangle x="40" y="40" width="400" height="290" color="#e0e2e5" borderstyle="round" />
+  <label x="50" y="70" width="100" height="20" template="infolabel">UIN:</label>
+  <textfield name="im_edituin" x="180" y="65" width="240" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "ICQ UIN"
+    </event>
+  </textfield>
+  <label x="50" y="110" width="100" height="20" template="infolabel">Alias:</label>
+  <textfield name="im_editalias" x="180" y="105" width="240" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Alias for contact"
+    </event>
+  </textfield>
+  <label name="im_editinfo" x="50" y="150" width="350" height="130" template="infolabel" />
+  <picture name="im_editstatus" x="470" y="40" width="64" height="64" image="icq/offline.gif" />
+  <button x="20" y="350" caption="Save" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Save contact"
+    </event>
+    <event name="OnClick">
+      im_save
+    </event>
+  </button>
+  <button x="80" y="350" caption="Delete" template="t_bluebutton" action="blue">
+    <event name="OnGotFocus">
+      lmbox set status caption "Delete contact from the list"
+    </event>
+    <event name="OnClick">
+      im_delete
+    </event>
+  </button>
+  <button x="140" y="350" caption="GetInfo" template="t_greenbutton" action="info,green">
+    <event name="OnGotFocus">
+      lmbox set status caption "Request contcat info from the server"
+    </event>
+    <event name="OnClick">
+      im_getinfo
+    </event>
+  </button>
+  <button x="200" y="350" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Return to the list"
+    </event>
+    <event name="OnClick">
+      lmbox setpage impage
+    </event>
+  </button>
+  <label name="status" x="50" y="390" width="550" height="60" template="statuslabel" />
+</page>
+
+<page name="imchatpage" background="background.jpg">
+  <event name="nextpage">
+    lmbox set im_chatlog lineoffset [expr [lmbox get im_chatlog lineoffset]+3]
+  </event>
+  <event name="prevpage">
+    lmbox set im_chatlog lineoffset [expr [lmbox get im_chatlog lineoffset]-3]
+  </event>
+  <clocklabel x="20" y="10" width="300" height="20" template="clocklabel"></clocklabel>
+  <label x="400" y="10" template="titlelabel">lmBox: ICQ Chat</label>
+  <rectangle x="40" y="40" width="400" height="320" color="#e0e2e5" borderstyle="round" />
+  <label x="50" y="50" width="70" height="20" template="yellowlabel">Send To:</label>
+  <label name="im_chatuin" x="130" y="50" width="300" height="20" template="infolabel" />
+  <label x="50" y="90" width="300" height="20" template="yellowlabel">Message Text:</label>
+  <textfield name="im_chattext" x="50" y="110" width="380" template="t_textfield" >
+    <event name="OnGotFocus">
+      lmbox set im_chattext text ""
+      lmbox set status caption "Type the message text"
+    </event>
+    <event name="OnLostFocus">
+      im_sendmsg
+    </event>
+  </textfield>
+  <label name="im_chatlog" x="50" y="140" width="380" height="200" template="infolabel" />
+  <picture name="im_chatstatus" x="470" y="40" width="64" height="64" image="icq/offline.gif" />
+  <button x="20" y="380" caption="Send" template="t_redbutton" action="red">
+    <event name="OnGotFocus">
+      lmbox set status caption "Send message"
+    </event>
+    <event name="OnClick">
+      im_sendmsg
+    </event>
+  </button>
+  <button x="80" y="380" caption="Back" template="t_graybutton" action="cancel">
+    <event name="OnGotFocus">
+      lmbox set status caption "Return to the list"
+    </event>
+    <event name="OnClick">
+      lmbox setpage impage
+    </event>
+  </button>
+  <button x="140" y="380" caption="&gt;&gt;" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Scroll chat log down"
+    </event>
+    <event name="OnClick">
+      lmbox postevent nextpage
+    </event>
+  </button>
+  <button x="200" y="380" caption="&lt;&lt;" template="t_graybutton">
+    <event name="OnGotFocus">
+      lmbox set status caption "Scroll chat log up"
+    </event>
+    <event name="OnClick">
+      lmbox postevent prevpage
+    </event>
+  </button>
+  <label name="status" x="50" y="420" width="550" height="30" template="statuslabel" />
+</page>
+
+<page name="icqconfigpage" background="background.jpg">
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label x="400" y="10" template="titlelabel">lmBox: Live365.com Settings</label>
+
+  <label x="30" y="70" width="100" height="20" template="infolabel">UIN:</label>
+  <textfield name="icq_user" x="200" y="65" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "UIN of the ICQ account"
+    </event>
+  </textfield>
+  <label x="30" y="100" width="100" height="20" template="infolabel">Password:</label>
+  <textfield name="icq_passwd" x="200" y="95" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Password for ICQ account"
+    </event>
+  </textfield>
+  <label x="30" y="130" width="100" height="20" template="infolabel">CallerID UINs:</label>
+  <textfield name="icq_callerid" x="200" y="125" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "List of ICQ UINs where to send Caller ID alarms"
+    </event>
+  </textfield>
+  <label x="30" y="160" width="100" height="25" template="infolabel">Unknown Messages</label>
+  <togglebutton name="icq_unknown" x="200" y="165" template="t_togglebutton" >
+    <event name="OnGotFocus">
+      lmbox set status caption "Check if you want receive messages from unknown contacts"
+    </event>
+  </togglebutton>
+
+  <button x="100" y="370" caption="Save" template="t_button2" action="save">
+    config_save
+    lmbox setpage configpage
+  </button>
+  <button x="200" y="370" caption="Back" template="t_button2" action="cancel">
+    lmbox setpage configpage
+  </button>
+  <label name="status" x="10" y="408" width="480" height="50" template="statuslabel"></label>
+</page>
+
+</lmbox>
+

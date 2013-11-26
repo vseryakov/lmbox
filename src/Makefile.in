@@ -1,0 +1,100 @@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+bindir = @bindir@
+sbindir = @sbindir@
+includedir = @includedir@
+libdir = @libdir@
+sysconfdir = @sysconfdir@
+localstatedir = @localstatedir@
+mandir = @mandir@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+INSTALL_DATA = @INSTALL_DATA@
+
+CFLAGS += -g -O3 -DPIC -fPIC
+CFLAGS += -I./ -I/usr/local/include -I/usr/X11R6/include
+CFLAGS += -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
+CFLAGS += -DLOAD_BMP -DLOAD_GIF -DLOAD_PNM -DLOAD_XPM
+
+CFLAGS += @NET_CFLAGS@ @DB_CFLAGS@ @XINE_CFLAGS@ @FREETYPE_CFLAGS@ \
+	  @TCL_CFLAGS@ @SDL_CFLAGS@ @IMAGE_CFLAGS@ \
+          @LIRC_CFLAGS@ @X11_CFLAGS@ @MOZILLA_CFLAGS@ @VLC_CFLAGS@
+
+LIBS += @NET_LIBS@ @DB_LIBS@ @XINE_LIBS@ @FREETYPE_LIBS@ \
+	@TCL_LIBS@ @SDL_LIBS@ @LIRC_LIBS@ @X11_LIBS@ \
+        @MOZILLA_LIBS@ @IMAGE_LIBS@ @VLC_LIBS@
+
+CXXFLAGS = $(CFLAGS)
+CXXFLAGS += -fno-rtti -fno-check-new -fno-exceptions
+
+LDFLAGS += -L. -L/usr/local/lib -L/usr/X11R6/lib
+LIBS += -ldl -lpthread
+
+rcdir = ~
+dirs = data fonts images sounds
+files = lmbox.xml lmbox.tcl lmbox.dtd weather.txt
+sources = page.cpp player.cpp vlcplayer.cpp xineplayer.cpp \
+          xmlparser.cpp system.cpp object.cpp widget.cpp util.cpp \
+          skinparser.cpp surface.cpp main.cpp timer.cpp \
+          tv.cpp radio.cpp sound.cpp webbrowser.cpp \
+          tcl.cpp font.cpp gfx.cpp label.cpp clocklabel.cpp \
+          button.cpp listbox.cpp scrollbar.cpp textfield.cpp \
+          togglebutton.cpp picture.cpp layout.cpp \
+          screen.cpp container.cpp filebrowser.cpp sock.cpp \
+
+objects = page.o player.o vlcplayer.o xineplayer.o \
+          xmlparser.o system.o object.o widget.o util.o \
+          skinparser.o surface.o main.o timer.o \
+          tv.o radio.o sound.o webbrowser.o \
+          tcl.o font.o gfx.o label.o clocklabel.o \
+          button.o listbox.o scrollbar.o textfield.o \
+          togglebutton.o picture.o layout.o \
+          screen.o container.o filebrowser.o sock.o
+	  
+target_files = ../lmbox.dtd ../lmbox.xml ../lmbox.tcl
+target_dirs = ../tcl ../xml \
+	      ../data ../images \
+	      ../fonts ../sounds
+target = ../lmbox
+
+$(objects): lmbox.h
+
+$(target): $(objects)
+	g++ -o $(target) $(objects) $(LDFLAGS) $(LIBS)
+
+all: $(target)
+
+install: install-bin install-config
+
+install-bin: $(target)
+	$(INSTALL_PROGRAM) $(target) $(DESTDIR)$(bindir)
+	-ln -sf $(DESTDIR)$(bindir)/lmbox $(DESTDIR)$(bindir)/lmboxweb
+
+install-data: $(target)
+	mkdir -p $(DESTDIR)$(prefix)/lmbox
+	for f in $(target_files); do \
+	  $(INSTALL_DATA) $$f $(DESTDIR)$(prefix)/lmbox; \
+	done
+	for f in $(target_dirs); do \
+	  cp -pR $$f $(DESTDIR)$(prefix)/lmbox; \
+	done
+
+install-config: $(target)
+	mkdir -p $(rcdir)/.lmbox
+	if [ ! -e $(rcdir)/.lmbox/config ]; then \
+	  $(INSTALL_DATA) ../lmboxrc $(rcdir)/.lmbox/config; \
+	fi
+	if [ ! -e $(rcdir)/.lircrc ]; then \
+	  $(INSTALL_DATA) ../lircrc $(rcdir)/.lircrc; \
+	fi
+	if [ ! -e $(rcdir)/.asoundrc ]; then \
+	  $(INSTALL_DATA) ../asoundrc $(rcdir)/.asoundrc; \
+	fi
+	if [ ! -e $(rcdir)/.lmbox/favorites.txt ]; then \
+	  $(INSTALL_DATA) ../data/iTV/favorites.txt $(rcdir)/.lmbox; \
+	fi
+
+indent:
+	indent -kr -l125 -nbfda -nprs  -npsl -nut -br -brs -ce -cdw -nbbo $(sources)
+

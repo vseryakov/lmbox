@@ -1,0 +1,1062 @@
+
+<html><head><meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../style.css">
+<script type="text/javascript">
+function bookmarksite(title, url){
+if (document.all)
+window.external.AddFavorite(url, title);
+else if (window.sidebar)
+window.sidebar.addPanel(title, url, "")
+}
+</script>
+
+
+
+
+
+
+<title>Local US TV channels</title>
+
+
+</head><script><!--
+if (top == self)top.location.href="../portal.htm?"+location.href;
+//--></script><script LANGUAGE="javascript"><!--
+var Web; var TheBrowser; function listen(website,audio, IE5) { window.open(audio,"F15","width=120,height=40,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes"); Web = website; TheBrowser = 1; var tmr =
+window.setTimeout("ShowWeb();",0) } function ShowWeb() { if(TheBrowser == 1) {
+window.open(Web,"www","width=600,height=340,toolbar=no,location=yes,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes"); } }
+//--></script><body bgcolor="#440000" topmargin="0" leftmargin="0" link="#FFcc00" infvlink="#FFcc00" alink="#FFFF00"><center>
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="javascript:void(location.href='mailto:?subject='+escape('A friend of yours recommends an interesting website')+'&body='+escape(document.title + '\n\n' + location.href))" class=""><img
+src="../em.gif" border="0" alt="Tell a Friend"></a>
+
+<font class="hd6">Local US TV channels:</font><BR><font class="hd2">
+
+
+
+</td></tr></table><table width="100%" border="0" cellspacing="0" cellpadding="0" height="22"><tr><td width="5"></td><td align="left" class="q"><table border="0"><tr><td><script type="text/javascript"><!--
+google_ad_client = "pub-1964102517134879";google_hints = "online broadcast broadband tv television speedtest adsl dsl cable vod news";google_alternate_ad_url = "http://wwitv.com/img/adrec.htm";google_ad_width = 336;
+google_ad_height = 280;google_ad_format = "336x280_as";google_ad_type = "text_image";google_ad_channel = "7224588251";google_page_url = document.location;google_color_border = "440000";google_color_bg = "440000";google_color_link = "FFCC00";google_color_url =
+"FF6600";google_color_text = "FF9900";
+//--></script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></td><td valign="top"></td></tr></table><table width="100%"  cellpadding="0" cellspacing="0" height="18" bgcolor="990000"><tr><td valign="middle" align="left"><a
+class="hd4" href="../page/add_url.htm">Add new TV channel / Report broken link</a><font class="hd3"> | </font><a class="hd4" href="../speedtest/index.html">Required Bandwidth</a><font class="hd3"> | </font>
+<a class="hd4" href="../page/plugintester.htm">Required Software</a></td></tr></table></td><td width="5"></td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td width="5"></td><td valign="top"><table width="100%" border="0" cellspacing="0"
+cellpadding="0" height="8"><tr><td></td></tr></table><table width="100%" cellspacing="0" cellpadding="0" class="q"><tr><td>
+
+
+
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="120" height="16" bgcolor="#990000"><font class="hd">US State</font></td><td width="80" bgcolor="#990000"><font class="hd">City</font></td><td width="140" bgcolor="#990000"><font class="hd">Channel</font></td><td
+width="62" bgcolor="#990000"><font class="hd"><b>Stream</b></font></td><td width="20" bgcolor="#990000"><font class="hd">Fav.</font></td><td bgcolor="#990000"><font class="hd">Information</font></td></tr>
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Cadillac</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.9and10news.com/" target="TV">WWTV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.9and10news.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WWTV','http://wwitv.com/tv_channels/b3068.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Detroit</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.discoverdetroittv.com/" target="TV">Discover Detroit</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.discoverdetroittv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Discover Detroit','http://wwitv.com/tv_channels/b2425.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Travel program.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Detroit</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.g1n.org/jackson_mi.htm" target="TV">G1NBC</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.g1n.org/jackson_mi.htm','http://wwitv.com/t1/b1639.asx',0)">273K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - G1NBC','http://wwitv.com/tv_channels/b1639.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Detroit</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.clickondetroit.com/video/" target="TV">WDIV</a></td><td class="qm"><center>
+
+
+<a class="www" href="javascript:listen('http://www.clickondetroit.com/video/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WDIV','http://wwitv.com/tv_channels/b2830.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Detroit</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.myfoxdetroit.com" target="TV">WJBK</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.myfoxdetroit.com','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WJBK','http://wwitv.com/tv_channels/b2978.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Flint</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://abclocal.go.com/wjrt/" target="TV">WJRT</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://abclocal.go.com/wjrt/','http://wwitv.com/t1/b2823.asx',0)">391K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WJRT','http://wwitv.com/tv_channels/b2823.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Kalamazoo</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wwmt.com/" target="TV">WWMT</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wwmt.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WWMT','http://wwitv.com/tv_channels/b3069.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Lansing</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wilx.com/" target="TV">WILX</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wilx.com/','../web.htm',0)">website</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WILX','http://wwitv.com/tv_channels/b2832.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Lansing</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wlns.com/" target="TV">WLNS</a></td><td class="qm"><center>
+
+
+<a class="www" href="javascript:listen('http://www.wlns.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WLNS','http://wwitv.com/tv_channels/b3070.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Marquette</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wluctv6.com/Global/category.asp?C=89593" target="TV">WLUC</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wluctv6.com/Global/category.asp?C=89593','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WLUC','http://wwitv.com/tv_channels/b2833.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Michigan</font></td><td class="q"><font class="hd2">Saiginaw</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wnem.com/" target="TV">WNEM</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wnem.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WNEM','http://wwitv.com/tv_channels/b3071.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Minnesota</font></td><td class="q"><font class="hd2">Duluth</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.northlandsnewscenter.com/" target="TV">KDLH</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.northlandsnewscenter.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KDLH','http://wwitv.com/tv_channels/b2834.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Minnesota</font></td><td class="q"><font class="hd2">Mankato</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.keyc.tv/" target="TV">KEYC</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.keyc.tv/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KEYC','http://wwitv.com/tv_channels/b3073.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Minnesota</font></td><td class="q"><font class="hd2">Minneapolis</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kare11.com/" target="TV">KARE</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.kare11.com/','http://wwitv.com/t1/b2835.asx',0)">311K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KARE','http://wwitv.com/tv_channels/b2835.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">Minnesota</font></td><td class="q"><font class="hd2">Minneapolis</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://wcco.com/" target="TV">WCCO</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://wcco.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WCCO','http://wwitv.com/tv_channels/b3072.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Minnesota</font></td><td class="q"><font class="hd2">Rochester</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kttc.com/" target="TV">KTTC</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kttc.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KTTC','http://wwitv.com/tv_channels/b2837.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Mississippi</font></td><td class="q"><font class="hd2">Columbus</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wcbi.com" target="TV">WCBI</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.wcbi.com','http://wwitv.com/t1/b3074.asx',0)">143K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WCBI','http://wwitv.com/tv_channels/b3074.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Mississippi</font></td><td class="q"><font class="hd2">Fulton</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.w39cd.com" target="TV">Unity Broadcasting</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://www.w39cd.com','http://wwitv.com/t1/b2005.ram',0)">45K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Unity Broadcasting','http://wwitv.com/tv_channels/b2005.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Christian television station located in the
+rural Mississippi town of Fulton.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Mississippi</font></td><td class="q"><font class="hd2">Jackson</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wjtv.com/" target="TV">WJTV</a></td><td class="qm"><center>
+
+
+<a class="www" href="javascript:listen('http://www.wjtv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WJTV','http://wwitv.com/tv_channels/8293.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Mississippi</font></td><td class="q"><font class="hd2">Jackson</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wlbt.com/" target="TV">WLBT</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wlbt.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WLBT','http://wwitv.com/tv_channels/7950.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Mississippi</font></td><td class="q"><font class="hd2">Meridian</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wtok.com/" target="TV">WTOK</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wtok.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WTOK','http://wwitv.com/tv_channels/7951.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Mississippi</font></td><td class="q"><font class="hd2">Pascagoula</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wkfk.com/" target="TV">WKFK</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.wkfk.com/','http://wwitv.com/t1/7979.asx',0)">550K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WKFK','http://wwitv.com/tv_channels/7979.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Community TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Mississippi</font></td><td class="q"><font class="hd2">Vicksburg</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.vicksburg.org" target="TV">Vicksburg TV23</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://www.vicksburg.org','http://wwitv.com/t1/7698.ram',0)">225K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Vicksburg TV23','http://wwitv.com/tv_channels/7698.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Government TV channel TV-23.</td></tr>
+
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">Cape Girardeau</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kfvs12.com/" target="TV">KFVS</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kfvs12.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KFVS','http://wwitv.com/tv_channels/b3075.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">Columbia</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.komu.com/" target="TV">WGBC</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.komu.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WGBC','http://wwitv.com/tv_channels/b2839.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">Kansas City</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kctv5.com/" target="TV">KCTV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kctv5.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KCTV','http://wwitv.com/tv_channels/b3076.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">Kansas City</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.thekansascitychannel.com" target="TV">KMBC</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.thekansascitychannel.com','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KMBC','http://wwitv.com/tv_channels/b2957.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">Kansas City</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kshb.com/" target="TV">KSHB</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kshb.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KSHB','http://wwitv.com/tv_channels/b2840.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">Kansas City</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.myfoxkc.com" target="TV">WDAF</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.myfoxkc.com','../web.htm',0)">website</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WDAF','http://wwitv.com/tv_channels/b3000.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">Springfield</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ky3.com/" target="TV">KYTV</a></td><td class="qm"><center>
+
+
+<a class="www" href="javascript:listen('http://www.ky3.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KYTV','http://wwitv.com/tv_channels/b2841.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">St. Louis</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kmov.com/" target="TV">KMOV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kmov.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KMOV','http://wwitv.com/tv_channels/b3077.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">St. Louis</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ksdk.com/" target="TV">KSDK</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.ksdk.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KSDK','http://wwitv.com/tv_channels/b2842.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">Missouri</font></td><td class="q"><font class="hd2">St. Louis</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.myfoxstl.com" target="TV">KTVI</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.myfoxstl.com','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KTVI','http://wwitv.com/tv_channels/b3001.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Montana</font></td><td class="q"><font class="hd2">Billings</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.montanasnewsstation.com/Global/category.asp?C=43947" target="TV">KTVQ</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.montanasnewsstation.com/Global/category.asp?C=43947','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KTVQ','http://wwitv.com/tv_channels/b3078.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Montana</font></td><td class="q"><font class="hd2">Billings</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kulr8.com/" target="TV">KULR</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kulr8.com/','../web.htm',0)">website</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KULR','http://wwitv.com/tv_channels/b2843.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Montana</font></td><td class="q"><font class="hd2">Butte</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.montanasnewsstation.com/Global/category.asp?C=50437" target="TV">KXLF</a></td><td class="qm"><center>
+
+
+<a class="www" href="javascript:listen('http://www.montanasnewsstation.com/Global/category.asp?C=50437','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KXLF','http://wwitv.com/tv_channels/b3079.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Montana</font></td><td class="q"><font class="hd2">Great Falls</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://montanasnewsstation.com/Global/category.asp?C=50433" target="TV">KRTV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://montanasnewsstation.com/Global/category.asp?C=50433','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KRTV','http://wwitv.com/tv_channels/b3081.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Montana</font></td><td class="q"><font class="hd2">Helena</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.beartoothnbc.com/newscastvideo.php" target="TV">KBGF</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.beartoothnbc.com/newscastvideo.php','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KBGF','http://wwitv.com/tv_channels/b2844.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Great Falls, Havre, Helena,
+Lewistown.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Montana</font></td><td class="q"><font class="hd2">Missoula</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.montanasnewsstation.com/Global/category.asp?C=50436" target="TV">KPAX</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.montanasnewsstation.com/Global/category.asp?C=50436','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KPAX','http://wwitv.com/tv_channels/b3080.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Kearney</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.nebraska.tv/" target="TV">KHGI/KWNB</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.nebraska.tv/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KHGI/KWNB','http://wwitv.com/tv_channels/b2934.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Lincoln</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.lincoln.ne.gov/city/mayor/cic/5citytv/index.htm" target="TV">21 TV</a></td><td class="qr">
+
+
+<a class="r" href="javascript:listen('http://www.lincoln.ne.gov/city/mayor/cic/5citytv/index.htm','http://wwitv.com/t1/b2723.ram',0)">150K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - 21 TV','http://wwitv.com/tv_channels/b2723.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Government TV for Lincoln and Lancaster County,
+Nebraska.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Lincoln</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.lincoln.ne.gov/city/mayor/cic/5citytv/index.htm" target="TV">City 5 TV</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://www.lincoln.ne.gov/city/mayor/cic/5citytv/index.htm','http://wwitv.com/t1/6405.ram',0)">150K</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - City 5 TV','http://wwitv.com/tv_channels/6405.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Government TV for Lincoln and Lancaster
+County.</td></tr>
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Lincoln</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.klkntv.com/" target="TV">KLKN</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.klkntv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KLKN','http://wwitv.com/tv_channels/b2935.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Lincoln</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kolnkgin.com/" target="TV">KOLN</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kolnkgin.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KOLN','http://wwitv.com/tv_channels/b3082.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Omaha</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ketv.com/video" target="TV">KETV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.ketv.com/video','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KETV','http://wwitv.com/tv_channels/b2936.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Omaha</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.action3news.com/" target="TV">KMTV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.action3news.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KMTV','http://wwitv.com/tv_channels/b3083.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nebraska</font></td><td class="q"><font class="hd2">Omaha</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wowt.com/" target="TV">WOWT</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wowt.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WOWT','http://wwitv.com/tv_channels/b2845.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Clark County</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.co.clark.nv.us/Public_communications/channel4.htm" target="TV">CCTV4</a></td><td class="qr">
+
+
+<a class="r" href="javascript:listen('http://www.co.clark.nv.us/Public_communications/channel4.htm','http://wwitv.com/t1/7593.ram',0)">226K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - CCTV4','http://wwitv.com/tv_channels/7593.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Government access TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Las Vegas</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ci.las-vegas.nv.us/kclv/default.htm" target="TV">KCLV Ch. 2</a></td><td class="qm">
+
+
+<a class="m" href="javascript:listen('http://www.ci.las-vegas.nv.us/kclv/default.htm','http://wwitv.com/t1/7355.asx',0)">100K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KCLV Ch. 2','http://wwitv.com/tv_channels/7355.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Government access TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Las Vegas</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.klas-tv.com/" target="TV">KLAS</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.klas-tv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KLAS','http://wwitv.com/tv_channels/77.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Las Vegas</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ktnv.com/" target="TV">KTNV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.ktnv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KTNV','http://wwitv.com/tv_channels/b2937.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Las Vegas</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kvbc.com/" target="TV">KVBC</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kvbc.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KVBC','http://wwitv.com/tv_channels/b2846.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Las Vegas</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.fox5vegas.com" target="TV">KVVU</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.fox5vegas.com','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KVVU','http://wwitv.com/tv_channels/b3015.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Reno</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kolotv.com/" target="TV">KOLO</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kolotv.com/','../web.htm',0)">website</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KOLO','http://wwitv.com/tv_channels/b2938.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">Nevada</font></td><td class="q"><font class="hd2">Reno</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.krnv.com/" target="TV">KRNV</a></td><td class="qm">
+
+
+<a class="m" href="javascript:listen('http://www.krnv.com/','http://wwitv.com/t1/b2847.asx',0)">295K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KRNV','http://wwitv.com/tv_channels/b2847.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New Hampshire</font></td><td class="q"><font class="hd2">Manchester</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wmur.com/video/" target="TV">WMUR</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wmur.com/video/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WMUR','http://wwitv.com/tv_channels/b2939.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New Hampshire</font></td><td class="q"><font class="hd2">White River Junction</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wnne.com/" target="TV">WNNE</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wnne.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WNNE','http://wwitv.com/tv_channels/b2848.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New Jersey</font></td><td class="q"><font class="hd2">Atlantic City</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.nbc40.net/" target="TV">WMGM</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.nbc40.net/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WMGM','http://wwitv.com/tv_channels/b2851.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV from Atlantic City / Wildwood.</td></tr>
+
+<tr><td class="q"><font class="hd2">New Jersey</font></td><td class="q"><font class="hd2">Somerset</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ebru.tv/" target="TV">Ebru TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.ebru.tv/','http://wwitv.com/t1/b2660.asx',0)">378K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Ebru TV','http://wwitv.com/tv_channels/b2660.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New Mexico</font></td><td class="q"><font class="hd2">Albuquerque</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.quote-unquote.org/" target="TV">Channel 27</a></td><td class="qm">
+<a class="m" href="javascript:listen('http://www.quote-unquote.org/','http://wwitv.com/t1/b2040.asx',0)">273K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Channel 27','http://wwitv.com/tv_channels/b2040.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Public access channel.</td></tr>
+
+
+
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">New Mexico</font></td><td class="q"><font class="hd2">Albuquerque</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.cabq.gov/govtv/" target="TV">GOV TV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.cabq.gov/govtv/','http://wwitv.com/t1/7743.asx',0)">150K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - GOV TV','http://wwitv.com/tv_channels/7743.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Government Television.</td></tr>
+
+<tr><td class="q"><font class="hd2">New Mexico</font></td><td class="q"><font class="hd2">Albuquerque</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.koat.com/video/" target="TV">KOAT</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.koat.com/video/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KOAT','http://wwitv.com/tv_channels/b2940.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New Mexico</font></td><td class="q"><font class="hd2">Albuquerque</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kobtv.com/" target="TV">KOB-TV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kobtv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KOB-TV','http://wwitv.com/tv_channels/b2852.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New Mexico</font></td><td class="q"><font class="hd2">Albuquerque</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.krqe.com/" target="TV">KRQE</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.krqe.com/','http://wwitv.com/t1/b3084.asx',0)">143K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KRQE','http://wwitv.com/tv_channels/b3084.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New Mexico</font></td><td class="q"><font class="hd2">Roswell</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.kbimtv.com/" target="TV">KBIM</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.kbimtv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - KBIM','http://wwitv.com/tv_channels/b3085.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Albany</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wnyt.com/" target="TV">WNYT</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wnyt.com/','../web.htm',0)">website</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WNYT','http://wwitv.com/tv_channels/b2854.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Albany</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.fox23news.com/mediacenter/" target="TV">WXXA</a></td><td class="qm"><center>
+
+
+<a class="www" href="javascript:listen('http://www.fox23news.com/mediacenter/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WXXA','http://wwitv.com/tv_channels/8279.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Binghamton</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.newschannel34.com/" target="TV">WBGH</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.newschannel34.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WBGH','http://wwitv.com/tv_channels/b2855.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Binghamton</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wbng.com/" target="TV">WBNG</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wbng.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WBNG','http://wwitv.com/tv_channels/b3087.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Binghamton</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wicz.com/" target="TV">WICZ</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wicz.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WICZ','http://wwitv.com/tv_channels/b2985.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Brooklyn</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.brooklynx.org/bcat/" target="TV">BCAT TV ch. 1</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.brooklynx.org/bcat/','http://wwitv.com/t1/7638.asx',0)">190K</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - BCAT TV ch. 1','http://wwitv.com/tv_channels/7638.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Community Access TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Brooklyn</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.brooklynx.org/bcat/" target="TV">BCAT TV ch. 3</a></td><td class="qm">
+
+
+<a class="m" href="javascript:listen('http://www.brooklynx.org/bcat/','http://wwitv.com/t1/b1950.asx',0)">190K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - BCAT TV ch. 3','http://wwitv.com/tv_channels/b1950.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Community Access TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Buffalo</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wgrz.com/" target="TV">WGRZ</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wgrz.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WGRZ','http://wwitv.com/tv_channels/b2856.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Buffalo</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wivb.com/" target="TV">WIVB</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wivb.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WIVB','http://wwitv.com/tv_channels/b3088.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Buffalo</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wkbw.com/" target="TV">WKBW</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wkbw.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WKBW','http://wwitv.com/tv_channels/b2923.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">East Hamptons</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wvvh.com/pages/1/index.htm" target="TV">WVVH</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.wvvh.com/pages/1/index.htm','http://wwitv.com/t1/8219.asx',0)">1120K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WVVH','http://wwitv.com/tv_channels/8219.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Elmira</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.weny.com/" target="TV">WENY</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.weny.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WENY','http://wwitv.com/tv_channels/b2924.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Elmira</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wetmtv.com/" target="TV">WETM</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wetmtv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WETM','http://wwitv.com/tv_channels/b2857.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://770live.com/" target="TV">770 Live</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://770live.com/','http://wwitv.com/t1/7835.asx',0)">300K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - 770 Live','http://wwitv.com/tv_channels/7835.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Live Synagogue in Crown Heights. One of the most famous
+ synagogues in new york.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.brooklynx.org/bcat/" target="TV">BCAT TV ch. 2</a></td><td class="qm">
+
+
+<a class="m" href="javascript:listen('http://www.brooklynx.org/bcat/','http://wwitv.com/t1/b1949.asx',0)">190K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - BCAT TV ch. 2','http://wwitv.com/tv_channels/b1949.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">TV Channel from the brooklyn Community Access
+TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.dominicanyorktv.com" target="TV">Dominicanyorktv</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.dominicanyorktv.com','http://wwitv.com/t1/b3571.asx',0)">331K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - Dominicanyorktv','http://wwitv.com/tv_channels/b3571.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Dominican TV from New York.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ictv.org/" target="TV">ICTV</a></td><td class="qr">
+
+<a class="r" href="javascript:listen('http://www.ictv.org/','http://wwitv.com/t1/7216.ram',0)">80K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - ICTV','http://wwitv.com/tv_channels/7216.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Ithaca College TV from New York.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.mnn.org/" target="TV">MNN Ch 34</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.mnn.org/','http://wwitv.com/t1/7219.asx',0)">280K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - MNN Ch 34','http://wwitv.com/tv_channels/7219.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Public Access for Manhattan.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.mnn.org/" target="TV">MNN Ch 56</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.mnn.org/','http://wwitv.com/t1/7492.asx',0)">102K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - MNN Ch 56','http://wwitv.com/tv_channels/7492.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Public Access for Manhattan.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.mnn.org/" target="TV">MNN Ch 57</a></td><td class="qm">
+
+
+<a class="m" href="javascript:listen('http://www.mnn.org/','http://wwitv.com/t1/7493.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - MNN Ch 57','http://wwitv.com/tv_channels/7493.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Public Access for Manhattan.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.mnn.org" target="TV">MNN Ch 67</a></td><td class="qm">
+
+
+<a class="m" href="javascript:listen('http://www.mnn.org','http://wwitv.com/t1/7494.asx',0)">80K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - MNN Ch 67','http://wwitv.com/tv_channels/7494.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Public Access for Manhattan.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.ny1.com/VideoAudio/index.html" target="TV">New York 1</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.ny1.com/VideoAudio/index.html','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - New York 1','http://wwitv.com/tv_channels/6585.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://abclocal.go.com/wabc/" target="TV">WABC</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://abclocal.go.com/wabc/','http://wwitv.com/t1/6846.asx',0)">330K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WABC','http://wwitv.com/tv_channels/6846.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://wcbstv.com/" target="TV">WCBS</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://wcbstv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WCBS','http://wwitv.com/tv_channels/b3086.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://whoh-tv.org/" target="TV">WHOHTV</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://whoh-tv.org/','http://wwitv.com/t1/7250.asx',0)">90K</a>
+
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WHOHTV','http://wwitv.com/tv_channels/7250.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wnbc.com" target="TV">WNBC</a></td><td class="qm"><center>
+
+
+<a class="www" href="javascript:listen('http://www.wnbc.com','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WNBC','http://wwitv.com/tv_channels/b2858.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.nyc.gov/html/nycmg/nyctv/html/home/home.shtml" target="TV">WNYE</a></td><td class="qr"><center>
+
+<a class="www" href="javascript:listen('http://www.nyc.gov/html/nycmg/nyctv/html/home/home.shtml','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WNYE','http://wwitv.com/tv_channels/7738.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Government TV from New York.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.myfoxny.com/" target="TV">WNYW</a></td><td class="qm">
+
+<a class="m" href="javascript:listen('http://www.myfoxny.com/','http://wwitv.com/t1/b2984.asx',0)">273K</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WNYW','http://wwitv.com/tv_channels/b2984.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">New York</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://cw11.trb.com/" target="TV">WPIX</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://cw11.trb.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WPIX','http://wwitv.com/tv_channels/b3333.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Plattsburgh</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wptz.com" target="TV">WPTZ</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wptz.com','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WPTZ','http://wwitv.com/tv_channels/b2859.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Rochester</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.10nbc.com/" target="TV">WHEC</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.10nbc.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WHEC','http://wwitv.com/tv_channels/b2860.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+
+
+
+
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Syracuse</font></td>
+
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wtvh.com/" target="TV">WTVH</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wtvh.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WTVH','http://wwitv.com/tv_channels/b3089.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Utica</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wktv.com/" target="TV">WKTV</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wktv.com/','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WKTV','http://wwitv.com/tv_channels/b2861.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+<tr><td class="q"><font class="hd2">New York</font></td><td class="q"><font class="hd2">Watertown</font></td>
+
+<td class="name" width="120"><font class="new">.</font><a class="travel" href="http://www.wwnytv.net" target="TV">WWNY</a></td><td class="qm"><center>
+
+<a class="www" href="javascript:listen('http://www.wwnytv.net','../web.htm',0)">website</a>
+
+ </td><td class="q"><center><a href="javascript:bookmarksite('wwiTV.com - WWNY','http://wwitv.com/tv_channels/b3090.htm')"><img src="../bm.gif" border="0" width="15" height="14"></a></td><td class="qe"><font class="hd2">Local TV.</td></tr>
+
+
+</table></td></tr></table></td><td  valign="top" width="5"></td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td width="5"></td>
+<td><table width="100%" cellspacing="0" cellpadding="0"><tr><td width="100%" height="17" bgcolor="#990000"><script type="text/javascript"><!--
+google_ad_client = "pub-1964102517134879";google_hints = "online broadcast broadband tv television speedtest adsl dsl cable vod news media";google_ad_width = 468;google_ad_height = 15;google_ad_format = "468x15_0ads_al";google_ad_channel ="7827767283";google_page_url =
+document.location;google_color_border = "990000";google_color_bg = "990000";google_color_link = "FFcc00";google_color_url = "FF6600";google_color_text = "FF9900";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td></tr></table></td>
+<td  valign="top" width="5"></td></tr></table>
+<BR>
+<a class="hd3" href="../page/add_url.htm">Click HERE</a><font class="hd3">to add a new Internet TV station or to report a broken link!</font><BR><a class="hd3" href="../page/wwitv.htm"
+target="wwiTV4all">Copyright
+&copy; 1998-2007 wwiTV.com</a><BR><BR>
+</center>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-76858-5";
+urchinTracker();
+</script>
+</body></html>
+
+
+
+
+
+

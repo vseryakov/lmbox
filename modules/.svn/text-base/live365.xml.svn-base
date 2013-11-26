@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="live365page" background="background.jpg">
+   <event name="OnGotFocus">
+     live365_setup
+   </event>
+   
+   <event name="stop"> live365_stop </event>
+   <event name="pause"> live365_pause </event>
+   <event name="cancel"> lmbox setpage mainpage </event>
+   <event name="play"> live365_play [lmbox get live365stationlist selecteddata] </event>
+   
+   <clocklabel x="20" y="10"  width="300" height="20" template="clocklabel"></clocklabel>
+   <label x="400" y="10" template="titlelabel">lmBox: Live365.com Radio</label>
+   <listbox name="live365genrelist" x="15" y="50" width="200" height="200" template="t_live365list">
+     <event name="OnChoose">
+       lmbox call live365stationlist setfocus
+     </event>
+     <event name="OnGotFocus">
+       live365_info stations [lmbox get live365genrelist selecteddata]
+       lmbox set status caption "Live365.com music genres"
+     </event>
+     <event name="OnSelectionChange">
+       live365_info stations [lmbox get live365genrelist selecteddata]
+     </event>
+   </listbox>
+   <listbox name="live365stationlist" x="225" y="50" width="330" height="200" template="t_live365list" fontcolor="#e0e2e5">
+     <event name="OnChoose">
+       live365_play [lmbox get live365stationlist selecteddata]
+     </event>
+     <event name="OnGotFocus">
+       live365_info info [lmbox get live365stationlist selecteddata]
+       lmbox set status caption "Live365.com stations for selected genre"
+     </event>
+     <event name="OnSelectionChange">
+       live365_info info [lmbox get live365stationlist selecteddata]
+     </event>
+   </listbox>
+   <label name="live365info" x="15" y="260" width="400" height="130" template="t_live365info" ></label>
+   <picture name="live365icon" x="420" y="265" width="135" height="80" image="images/menu/live365.jpg" />
+   <button x="420" y="350" caption="Relogin" template="t_bluebutton" width="50" fontsize="10" action="blue" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Login into live365.com if session already expired"
+     </event>
+     <event name="OnClick">
+       live365_login 1
+     </event>
+   </button>
+   <button x="475" y="350" caption="Refresh" template="t_yellowbutton" width="50" fontsize="9" action="yellow" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Refresh live365.com database"
+     </event>
+     <event name="OnClick">
+       lmbox run "live365_load 1;live365_setup"
+     </event>
+   </button>
+   <button x="530" y="350" caption="Favorite" template="t_greenbutton" width="50" fontsize="9" action="green" >
+     <event name="OnGotFocus">
+       lmbox set status caption "Add station to favorite links"
+     </event>
+     <event name="OnClick">
+       live365_favorite [lmbox get live365stationlist selecteddata]
+     </event>
+   </button>
+   <label name="status" x="10" y="400" width="620" height="40" template="statuslabel"></label>
+</page>
+
+<page name="live365configpage" background="background.jpg">
+  <clocklabel x="20" y="10" width="200" height="20" template="clocklabel" />
+  <label x="400" y="10" template="titlelabel">lmBox: Live365.com Settings</label>
+
+  <label x="30" y="70" width="100" height="20" template="infolabel">Username:</label>
+  <textfield name="live365_user" x="200" y="65" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Username of live365.com account"
+    </event>
+  </textfield>
+  <label x="30" y="100" width="100" height="20" template="infolabel">Password:</label>
+  <textfield name="live365_passwd" x="200" y="95" width="140" template="t_textfield">
+    <event name="OnGotFocus">
+      lmbox set status caption "Password for live365.com account"
+    </event>
+  </textfield>
+
+  <button x="100" y="370" caption="Save" template="t_button2" action="save">
+    config_save
+    lmbox setpage configpage
+  </button>
+  <button x="200" y="370" caption="Login" template="t_button2">
+    config_save
+    if { [live365_login 1] == -1 } {
+      lmbox set status caption "Unable to login to Live365.com account"
+    } else {
+      lmbox set status caption "Logged in successfully into live365.com"
+    }
+  </button>
+  <button x="300" y="370" caption="Reload" template="t_button2">
+    live365_load 1
+    lmbox set status caption "live365.com directory has been reloaded"
+  </button>
+  <button x="400" y="370" caption="Back" template="t_button2" action="cancel">
+    lmbox setpage configpage
+  </button>
+  <label name="status" x="10" y="408" width="480" height="50" template="statuslabel"></label>
+</page>
+
+</lmbox>
+

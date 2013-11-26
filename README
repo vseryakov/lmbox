@@ -1,0 +1,1054 @@
+The lmbox User's Guide
+Version 0.9.6
+
+Introduction
+
+   lmbox is an application for building a GUI on a set-top box,
+   suitable for use on a TV; however, it can be used for many
+   other purposes. It reads an XML file describing a simple GUI
+   and creates and runs the GUI on the screen.
+   lmbox's GUI system is fairly simple, and is defined in terms
+   of widgets and pages. Widgets (known as controls or components
+   in other systems) are things that can be displayed and
+   interacted with on pages - eg. buttons, labels etc. Pages
+   contain the widgets and take up the entire lmbox screen, and
+   you can have multiple pages. Buttons are visually defined by
+   several bitmap image files (normal, selected (highlighted),
+   and pressed) and optionally a font, font size, font colour and
+   some text to display a caption on the button. Each page can
+   have its own background image, which will be tiled if it is
+   smaller than the screen size. Label and picture widgets allow
+   you to decorate the page a bit more without needing to merge
+   more stuff into your background image.
+
+Features
+
+   * Fully skinnable GUI interface system
+   * Tcl scripting language for all events and handlers (button click, page load etc.)
+   * Control by mouse, keyboard, infra-red remote via LIRC
+   * Wide range of image format support (with alpha transparency)
+   * TrueType font support
+   * Internal MusicObject based on xinelib for playback any
+     music formats supported by xine(mp3, wav, streams)
+   * Internal VideoObject based on xinelib for playback any
+     video formats supported by xine(mpeg, dicx, xvid, dx50)
+   * Internal RadioObject to play radio on bttv cards
+   * Internal FileBrowser widget for displaying file system contents
+   * Images zoom/rotate methods for photo albums or dynamic icons
+   * Berkeley DB from www.sleepycat.com for internal storage
+   * Scheduler similar to unix cron for background processing
+   * Calendar with alarms, can invoke music, movie, popup window
+   * Live Camera pages with mosaic view
+   * TV Listings from Zap2it
+   * Shoutcast radio, playing stream from the Internet
+   * Live365.com radio, playing stream from the Internet
+   * Live TV over Internet from wwitv.com and RSS feeds
+   * Weather from National Weather service
+   * News from Yahoo
+   * Stocks from Yahoo
+   * Contacts database with reminders
+   * CallerID support using optional modem
+   * TCP/IP/HTTP/UDP support for remote control and alerts
+   * Embeded Mozilla browser
+   * ICQ server/client
+
+Installation
+
+   The latest version of lmbox is always available from the lmbox
+   homepage (http://www.crystalballinc.com/vlad/software/).
+
+   lmbox requires the following packages to be installed on your
+   system:
+     * SDL 1.2 or newer
+     * SDL_mixer
+     * xine-lib
+     * Tcl 8.4 compiled with pthread support (--enable-threads)
+     * Berkeley DB 4.3.x or newer from www.sleepycat.com
+     * wget for Web access
+     * LIRC from www.lirc.org (optional)
+     * Mozilla with gtkembedwidget headers (optional)
+
+   lmbox was developed and tested on ArchLinux 0.7.
+
+   In order to compile and install lmbox on your system, type:
+
+   ./configure
+   make install
+
+   To rebuild configure using local autoconf tools, run bootstrap.sh.
+
+   Run lmbox in the base directory where lmbox.xml is located.
+
+   data/ subdirectory contains samples of media files.
+
+   Under linux subdirectory there is setup i use for my home box,
+   linux/ is root of the filesystem, under etc/ there are config and 
+   linux startup files.
+
+   In my setup, i use separate server which uses OSSWEB to keep media files and 
+   generate movies and tvguide text files. lmbox machine mounts media directories 
+   via NFS and plays directly from the server. But csv files for lmbox can be 
+   generated from Excel if you keep your movies list there.
+
+   Movies and contacts can be imported from csv files, otherwise just drop
+   your movie files into data/Movies or data/Clips and lmbox will pick them up.
+
+   See sample files under data/Movies and data/Contacts and for csv file formats.
+
+Usage
+
+   Listed below are the default keyboard controls. You can change
+   them to your liking by editing the file ~/.lmbox/config. This
+   file contains Tcl commands that will be executed on lmbox startup.
+   To configure key to any action the following commannd is used:
+
+lmbox setkey keyname actionname
+
+lmbox setkey escape quit
+lmbox setkey enter accept
+lmbox setkey backspace cancel
+lmbox setkey tab next
+lmbox setkey leftarrow item_prev
+lmbox setkey rightarrow item_next
+lmbox setkey uparrow item_prev
+lmbox setkey downarrow item_next
+lmbox setkey pageup item_prevpage
+lmbox setkey pagedown item_nextpage
+lmbox setkey home item_first
+lmbox setkey end item_last
+
+   Default keyboard key assignments
+   
+   Tab                          - Next widget
+   Up Arrow / Left Arrow        - Previous list item
+   Down Arrow / Right Arrow     - Next list item
+   Page Up                      - Previous list page
+   Page                         - Down Next list page
+   Home                         - First list item
+   End                          - Last list item
+   Enter                        - Press selected button/choose selected list item
+   Backspace                    - Cancel (cancel user action)
+   Escape                       - Quit
+
+   To receive the list of all keyboard key names run lmbox -k switch.
+
+   To use these modifiers, just prefix your keys with one or more
+   of them, separating keys and modifiers with plus signs, eg.:
+
+lmbox setkey alt+x exit
+lmbox setkey shift+ctrl+enter accept
+
+Joystick
+
+   Joystick events are handled in the same way as key presses,
+   buttons are mapped into F-keys and joystick motion into arrow keys.
+
+   F1               Joystick Button 1 (A)
+   F2               Joystick Button 2 (B)
+   F3               Joystick Button 3 (X)
+   F4               Joystick Button 4 (Y)
+   F5               Joystick Button 5 (left trigger)
+   F6               Joystick Button 6 (right trigger)
+   F7               Joystick Button 7
+   F8               Joystick Button 8
+   F9               Joystick Button 9
+   joystickup       Joystick Up
+   joystickdown     Joystick Down
+   joystickleft     Joystick Left
+   joystickright    Joystick Right
+   joystickup       Joystick Hat Up
+   joystickdown     Joystick Hat Down
+   joystickleft     Joystick Hat Left
+   joystickright    Joystick Hat Right
+
+Actions
+
+   lmbox actions are the basis for controlling lmbox. They are
+   used for standard key, joystick, and LIRC remote button
+   bindings for things such as navigating among the widgets on
+   the screen or items in a list (standard actions), and for
+   binding keys or remote buttons to GUI buttons (user actions).
+
+Standard actions
+
+   accept                Accept current selection/value. This presses buttons.
+                         For textfields, this jumps to the next widget. For listboxes,
+                         it generates an OnChoose event.
+   quit                  Quit lmbox
+   up                    Previous list item
+   down                  Next list item
+   prev                  Previous list item or widget
+   next                  Next list item or widget
+   first                 First list item
+   last                  Last list item
+   prevpage              Previous page of items in a list
+   nextpage              Next page of items in a list
+
+User actions
+
+   User actions are similar to the standard actions, except that
+   they don't do anything by themselves. They are meant to allow
+   you to bind keys or LIRC remote buttons to GUI buttons. 
+   Please note that these actions do not actually do anything on
+   their own. Also, you should avoid using an action for anything
+   other than its intended purpose, to avoid confusion. 
+   To bind a user action to a GUI button, simply add an
+   action="actionname" attribute to the button in the XML file.
+   Then, pressing a key or LIRC button bound to this action when
+   the GUI button is on screen will cause the button to be
+   pressed. Alternatively if you don't need a button, or you want
+   the action to be active no matter what page is showing, you
+   can use an actionhandler.
+
+Remote controls
+
+   If LIRC (Linux Infra-Red Control) is installed on your system
+   at compile-time, the configure script will detect it and lmbox
+   will attempt to use your LIRC device when run, so that you can
+   control lmbox using your infra-red remote. For it to work you
+   need to be running lircd and you need to associate the remote
+   keys with actions in the .lircrc file in your home directory.
+
+   There is a default .lircrc file included in the lmbox distribution
+   and it will be installed in ~/.lircrc on make install.
+
+   In my setup i use StreamZap USB remote which has 4 additional
+   colored buttons: red green yellow blue. That's why in my xml/tcl
+   files exist actions assigned to red/green/lue/yellow events.
+
+   Under linux/etc there is lircd.conf file with configuration
+   for streamZap and RadioShack remotes.
+
+Command line options
+
+    -r path       root directory where to cd on start
+    -d depth      Screen depth
+    -b bgname     Initial background image
+    -i initfile   Startup Tcl file
+    -c initproc   Run Tcl proc on startup
+    -p pagename   Initial page
+    -w width      Set width of display
+    -h height     Set height of display
+    -f            Use full-screen display
+    -m            Hide the mouse cursor
+    -j            Disable joystick support
+    -l            Disable LIRC support
+    -g            Do initialize GUI
+    -k            Dump all keyboard names
+    -v            Print this help screen
+
+Configuration file
+
+   lmbox reads the configuration file ~/.lmbox/config on
+   startup if it exists. The file consists any valid Tcl commands and
+   usually has configuration and key assigment commands.
+
+Available settings
+
+   width            Width of the output 800
+   height           Height of the output 600
+   depth            Bit depth of the output (bpp) 32
+   xmlfile          XML file to load, default lmbox.xml
+   initfile         Tcl file to load on startup, default lmbox.tcl
+   dtdfile          DTD to verify XML, /usr/local/etc/lmbox.dtd
+   fullscreen       0, fullscreen mode
+   nocursor         0, hide cursor after start
+   nokeyrepeat      0, disbale key repeat
+   nojoystick       1, disable/enable joystick
+   fontpath         paths where to look for fonts
+   imagepath        paths where to lok for images
+
+   If a command line option is specified that has an equivalent
+   in the configuration file, the command line option takes
+   precedence.
+
+   For the font and image paths, lmbox always looks in the
+   directory where the XML file is located first, before
+   searching in the specified path(s).
+
+Example
+
+lmbox setconfig width 800
+lmbox setconfig height 600
+lmbox setconfig bgimage lmbox.jpg
+
+XML skin files
+
+   lmbox uses an XML file to describe how to lay out the GUI (a
+   skin file). lmbox expects either to find lmbox.xml in the
+   current directory, or you can specify an XML file on the
+   command line and it will use that. If you wish, you can split
+   up your menu system into multiple XML files and use the load
+   script command to load one when a button is pressed (see later
+   in this document). This could be useful for providing custom
+   menus on removable media, eg. CD-ROMs.
+
+   To get a good idea of what an lmbox XML file should look like,
+   you can look at the working lmbox file in skin/ subdirectory.
+
+   Otherwise, the format is fairly straightforward. At the very
+   least, you need to define one page and one button. Here's an
+   example:
+
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+    <page name="mypage" background="mybackground.png">
+      <button image="img.png" highlightedimage="img.png" pressedimage="img.png" x="10" y="10">
+        puts "hello world!"
+      </button>
+      <button image="img.png" highlightedimage="img.png" pressedimage="img.png" x="10" y="100">
+        lmbox quit
+      </button>
+    </page>
+</lmbox>
+
+   This defines two buttons, each using their own set of images,
+   the first of which displays a message on the console when
+   pressed, and the second quits the application.
+
+   If you're using the same set of images and fonts for more than
+   one button and differentiating each button using a caption
+   instead, lmbox supports things called templates that make
+   things easier. Using a button template means you don't have to
+   waste time typing or copying and pasting the same attributes
+   for each button. Label templates are also supported. Here's an
+   example:
+
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+  <template name="mytemplate" font="arial.ttf" fontsize="18" fontcolor="#FFAABB" image="b.png" highlightedimage="d.png" pressedimage="d.png" />
+  <page name="mypage" background="bg.png">
+      <button caption="Hello" template="mytemplate" x="10" y="10">
+        puts "hello world!"
+      </button>
+      <button caption="Test" template="mytemplate" x="10" y="100">
+        quit
+      </button>
+  </page>
+</lmbox>
+
+   As mentioned before, lmbox also supports picture and label
+   widgets as well as buttons. Here's an example:
+
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+  <template name="mytemplate" font="arial.ttf" fontsize="18" image="b.png" highlightedimage="d.png" pressedimage="d.png" />
+  <template name="mylabeltemplate" font="arial.ttf" fontsize="12" textalign="right" wordwrap="true" />
+  <page name="mypage" background="bg.png">
+      <label x="10" y="200" autosize="true" font="arial.ttf" fontsize="24">Page Title</label>
+      <label x="300" y="100" autosize="true" width="250" template="mylabeltemplate">
+       This is an example of a word-wrapped label
+      </label>
+      <button caption="Hello" template="mytemplate" x="100" y="50">
+        puts "hello world!"
+      </button>
+      <button caption="Test" template="mytemplate" x="100" y="150">
+        quit
+      </button>
+      <picture x="200" y="200" image="logo.png" />
+  </page>
+</lmbox>
+
+   Labels allow you to specify the text alignment/justification
+   (textalign="left", "right" or "center", default is left),
+   autosizing on/off (autosize="true" or "false", default is
+   false) and auto-word wrapping on/off (wordwrap="true" or
+   "false", default is false). Note that with word wrapping on,
+   autosizing will only adjust the height, because the width
+   needs to be constant so the label knows where to wrap the
+   text, so you need to specify the width.
+
+   Notes:
+     * The first page that lmbox displays is the first one
+       defined in the file.
+     * Templates don't have to define all the attributes - you
+       can define some and specify the rest in each widget that
+       uses the template.
+     * You can specify an attribute in a template and override it
+       in a widget that uses that template.
+     * If you want to specify the characters & < > ' or " in
+       text, you should use the entities &amp; &lt; &gt; &apos;
+       or &quot; respectively instead, just like HTML.
+       Alternatively if you are using a lot of these in one block
+       (eg. a script) you can enclose them in an XML standard
+       CDATA section ( <![CDATA[ ... ]]> ).
+     * The order of the attributes is not important.
+     * The templates don't actually have any "content", so if you
+       want you can do as above and put / at the end of the tag
+       instead of using a closing tag. (ie. <template... />
+       instead of <template...></template>).
+     * lmbox does not pay any attention to the DTD specified at
+       the top of the file (indeed, you can leave out the
+       <!DOCTYPE...> directive entirely, it's just there for
+       completeness - I recommend you leave it in though so you
+       can tell easily what the XML file is for). lmbox always
+       validates the XML file against lmbox.dtd which is located
+       in the same directory as lmbox.xml or config parameter
+       dtdfile.
+     * The syntax for colour attributes (eg. fontcolor) is the
+       same as that used in HTML - #rrggbb where each digit is a
+       hex value for the colour component (red, green, blue).
+       Examples: #FFFFFF is completely white, #0000FF is blue,
+       #FAB100 is light orange etc. Some nice colour charts are
+       available at http://www.igrin.co.nz/petersim/bcolour.html.
+     * If the visual centre of your button images is not the
+       actual centre of the image (eg. a button with a drop
+       shadow on the bottom and right hand edges) then you can
+       move the button's caption by using the captionx and
+       captiony attributes, ie. to move the caption 10 pixels to
+       the left, add captionx="-10" or for 2 pixels down,
+       captiony="2". These two attributes are optional and
+       separate, and can be used in buttons or button templates.
+     * Buttons also have optional captiondropx and captiondropy
+       attributes. These control how much (if at all) the
+       button's caption moves when the button is pressed. The
+       default is 2 pixels down, and 2 pixels right, but
+       depending on your images, you may want to change these
+       values so that the buttons look good when pressed.
+     * When running an external program (using the lmbox exec command)
+       lmbox loses focus, but continues running and responds on 
+       LIRC events.
+     * Names (of templates and pages) can only consist of letters
+       and numbers and the underscore (_) character.
+       Each template and page must have a unique name but
+       widgets inside different pages can have the same name.
+       The order how lmbox searches for objects is:
+        - Focused page
+        - System objects
+        - All other pages
+
+Scripting
+
+   lmbox use Tcl as a scripting engine. In addition to all commands 
+   standard Tcl supports, lmbox adds new command called lmbox.
+
+   The following subcommands are available:
+   
+   lmbox refresh                   - refresh GUI screen
+   lmbox exec cmd                  - run external program using /bin/sh -c 
+   lmbox run cmd                   - run Tcl command or script in separate thread
+   lmbox load xmlfile              - load another XML file
+   lmbox dbopen dbname             - opens/creates database for further use
+   lmbox dbput dbname key value    - stores value in the given database
+   lmbox dbget dbname key          - returns value for given key
+   lmbox dbdel dbname key          - delete value from the database
+   lmbox dbeval script ?key?       - executes Tcl script for every record,
+                                     if optional key is given, executes script
+                                     for every record whos key start with given
+                                     keystring. Inside the script, current key and 
+                                     data can be accessed using Tcl vartiables:
+                                     lmbox_dbkey and lmbox_dbdata
+   lmbox dbexists dbname key       - returns 1 if key exists in the database
+   lmbox dbnextid                  - returns unique id
+   lmbox quit                      - quit lmbox
+   lmbox get object property       - return value of the property of the object
+   lmbox set object property value - set property of the object to value
+   lmbox call object method ?args? - call method of the object
+   lmbox setpage pagename          - switch to new page
+   lmbox getpage                   - returns current page name
+   lmbox prevpage                  - returns name of previous page
+   lmbox action name               - execute action 
+   lmbox performevent name         - fire event script
+   lmbox eventobject               - returns object who fired event
+   lmbox postevent name            - put event in the queue
+   lmbox config name ?default?     - return config option
+   lmbox setconfig name value      - set config option
+   lmbox key keyname               - return assigned key action
+   lmbox setkey keyname actionnme  - assign key with action
+   lmbox var name ?default?        - return value of shared variable
+   lmbox varset name value         - set value of the shared variable
+   lmbox varunset name             - unset shared variable
+   lmbox varlist name              - return name value pairs that match given name pattern
+   lmbox urldecode text            - decode url/query from HTTP encoding
+   lmbox listenlist                - show all configured listeners
+   lmbox listen port handler \
+       ?-udp 0|1? \
+       ?-thread 0|1?               - creates listener, invokes defined Tcl handler
+                                     on TCP connect or UDP packet
+
+   lmbox xmlparse \
+       ?-data text? \
+       ?-file file? \
+       ?-startelement func? \
+       ?-endelement func? \
+       ?-characters fun?           - parse XML data or file using SAX interface(a-la expat)
+
+   lmbox scheduleinit              - start schedule thread
+   lmbox schedulelist              - returns all active schedules
+   lmbox scheduleremove id         - unschedule job
+   lmbox schedule \
+       ?-id id? \
+       ?-interval secs? \
+       ?-min min? \
+       ?-hour hrs? \
+       ?-day day? \
+       ?-mon mon? \
+       ?-year year? \
+       ?-dow dow? \
+       ?-thread 0|1? \
+       ?-once 0|1? \
+       ?-enable 0|1?               - schedule background job, similar to cron
+
+Events
+
+   To respond an event, you use the <event> tag within the body
+   of the item you want to attach the event to. For example:
+...
+<page ...>
+  <event type="OnGotFocus">
+    puts "the page is loading"
+    # this is a comment
+    puts "the page has been shown"
+    puts "you can have as many commands as you like in a script"
+  </event>
+  ...
+  <button ...>
+    <event type="OnClick">
+      puts "button $lmbox_object clicked"
+      lmbox exec "ls -l"
+    </event>
+    <event type="OnGotFocus">
+      puts "button $lmbox_object focused!"
+    </event>
+  </button>
+  ...
+</page>
+...
+
+   Since system events aren't associated with a page, they are
+   kept in a separate section in the XML file - the system
+   section.
+   For example:
+...
+<system>
+  <event type="OnLoad">
+    puts "lmbox is loading"
+  </event>
+  ...
+</system>
+...
+
+   Be warned that you will not get an error if the event you
+   define a handler for does not exist - it will be just never
+   happen, so make sure you type the name correctly. Also, with
+   buttons, there is a shortcut as you've already seen - if you
+   only need to do something when the button is clicked, the
+   <event type="onclick">...</event> is optional - if you wish,
+   you can just put the script you want to run when the button is
+   clicked inside the <button> tag body.
+
+   If an event occurs inside the object, global variable $lmbox_object 
+   contains the object name. Every event handler can return lmbox_ignore
+   which means to stop event processing. This is used in OnAction event
+   handlers to override default event actions.
+   
+Actionhandlers
+
+   You can bind user actions directly to buttons. However,
+   sometimes you may want to be able to respond to an action
+   without showing a button on the screen. To do this you need to
+   use an actionhandler. Actionhandlers can be global (always
+   active) or local (specific to a page), depending on where they
+   appear in the XML file. A local actionhandler will always
+   override a global one with the same action.
+
+   To define an actionhandler, add the following to the XML file:
+
+<actionhandler action="actionname">
+  # put your Tcl code to be run here
+</actionhandler>
+
+   To make this a local action, include it within the element for
+   the page in which you wish it to be active. To make it global,
+   include it within the system section.
+
+Order of events
+
+   In some situations it may be useful to know the order of
+   events as they are executed by lmbox. The following lists
+   should give you an idea of what happens when.
+
+Startup
+
+    1. Read configuration file ~/.lmbox/config
+    2. Check command-line options
+    4. Load interface plugin
+    6. Read user-specified XML file or lmbox.xml in current directory
+    7. Initialise LIRC (if enabled)
+    9. Fire System.OnLoad event
+   10. Start system-level timers
+   11. Display first page
+   12. Fire page OnGotFocus event
+   13. Start page-level timers
+   14. (... process events ...)
+
+Switch page
+
+    2. Fire current page's OnLostFocus event
+    3. Stop any timers owned by current page
+    6. Fire new page OnGotFocus event
+    7. Display new page
+    8. Start page-level timers
+   10. (... process events ...)
+
+Quit
+
+    1. Fire system OnUnload event
+    2. Unload all pages/objects
+    3. Uninitialise interface plugin
+    4. Exit
+
+Object Reference
+
+   This section provides a reference for all of the types of
+   widgets and objects available in lmbox (from scripts or within
+   plugin code).
+
+Label
+
+   Label widgets are for displaying text.
+
+   Label widgets have the following attributes/properties:
+   
+   Property Description Required In template Default Script
+   
+   name  - The name of the widget
+   x - Horizontal screen position, required
+   y - Vertical screen position, required
+   width - Width of the widget
+   height - Height of the widget
+   template - Template to base the widget on
+   caption - Text to display in the label
+   visible - Whether or not the widget is shown
+   font - Truetype font file to use
+   fontcolor - Colour to use for the text, default #FFFFFF
+   fontsize - The size of the text (in points), default 16
+   textalign - Text alignment
+   autosize - Autosize the widget to the text or not
+   wordwrap - Automatically wrap the text to multiple lines
+
+   Label widgets have no methods or events.
+
+System
+
+   System is a special object, of which there is only one
+   instance. It provides access to some global functions in
+   lmbox. The System object has a section in the XML, but no
+   attributes.
+
+   The System object has the following properties:
+
+   name - The name of the object (always "System")
+   screenwidth - Width of the lmbox screen
+   screenheight - Height of the lmbox screen
+   currentfile - Currently loaded XML skin file
+   version - lmbox version string (eg. 0.4.0)
+   pagecount - Number of loaded pages
+   idletime - get/set, how many seconds since last GUI event
+   xscale - x scaling factor for all coordinates and width
+   yscale - yscaling factor for all coordinates and height
+   
+   
+   The following methods are supported by the system object:
+   
+   quit - Quits lmbox
+   focusnext - Jumps to the next widget
+   focusprevious - Jumps to the previous widget
+   performaction actionname - Perform the specified action. Accepts the same 
+                              actions as for used for key bindings.
+   getpage index - Gets the name of the page at the specified index in the list 
+                   (0 to system.pagecount)
+   gotopage pagename - Jumps to the specified page. Alternative to the page command 
+                       for instances where you already have a string with the page 
+                       name to go to.
+   selectfocused - Presses the focused button/chooses the selected item in a listbox
+
+   The following events are triggered by the system object:
+   
+   OnLoad - Occurs just after system plugins are initialised
+   OnUnload - Occurs just before lmbox is unloaded
+
+Picture
+
+   Picture widgets are for displaying static images loaded from a
+   file. Their width and height are set to the size of the image
+   file.
+
+   Picture widgets have the following attributes/properties:
+   
+   name - The name of the widget
+   x - Horizontal screen position
+   y - Vertical screen position
+   image - The image file to display
+   visible - Whether or not the widget is shown
+
+   The following methods are supported by picture widgets:
+
+   reloadimage - Reloads the image file from disk.
+   zoomimage name w h - Zoom image file into the picture object
+   rotateimage angle - rotate current image to the specified angle
+
+ToggleButton
+
+   Togglebuttons provide a way for a user to set a boolean value
+   (also known as checkboxes in other systems). Of course these
+   don't have to look like checkboxes - just something with two
+   states. There is no built-in text caption - use in conjunction
+   with a label if you need this.
+
+   The togglebutton object has the following properties:
+   
+   name - The name of the widget
+   x - Horizontal screen position
+   y - Vertical screen position
+   width - Width of the widget
+   height - Height of the widget
+   template - Template to base the widget on
+   visible - Whether or not the widget is shown
+   normalimage - The image file to display when the togglebutton is unchecked
+   normalfocusimage - The image file to display when the togglebutton is unchecked and has the focus
+   checkedimage - The image file to display when the togglebutton is checked
+   checkedfocusimage - The image file to display when the togglebutton is checked and has the focus
+   enabled - Whether or not the button is enabled (not currently used)
+   checked - Whether or not the togglebutton is checked
+   action - User action to bind to the togglebutton
+
+   The following methods are supported by togglebutton widgets:
+
+   setfocus - Give focus to the togglebutton.
+
+   The following events are triggered by togglebutton widgets:
+
+   OnClick - Occurs when the button is clicked.
+   OnGotFocus - Occurs when the button receives focus.
+   OnLostFocus - Occurs when the button loses focus.
+
+ScrollBar
+
+   Scrollbar widgets allow the user to slide a knob along a
+   vertical or horizontal track in order to select a numeric
+   value. lmbox scrollbars currently do not have buttons, so they
+   are equivalent to "sliders" in some other systems. The
+   combination of the width and height attributes determines if
+   the scrollbar behaves horizontally or vertically (horizontally
+   if the scrollbar is wider than it is high, vertically if it is
+   higher than it is wide).
+
+   Scrollbar widgets have the following attributes/properties:
+
+   name - The name of the widget
+   x - Horizontal screen position
+   y - Vertical screen position
+   width - Width of the widget
+   height - Height of the widget
+   template - Template to base the widget on
+   visible - Whether or not the widget is shown
+   background - The image file to display as the scrollbar background
+                backgroundstyle How to draw the image (tiled or normal)
+                knob The image file to display as the scrollbar knob
+                knobfocus The image file to display as the scrollbar knob when
+                the scrollbar has the focus. If specified, must be the same
+                size as the normal knob image
+   reversed - Whether or not to reverse the display direction 
+              (normal meaning left or top being the minimum value).
+   maximum - The maximum value of the scrollbar
+   minimum - The minimum value of the scrollbar
+   pagestep - The amount to step the value by when paging up/down, default 10
+   value - The position of the scrollbar
+
+   The following methods are supported by scrollbar widgets:
+
+   setfocus - Give focus to the scrollbar.
+
+   The following events are triggered by scrollbar widgets:
+
+   OnChange - Occurs when the value of the scrollbar is changed.
+   OnGotFocus - Occurs when the scrollbar receives focus.
+   OnLostFocus - Occurs when the scrollbar loses focus.
+
+TextField
+
+   Textfield widgets allow the user to enter text.
+
+   Textfield widgets have the following attributes/properties:
+   
+   name - The name of the widget
+   x - Horizontal screen position
+   y - Vertical screen position
+   width - Width of the widget
+   height - Height of the widget
+   template - Template to base the widget on
+   visible - Whether or not the widget is shown
+   background - The image file to display as the textfield background
+   backgroundfocus - The image file to display as the textfield background when the 
+                     textfield has the focus
+   backgroundstyle - How to draw the image (tiled/normal)
+   font - Truetype font file to use
+   fontcolor - Colour to use for the text
+   fontsize - The size of the text (in points)
+   borderx - Horizontal amount of border to leave around the outside of the textfield
+   bordery - Vertical amount of border to leave around the outside of the textfield
+   maxlength - The maximum length of the text
+   validchars - Regular expression to verify entered characters, eg. [0-9] would allow 
+                only numbers to be entered. Does not affect setting the text property 
+                directly. If empty, no validation is done
+   text - The text entered into the textfield
+   cursorpos - Cursor position (0 to length of text). If set to greater than the length 
+               of the text, the cursor will be placed at the end of the text
+
+   The following methods are supported by textfield widgets:
+
+   setfocus - Give focus to the textfield.
+
+   The following events are triggered by textfield widgets:
+
+   OnChange - Occurs when the text is changed.
+   OnGotFocus - Occurs when the textfield receives focus.
+   OnLostFocus - Occurs when the textfield loses focus.
+
+ListBox
+
+   Listboxes are for providing the user with a choice from a list
+   of text items.
+
+   Listbox widgets have the following attributes/properties:
+
+   name - The name of the widget
+   x - Horizontal screen position
+   y - Vertical screen position
+   width - Width of the widget
+   height - Height of the widget
+   template - Template to base the widget on
+   visible - Whether or not the widget is shown
+   font - Truetype font file to use for the list items
+   fontcolor - Colour to use for the text
+   fontsize - The size of the text (in points) 
+   background - The image file to display behind the list
+   backgroundfocus - The image file to display behind the list when the listbox has the focus
+   backgroundstyle - How to draw the image (tiled/normal)
+   selitembackground - The image file to display behind the selected item
+   selitembackgroundfocus - The image file to display behind the selected item when the list has the focus
+   selitembackgroundstyle - How to draw the image (tiled/normal)
+   selitemfontcolor - The colour of the selected item's text
+   scrollbar - Whether or not to show the scrollbar (on/off/auto)
+   scrollbarbackground - The image file to use for the scrollbar background
+   scrollbarbackgroundstyle - How to draw the image (tiled/normal)
+   scrollbarknob - The image file to use as the knob (handle) of the scrollbar
+   scrollbarwidth - The width of the scrollbar
+   borderx - Horizontal amount of border to leave around the outside of the list
+   bordery - Vertical amount of border to leave around the outside of the list
+   itemborderx - Horizontal amount of border to leave around the text of each item
+   itembordery - Vertical amount of border to leave around the text of each item
+   itemheight - Height of each item in the list
+   selectedindex - Index of selected item
+   selectedtext - Text of selected item
+   selecteddata - Data associated with selected item
+   count - Number of items in list
+
+   The following methods are supported by listbox widgets:
+
+   setfocus -  Give focus to the listbox.
+   additem text -  Add an item to the list
+   additemdata text data -  Add an item and associated data to the list
+   removeitem index - Remove an item from the list
+   removelastitem - Remove the last item from the list
+   clear - Remove all items from the list
+   setitemtext index text - Set the text of an item in the list
+   setitemdata index data - Associate data with an item in the list
+   searchitem text - Searches listbox items and returns index of 
+                     the first matched item, exact match
+   matchitem text - Searches listbox items and returns index of 
+                     the first matched item, wildcards are supported
+
+   The following events are triggered by listbox widgets:
+
+   OnSelectionChange - Occurs when the selected item changes in the listbox.
+   OnEmpty - Occurs when the listbox becomes empty.
+   OnChoose - Occurs when the user chooses an item from the list (by pressing the enter 
+              key or double-clicking with an item selected).
+   OnGotFocus - Occurs when the listbox receives focus.
+   OnLostFocus - Occurs when the listbox loses focus.
+
+Timer
+
+   Timers, while not widgets strictly speaking, are defined in
+   the same way as widgets. They allow you to define a recurring
+   timed event. Timers may be associated with pages or the system
+   object - the difference being that timers associated with
+   pages are only able to be running when that page is visible.
+
+   Timers have the following attributes/properties:
+
+   name - The name of the timer
+   interval Number of milliseconds between each OnTimer event
+   enabled Whether the timer is running or not
+
+   The following methods are supported by timers:
+
+   start - Start the timer. Equivalent to setting the enabled property to true.
+   stop - Stop the timer. Equivalent to setting the enabled property to false.
+
+   The following events are triggered by timers:
+
+   OnTimer - Occurs each time the specified interval has elapsed
+             (when the timer is enabled/started). You can make it a
+             one-shot timer by just stopping the timer within this event.
+
+Page
+
+   Pages are the "screens" or "forms" of lmbox. The current page
+   is accessible to scripts using the currentpage special object.
+
+   Pages have the following attributes/properties:
+
+   name - The name of the page
+   background - The image file to display in the background
+
+   The following events are triggered by pages:
+
+   OnGotFocus - Occurs just after the page has been displayed
+   OnLostFocus - Occurs just before the page is unloaded
+
+FilewBrowser
+
+   FileBrowser object is an extension of the ListBox widget which
+   allows to browse filesystem.
+
+   FileBrowser widgets have the following attributes/properties:
+
+   rootpath - path to the root of the dirctory structure
+   filename - full path of the currently selected item
+
+   The following methods are supported by filebrowser widgets:
+
+   refresh - Reload contents of the current directory structure
+
+   The following events are triggered by listbox widgets:
+
+   OnPathChange - Occurs when directory changed int eh file browser
+
+PlayerObject
+
+   PlayerObject is generic video/music object based on xine-lib, i.e. it understands
+   all video formats which supported by xine-lib.
+
+   PlayerObjects have the following attributes/properties:
+
+   file - current playing file
+   title - meta title or file name of current item
+   artist - artist name from meta tags
+   album - album name from meta tags
+   playlist - returns list of all files in the playlist
+   volume - current volume level
+   amplevel - current amp level
+   repeat - 0 or 1 to perform repeated playback
+   x - current x coordinate
+   y - current x coordinate
+   width - current video window width
+   height - current video window height
+   new - if 1 new window will be used for video stream, otherwise main lmbox window
+   
+   The following methods are supported by video object:
+
+   play - Play current playlist
+   pause - Pause current song
+   stop - Stop playing
+   clear - clear current playlist
+   next - Play next song in the playlist
+   prev - Play prev song in the playlist
+   add - add file/song/url to the playlist
+   seek - seek in the video stream
+   
+   The following events are triggered by listbox widgets:
+
+   OnStart - Occurs when song starts playing
+   OnStop - Occurs when song is stopped
+   OnFinish - Occurs when song finishes
+
+SoundObject
+
+   SoundObject is simple music object based on SDL_mixer to play sound effects.
+
+   SoundObjects have the following attributes/properties:
+
+   file - filename of the song currently playing
+   volume - current volume level
+   repeat - 1 or how many times to repeated playback
+   
+   The following methods are supported by sound object:
+
+   play - Play specified file
+   pause - Pause current sound
+   stop - Stop playing
+
+   The following events are triggered by listbox widgets:
+
+   OnStart - Occurs when song starts playing
+   OnFinish - Occurs when song finishes
+
+TVObject
+
+   TVObject is generic TV object for controling V4L compatible tuner cards.
+   lmbox support watching TV using VideoObject but currenly xine reports underruns
+   when streaming using v4l driver.
+
+   TVObjects have the following attributes/properties:
+
+   volume - set/get volume level
+   mute - mute/unmute sound
+   norm - TV format, PAL=0, NTSC=1, SECAM=2
+   input - tuner card input, default 0
+   device - video device, default /dev/video0
+   depth - default 4
+   deinterlace - 0 - 3, 0 - none, 1 - normal, 2 - smart, 3 -  smooth
+   frequency - set/get frequency
+   chanlist - chanlist type, us-cable, us-bcast, etc
+   channel - channel number
+   hue - color level
+   contrast - contrast leve;
+   saturation - color level
+   brightness - color level
+   
+   The following methods are supported by video object:
+
+   open - open device
+   close - close device
+   next - Switch to next channel
+   prev - Switch to prev channel
+   getchannel - return freq for given channel
+   getfrequency - return freq devided by 62.5KHz or 62.5Hz
+   mixer - set/get mixer volume level
+   
+Authors
+
+   Current author of lmbox is Vlad Seryakov (vlad@cryatalballinc.com)
+   
+   eboxy 0.4.1 on which lmbox prior 0.7 was originally based was written 
+   by Paul Eggleton <bluelightning@bluelightning.org>.
+
+   SDL_gui classes borrowed from Ray Kelm <rhk@newimage.com>
+ 
+Copyright and Disclaimer
+
+   lmbox is Copyright 2004 Vlad Seryakov (vlad@crystalballinc.com)
+
+   The contents of this file are subject to the Mozilla Public License
+   Version 1.1 (the "License"); you may not use this file except in
+   compliance with the License. You may obtain a copy of the License at
+   http://mozilla.org/.
+ 
+   Software distributed under the License is distributed on an "AS IS"
+   basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See
+   the License for the specific language governing rights and limitations
+   under the License.
+
+Background Images
+
+   For background images on lmbox startup i collected images from the Internet. 
+   The only change i made is to resize them to 800x600 in order to fit into resolution
+   lmbox uses. If somebody recognises his/her image and does not want them to be include
+   please let me know. The only reason i included them that i found them very
+   beautiful.

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmbox SYSTEM "lmbox.dtd">
+<lmbox>
+
+<page name="shoutcastpage" background="background.jpg">
+   <event name="OnGotFocus">
+     shoutcast_setup
+   </event>
+   <clocklabel x="20" y="10"  width="300" height="20" template="clocklabel"></clocklabel>
+   <label x="400" y="10" template="titlelabel">lmBox: Shoutcast Radio</label>
+   <listbox name="shoutcastlist" x="15" y="40" width="574" height="300" template="t_shoutcastlist">
+     <event name="OnChoose">
+       shoutcast_play [lmbox get shoutcastlist selecteddata]
+     </event>
+     <event name="OnGotFocus">
+       shoutcast_info info [lmbox get shoutcastlist selecteddata]
+     </event>
+     <event name="OnSelectionChange">
+       shoutcast_info info [lmbox get shoutcastlist selecteddata]
+     </event>
+   </listbox>
+   <button x="20" y="360" caption="Play" template="t_button2" action="play">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play shoutcast stream"
+     </event>
+     <event name="OnClick">
+       shoutcast_play [lmbox get shoutcastlist selecteddata]
+     </event>
+   </button>
+   <button x="90" y="360" caption="Pause" template="t_button2" action="pause">
+     <event name="OnGotFocus">
+       lmbox set status caption "Pause shoutcast stream"
+     </event>
+     <event name="OnClick">
+       shoutcast_pause
+     </event>
+   </button>
+   <button x="160" y="360" caption="Stop" template="t_button2" action="stop">
+     <event name="OnGotFocus">
+       lmbox set status caption "Stop shoutcast stream"
+     </event>
+     <event name="OnClick">
+       shoutcast_stop
+     </event>
+   </button>
+   <button x="230" y="360" caption="Next" template="t_button2" action="nextaudio">
+     <event name="OnGotFocus">
+       lmbox set status caption "Play next stream in the shoutcast playlist"
+     </event>
+     <event name="OnClick">
+       shoutcast_next
+     </event>
+   </button>
+   <button x="300" y="360" caption="Refresh" template="t_button2">
+     <event name="OnGotFocus">
+       lmbox set status caption "Refresh playlist"
+     </event>
+     <event name="OnClick">
+       lmbox run "shoutcast_check 1"
+     </event>
+   </button>
+   <button x="370" y="360" caption="Favorite" template="t_button2">
+     <event name="OnGotFocus">
+       lmbox set status caption "Add to favorite links"
+     </event>
+     <event name="OnClick">
+       shoutcast_favorite [lmbox get shoutcastlist selecteddata]
+     </event>
+   </button>
+   <button x="440" y="360" caption="Back" template="t_button2" action="cancel">
+     <event name="OnGotFocus">
+       lmbox set status caption "Go to main menu"
+     </event>
+     <event name="OnClick">
+       lmbox setpage mainpage
+     </event>
+   </button>
+   <label name="status" x="10" y="400" width="610" height="30" template="statuslabel"></label>
+</page>
+
+</lmbox>
+

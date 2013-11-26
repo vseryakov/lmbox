@@ -1,0 +1,29 @@
+# $Id: PKGBUILD,v 1.32 2005/12/03 16:32:30 dorphell Exp $
+# Maintainer: dorphell <dorphell@archlinux.org>
+# Committer: Judd Vinet <jvinet@zeroflux.org>
+pkgname=xine-lib
+pkgver=1.1.1
+pkgrel=2
+pkgdesc="A free video player for Unix"
+depends=('esd' 'libvorbis' 'sdl' 'libmng' 'codecs' 'libtheora' 'flac' 'esd' 'libogg')
+makedepends=('imagemagick' 'jasper')
+url="http://xinehq.de/"
+#source=(http://dl.sourceforge.net/sourceforge/xine/$pkgname-$pkgver.tar.gz)
+NOSTRIP=1
+
+build() {
+  cd $startdir/src
+  if [ -e xine-lib/CVS ]; then
+    cd xine-lib
+    cvs update
+  else
+    cvs -d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/xine co xine-lib
+    cd xine-lib
+    ./autogen.sh
+  fi
+  #cd $startdir/src/$pkgname-$pkgver
+  CFLAGS="-g" && ./configure --prefix=/usr --with-w32-path=/usr/lib/win32
+  make || return 1
+  make DESTDIR=$startdir/pkg install
+  find $startdir/pkg -name '*.la' -exec rm {} \;
+}

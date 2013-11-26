@@ -1,0 +1,496 @@
+<!ELEMENT lmbox (system | template | page | object | include)*>
+<!ELEMENT page ( line | vline | hline | rectangle | box | help | event | clocklabel | button | label | picture | listbox | filebrowser | webbrowser | scrollbar | textfield | togglebutton | timer | actionhandler)+>
+<!ELEMENT include EMPTY>
+<!ELEMENT template EMPTY>
+<!ELEMENT button (#PCDATA|event)*>
+<!ELEMENT picture EMPTY>
+<!ELEMENT label (#PCDATA)>
+<!ELEMENT clocklabel (#PCDATA)>
+<!ELEMENT event (#PCDATA)>
+<!ELEMENT scrollbar (event*)>
+<!ELEMENT textfield (event*)>
+<!ELEMENT togglebutton (#PCDATA|event)*>
+<!ELEMENT system (event | timer | actionhandler)+>
+<!ELEMENT timer (#PCDATA)>
+<!ELEMENT object (event+)>
+<!ELEMENT listbox (event*)>
+<!ELEMENT filebrowser (event*)>
+<!ELEMENT webbrowser (event*)>
+<!ELEMENT actionhandler (#PCDATA)>
+<!ELEMENT help (#PCDATA)>
+<!ELEMENT line EMPTY>
+<!ELEMENT vline EMPTY>
+<!ELEMENT hline EMPTY>
+<!ELEMENT box EMPTY>
+<!ELEMENT rectangle EMPTY>
+
+<!ATTLIST system
+  xscale CDATA #IMPLIED
+  yscale CDATA #IMPLIED
+>
+
+<!ATTLIST template
+  name CDATA #REQUIRED
+  action CDATA #IMPLIED
+  autosize (true | false | 0 | 1) "false"
+  enabled (true | false | 0 | 1) "true"
+  background CDATA #IMPLIED
+  focusedbackground CDATA #IMPLIED
+  pressedbackground CDATA #IMPLIED
+  disabledbackground CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  borderx CDATA #IMPLIED
+  bordery CDATA #IMPLIED
+  contentx CDATA #IMPLIED
+  contenty CDATA #IMPLIED
+  borderstyle ( normal | round | round_double | none ) "none"
+  caption CDATA #IMPLIED
+  captiondropx CDATA #IMPLIED
+  captiondropy CDATA #IMPLIED
+  captionx CDATA #IMPLIED
+  captiony CDATA #IMPLIED
+  checked (true | false | 0 | 1) "false"
+  normalimage CDATA #IMPLIED
+  normalfocusimage CDATA #IMPLIED
+  checkedfocusimage CDATA #IMPLIED
+  checkedimage CDATA #IMPLIED
+  clockformat CDATA #IMPLIED
+  font CDATA #IMPLIED
+  fontcolor CDATA #IMPLIED
+  fontdisabledcolor CDATA #IMPLIED
+  fontfocusedcolor CDATA #IMPLIED
+  fontpressedcolor CDATA #IMPLIED
+  fontsize CDATA #IMPLIED
+  height CDATA #IMPLIED
+  image CDATA #IMPLIED
+  selitemborderx CDATA #IMPLIED
+  selitembordery CDATA #IMPLIED
+  itemborderx CDATA #IMPLIED
+  itembordery CDATA #IMPLIED
+  itemheight CDATA #IMPLIED
+  knob CDATA #IMPLIED
+  knobfocus CDATA #IMPLIED
+  maximum CDATA #IMPLIED
+  maxlength CDATA #IMPLIED
+  minimum CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  pagestep CDATA #IMPLIED
+  reversed CDATA #IMPLIED
+  rootpath CDATA #IMPLIED
+  scrollbar CDATA #IMPLIED
+  scrollbarbackground CDATA #IMPLIED
+  scrollbarbackgroundstyle (normal | tiled | fill | gradient | none) "normal"
+  scrollbarknob CDATA #IMPLIED
+  scrollbarwidth CDATA #IMPLIED
+  selitembackground CDATA #IMPLIED
+  selitembackgroundfocus CDATA #IMPLIED
+  selitembackgroundcolor CDATA #IMPLIED
+  selitembackgroundfocuscolor CDATA #IMPLIED
+  selitembackgroundstyle (normal | tiled | fill | gradient | none) "normal"
+  selitemfontcolor CDATA #IMPLIED
+  selitemfontcolorfocus CDATA #IMPLIED
+  textalign (left | right | center | top | bottom | topleft | topright | bottomleft | bottomright | vtop | vbottom | vcenter | hleft | hright | hcenter) "left"
+  validchars CDATA #IMPLIED
+  width CDATA #IMPLIED
+  wordwrap (true | false | 0 | 1) "0"
+  wrap (true | false | 0 | 1) "0"
+  xscale CDATA #IMPLIED
+  yscale CDATA #IMPLIED
+>
+
+<!ATTLIST include
+  file CDATA #REQUIRED
+>
+
+<!ATTLIST object
+  name CDATA #REQUIRED
+>
+
+<!ATTLIST page
+  name ID #REQUIRED
+  x CDATA #IMPLIED
+  y CDATA #IMPLIED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  background CDATA #IMPLIED
+  focusedbackground CDATA #IMPLIED
+  pressedbackground CDATA #IMPLIED
+  disabledbackground CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  color CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  borderstyle ( normal | round | round_double | none ) "none"
+  template CDATA #IMPLIED
+>
+
+<!ATTLIST line
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  color CDATA #IMPLIED
+  template CDATA #IMPLIED
+>
+
+<!ATTLIST vline
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  color CDATA #IMPLIED
+  template CDATA #IMPLIED
+>
+
+<!ATTLIST hline
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  color CDATA #IMPLIED
+  template CDATA #IMPLIED
+>
+
+<!ATTLIST box
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  color CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  template CDATA #IMPLIED
+>
+
+<!ATTLIST rectangle
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  color CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  template CDATA #IMPLIED
+>
+
+<!ATTLIST button
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  caption CDATA #IMPLIED
+  captionx CDATA #IMPLIED
+  captiony CDATA #IMPLIED
+  captiondropx CDATA #IMPLIED
+  captiondropy CDATA #IMPLIED
+  template CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  background CDATA #IMPLIED
+  focusedbackground CDATA #IMPLIED
+  pressedbackground CDATA #IMPLIED
+  disabledbackground CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  font CDATA #IMPLIED
+  fontsize CDATA #IMPLIED
+  fontcolor CDATA #IMPLIED
+  fontfocusedcolor CDATA #IMPLIED
+  fontdisabledcolor CDATA #IMPLIED
+  fontpressedcolor CDATA #IMPLIED
+  action CDATA #IMPLIED
+  enabled (true | false | 0 | 1) "true"
+  textalign (left | right | center | top | bottom) "center"
+  autosize (true | false | 0 | 1) "false"
+  wordwrap (true | false | 0 | 1) "false"
+>
+
+<!ATTLIST picture
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  image CDATA #IMPLIED
+  background CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  template CDATA #IMPLIED
+>
+
+<!ATTLIST label
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  caption CDATA #IMPLIED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  template CDATA #IMPLIED
+  background CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  font CDATA #IMPLIED
+  fontsize CDATA #IMPLIED
+  fontcolor CDATA #IMPLIED
+  textalign (left | right | center | top | bottom | topleft | topright | bottomleft | bottomright | vtop | vbottom | vcenter | hleft | hright | hcenter) "left"
+  autosize (true | false | 0 | 1) "false"
+  wordwrap (true | false | 0 | 1) "false"
+  contentx CDATA #IMPLIED
+  contenty CDATA #IMPLIED
+>
+
+<!ATTLIST clocklabel
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  template CDATA #IMPLIED
+  background CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  font CDATA #IMPLIED
+  fontsize CDATA #IMPLIED
+  fontcolor CDATA #IMPLIED
+  textalign (left | right | center | top | bottom) "left"
+  autosize (true | false | 0 | 1) "false"
+  wordwrap (true | false | 0 | 1) "false"
+  clockformat CDATA #IMPLIED
+  contentx CDATA #IMPLIED
+  contenty CDATA #IMPLIED
+>
+
+<!ATTLIST listbox
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  template CDATA #IMPLIED
+  font CDATA #IMPLIED
+  fontsize CDATA #IMPLIED
+  fontcolor CDATA #IMPLIED
+  background CDATA #IMPLIED
+  focusedbackground CDATA #IMPLIED
+  pressedbackground CDATA #IMPLIED
+  disabledbackground CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  selitembackground CDATA #IMPLIED
+  selitembackgroundfocus CDATA #IMPLIED
+  selitembackgroundcolor CDATA #IMPLIED
+  selitembackgroundfocuscolor CDATA #IMPLIED
+  selitembackgroundstyle (normal | tiled) "normal"
+  selitemfontcolor CDATA #IMPLIED
+  selitemfontcolorfocus CDATA #IMPLIED
+  scrollbar CDATA #IMPLIED
+  scrollbarbackground CDATA #IMPLIED
+  scrollbarbackgroundstyle (normal | tiled | gradient | none) "normal"
+  scrollbarknob CDATA #IMPLIED
+  scrollbarwidth CDATA #IMPLIED
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  borderx CDATA #IMPLIED
+  bordery CDATA #IMPLIED
+  contentx CDATA #IMPLIED
+  contenty CDATA #IMPLIED
+  selitemborderx CDATA #IMPLIED
+  selitembordery CDATA #IMPLIED
+  itemborderx CDATA #IMPLIED
+  itembordery CDATA #IMPLIED
+  itemheight CDATA #IMPLIED
+  wrap (true | false | 0 | 1) "false"
+>
+
+<!ATTLIST filebrowser
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  template CDATA #IMPLIED
+  font CDATA #IMPLIED
+  fontsize CDATA #IMPLIED
+  fontcolor CDATA #IMPLIED
+  background CDATA #IMPLIED
+  focusedbackground CDATA #IMPLIED
+  pressedbackground CDATA #IMPLIED
+  disabledbackground CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  selitembackground CDATA #IMPLIED
+  selitembackgroundfocus CDATA #IMPLIED
+  selitembackgroundstyle (normal | tiled | gradient | none) "normal"
+  selitemfontcolor CDATA #IMPLIED
+  selitemfontcolorfocus CDATA #IMPLIED
+  scrollbar CDATA #IMPLIED
+  scrollbarbackground CDATA #IMPLIED
+  scrollbarbackgroundstyle (normal | tiled | gradient | none) "normal"
+  scrollbarknob CDATA #IMPLIED
+  scrollbarwidth CDATA #IMPLIED
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  borderx CDATA #IMPLIED
+  bordery CDATA #IMPLIED
+  contentx CDATA #IMPLIED
+  contenty CDATA #IMPLIED
+  selitemborderx CDATA #IMPLIED
+  selitembordery CDATA #IMPLIED
+  itemborderx CDATA #IMPLIED
+  itembordery CDATA #IMPLIED
+  itemheight CDATA #IMPLIED
+  rootpath CDATA #IMPLIED
+>
+
+<!ATTLIST webbrowser
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  template CDATA #IMPLIED
+  location CDATA #IMPLIED
+>
+
+<!ATTLIST scrollbar
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  background CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  template CDATA #IMPLIED
+  knob CDATA #IMPLIED
+  knobfocus CDATA #IMPLIED
+  reversed CDATA #IMPLIED
+  maximum CDATA #IMPLIED
+  minimum CDATA #IMPLIED
+  pagestep CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+>
+
+<!ATTLIST textfield
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  template CDATA #IMPLIED
+  maxlength CDATA #IMPLIED
+  validchars CDATA #IMPLIED
+  font CDATA #IMPLIED
+  fontsize CDATA #IMPLIED
+  fontcolor CDATA #IMPLIED
+  fontfocusedcolor CDATA #IMPLIED
+  background CDATA #IMPLIED
+  focusedbackground CDATA #IMPLIED
+  pressedbackground CDATA #IMPLIED
+  disabledbackground CDATA #IMPLIED
+  backgroundstyle (normal | tiled | fill | gradient | none) "none"
+  borderstyle ( normal | round | round_double | none ) "none"
+  bordercolor CDATA #IMPLIED
+  abordercolor CDATA #IMPLIED
+  obordercolor CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  borderx CDATA #IMPLIED
+  bordery CDATA #IMPLIED
+  textalign CDATA #IMPLIED
+  text CDATA #IMPLIED
+>
+
+<!ATTLIST togglebutton
+  name CDATA #IMPLIED
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED
+  width CDATA #IMPLIED
+  height CDATA #IMPLIED
+  template CDATA #IMPLIED
+  normalimage CDATA #IMPLIED
+  normalfocusimage CDATA #IMPLIED
+  checkedimage CDATA #IMPLIED
+  checkedfocusimage CDATA #IMPLIED
+  color CDATA #IMPLIED
+  focusedcolor CDATA #IMPLIED
+  pressedcolor CDATA #IMPLIED
+  disabledcolor CDATA #IMPLIED
+  action CDATA #IMPLIED
+  enabled (true | false | 0 | 1) "true"
+  checked (true | false | 0 | 1) "false"
+>
+
+<!ATTLIST event
+  type CDATA #REQUIRED
+>
+
+<!ATTLIST timer
+  name CDATA #IMPLIED
+  interval CDATA #REQUIRED
+  enabled (true | false | 0 | 1) "false"
+>
+
+<!ATTLIST actionhandler
+  action CDATA #REQUIRED
+>
+
